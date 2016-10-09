@@ -1,0 +1,110 @@
+﻿<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" ng-app="myApp" class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>My AngularJS App</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <style>
+        [ng-cloak] {
+            display: none;
+        }
+  </style>
+  
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+    <div id="header" class="navbar navbar-default">
+        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"></div>
+        <span class="headerText">April Taitano</span>
+        <div class="navbar-header" style="display:none;">
+            <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+                <i class="icon-reorder"></i>
+            </button>
+            <a class="navbar-brand" href="#" >
+                Brand
+            </a>
+        </div>
+        <nav class="collapse navbar-collapse" style="visibility:collapse;">
+            
+            <ul class="nav navbar-nav" >
+                <li>
+                    <a href="#">Navbar Item 1</a>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Navbar Item 2<b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Navbar Item2 - Sub Item 1</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Navbar Item 3</a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav pull-right">
+                <li class="dropdown">
+                    <a href="#" id="nbAcctDD" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-user"></i>Username<i class="icon-sort-down"></i></a>
+                    <ul class="dropdown-menu pull-right">
+                        <li><a href="#">Log Out</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <div id="wrapper">
+        <div id="sidebar-wrapper" class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+            <div id="sidebar">
+                <ul class="nav list-group">
+                    <li>
+                        <a class="list-group-item" href="#/HomeView"><i class="icon-home icon-1x"></i>HomeView</a>
+                    </li>
+                    <li>
+                        <a class="list-group-item" href="#/view2"><i class="icon-home icon-1x"></i>view2</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div id="main-wrapper" class="col-xs-10 col-sm-10 col-md-10 col-lg-10 pull-right" ng-view>
+
+        </div>
+        <div class="footer">
+            <div style="display:none;">Angular seed app: v<span app-version></span></div>
+            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+
+            </div>
+            <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 vertical-align-outer">
+                <div class="vertical-align-inner">
+                    <a href=""><i class="fa fa-phone-square fa-3x"></i></a>
+                </div>
+            </div>
+            <div class="pull-right col-xs-1 col-sm-1 col-md-1 col-lg-1 vertical-align-outer" style="width:100px;">
+                <div class="vertical-align-inner">
+                    <a href=""><i class="fa fa-facebook mr-5 ml-5"></i></a>
+                    <a href=""><i class="fa fa-google mr-5 ml-5"></i></a>
+                    <a href=""><i class="fa fa-twitter mr-5 ml-5"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+  <!-- In production use:
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
+  -->
+  <script src="js/angular.js"></script>
+  <script src="js/angular-route.js"></script>
+  <script src="app.js"></script>
+  <script src="HomeView/HomeView.js"></script>
+  <script src="view2/view2.js"></script>
+  <script src="components/version/version.js"></script>
+  <script src="components/version/version-directive.js"></script>
+  <script src="components/version/interpolate-filter.js"></script>
+</body>
+</html>
