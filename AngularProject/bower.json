@@ -1,7 +1,7 @@
 {
-  "name": "angular-seed",
+  "name": "gofuckyourself",
   "description": "A starter project for AngularJS",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "homepage": "https://github.com/angular/angular-seed",
   "license": "MIT",
   "private": true,
@@ -12,7 +12,7 @@
     "angular-mocks": "~1.4.0",
     "html5-boilerplate": "~5.2.0",
     "angular-bootstrap": "^1.2.5",
-    "angular-bootstrap-css": "^3.3.5",
+    "bootstrap-css-only": "^3.3.7",
     "fontawesome": "^4.5.0",
     "normalize-css": "^3.0.3"
   },
