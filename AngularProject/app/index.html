@@ -22,14 +22,17 @@
 </head>
 <body>
     <div id="header" class="navbar navbar-default">
-        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"></div>
-        <span class="headerText">Alex Vassallo</span>
-        <div class="navbar-header" style="display:none;">
+        <div class="ml15"><a href="#/HomeView"><span class="size5vw h1">Alex Vassallo</span></a></div>
+        <div class="ml15"><a href="#/HomeView"><span class="size2vw h2">Web Developer</span></a></div>
+        <div class="navbar-header">
             <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".navbar-collapse">
                 <i class="icon-reorder"></i>
             </button>
             <a class="navbar-brand" href="#" >
-                Brand
+                Portfollio
+            </a>
+            <a class="navbar-brand" href="#">
+                About
             </a>
         </div>
         <nav class="collapse navbar-collapse" style="visibility:collapse;">
@@ -58,40 +61,144 @@
             </ul>
         </nav>
     </div>
+    <div ng-view class="ml15 mr15"></div>
     <div id="wrapper">
-        <div id="sidebar-wrapper" class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-            <div id="sidebar">
-                <ul class="nav list-group">
-                    <li>
-                        <a class="list-group-item" href="#/HomeView"><i class="icon-home icon-1x"></i>HomeView</a>
-                    </li>
-                    <li>
-                        <a class="list-group-item" href="#/view2"><i class="icon-home icon-1x"></i>view2</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div id="main-wrapper" class="col-xs-10 col-sm-10 col-md-10 col-lg-10 pull-right" ng-view>
+        <div id="columns">
+            <a class="pin" href="#/view2">
+                <img src="//i.imgur.com/KVoLrSj.jpg" />
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Sed feugiat consectetur pellentesque. Nam ac elit risus,
+                    ac blandit dui. Duis rutrum porta tortor ut convallis.
+                    Duis rutrum porta tortor ut convallis.
+                </p>
+            </a>
 
-        </div>
-        <div class="footer">
-            <div style="display:none;">Angular seed app: v<span app-version></span></div>
-            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+            <a class="pin" href="#/view2">
+                <img src="//i.imgur.com/clfKWrY.jpg" />
+                <p>
+                    Donec a fermentum nisi.
+                </p>
+            </a>
 
-            </div>
-            <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 vertical-align-outer">
-                <div class="vertical-align-inner">
-                    <a href=""><i class="fa fa-phone-square fa-3x"></i></a>
-                </div>
-            </div>
-            <div class="pull-right col-xs-1 col-sm-1 col-md-1 col-lg-1 vertical-align-outer" style="width:100px;">
-                <div class="vertical-align-inner">
-                    <a href=""><i class="fa fa-facebook mr-5 ml-5"></i></a>
-                    <a href=""><i class="fa fa-google mr-5 ml-5"></i></a>
-                    <a href=""><i class="fa fa-twitter mr-5 ml-5"></i></a>
-                </div>
-            </div>
+            <a class="pin" href="#/view2">
+                <img src="//i.imgur.com/KYS8sBQ.jpg" />
+                <p>
+                    Nullam eget lectus augue. Donec eu sem sit amet ligula
+                    faucibus suscipit. Suspendisse rutrum turpis quis nunc
+                    convallis quis aliquam mauris suscipit.
+                </p>
+            </a>
+
+            <a class="pin" href="#/view2">
+                <img src="//i.imgur.com/WXujThY.jpg" />
+                <p>
+                    Nullam eget lectus augue. Donec eu sem sit amet ligula
+                    faucibus suscipit. Suspendisse rutrum turpis quis nunc
+                    convallis quis aliquam mauris suscipit.
+                </p>
+            </a>
+
+            <a class="pin" href="#/view2">
+                <img src="//i.imgur.com/E6rI4GY.jpg" />
+                <p>
+                    Donec a fermentum nisi. Integer dolor est, commodo ut
+                    sagittis vitae, egestas at augue.
+                </p>
+            </a>
+
+            <a class="pin" href="#/view2">
+                <img src="//i.imgur.com/LFcGZgm.jpg" />
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Sed feugiat consectetur pellentesque. Nam ac elit risus,
+                    ac blandit dui. Duis rutrum porta tortor ut convallis.
+                    Duis rutrum porta tortor ut convallis.
+                </p>
+            </a>
+
+            <a class="pin" href="#/view2">
+                <img src="//i.imgur.com/MeXekuO.jpg" />
+                <p>
+                    Nullam eget lectus augue. Donec eu sem sit amet ligula
+                    faucibus suscipit. Suspendisse rutrum turpis quis nunc
+                    convallis quis aliquam mauris suscipit.
+                    Duis rutrum porta tortor ut convallis.
+                </p>
+            </a>
+
+            <a class="pin" href="#/view2">
+                <img src="//i.imgur.com/rvutPxC.jpg" />
+                <p>
+                    Nullam eget lectus augue.
+                </p>
+            </a>
+
+            <a class="pin" href="#/view2">
+                <img src="//i.imgur.com/tD8mfET.jpg" />
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Sed feugiat consectetur pellentesque.
+                </p>
+            </a>
+
+            <a class="pin" href="#/view2">
+                <img src="//i.imgur.com/jfj0wFR.jpg" />
+                <p>
+                    Donec a fermentum nisi. Integer dolor est, commodo ut
+                    sagittis vitae, egestas at augue. Suspendisse id nulla
+                    ac urna vestibulum mattis. Duis rutrum porta tortor ut convallis.
+                </p>
+            </a>
+
+            <a class="pin" href="#/view2">
+                <img src="//i.imgur.com/v9oKwn9.jpg" />
+                <p>
+                    Donec a fermentum nisi. Integer dolor est, commodo ut
+                    sagittis vitae, egestas at augue. Suspendisse id nulla
+                    ac urna vestibulum mattis.
+                </p>
+            </a>
+
+            <a class="pin" href="#/view2">
+                <img src="//i.imgur.com/9XCfQ97.jpg" />
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Sed feugiat consectetur pellentesque. Nam ac elit risus,
+                    ac blandit dui. Duis rutrum porta tortor ut convallis.
+                </p>
+            </a>
+
+            <a class="pin" href="#/view2">
+                <img src="//i.imgur.com/Ucw9q5n.jpg" />
+                <p>
+                    Donec a fermentum nisi. Integer dolor est, commodo ut
+                    sagittis vitae, egestas at augue. Suspendisse id nulla
+                    ac urna vestibulum mattis.
+                </p>
+            </a>
+
+            <a class="pin" href="#/view2">
+                <img src="//i.imgur.com/nHcfunV.jpg" />
+                <p>
+                    Donec a fermentum nisi. Integer dolor est, commodo ut
+                    sagittis vitae, egestas at augue. Suspendisse id nulla
+                    ac urna vestibulum mattis.
+                </p>
+            </a>
+
+            <a class="pin" href="#/view2">
+                <img src="//i.imgur.com/3zRjwPY.jpg" />
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Sed feugiat consectetur pellentesque. Nam ac elit risus,
+                    ac blandit dui. Duis rutrum porta tortor ut convallis.
+                </p>
+            </a>
         </div>
+    </div>
+    <div class="footer">
+        <div style="display:none;">Angular seed app: v<span app-version></span></div>
     </div>
 
 
