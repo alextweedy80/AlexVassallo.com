@@ -104,9 +104,9 @@
     <Content Include="app\HomeView\HomeView.html" />
     <Content Include="app\HomeView\HomeView.js" />
     <Content Include="app\HomeView\HomeView_test.js" />
-    <Content Include="app\view2\view2.html" />
-    <Content Include="app\view2\view2.js" />
-    <Content Include="app\view2\view2_test.js" />
+    <Content Include="app\Projects\view2\view2.html" />
+    <Content Include="app\Projects\view2\view2.js" />
+    <Content Include="app\Projects\view2\view2_test.js" />
     <Content Include="packages.config" />
     <Content Include=".tfignore" />
     <Content Include=".bowerrc" />
