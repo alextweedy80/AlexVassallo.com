@@ -1,7 +1,7 @@
 ﻿/// <binding BeforeBuild='js' ProjectOpened='test' />
 // gulpfile.js
 
-var mainBowerFiles = require('main-bower-files'); //
+var mainBowerFiles = require('main-bower-files');
 
 var gulp = require('gulp');
 var gutil = require('gulp-util');
