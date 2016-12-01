@@ -216,6 +216,7 @@
     <Content Include="app\Projects\OpticalReceiver\img\i_b4a49e286f061bd7_html_e660fca8.png" />
     <Content Include="app\Projects\OpticalReceiver\img\i_b4a49e286f061bd7_html_eb7471a2.png" />
     <Content Include="app\Projects\OpticalReceiver\img\i_b4a49e286f061bd7_html_f2a04097.jpg" />
+    <Content Include="app\Projects\nav.html" />
     <Content Include="app\Projects\Projects.html" />
     <Content Include="app\Projects\Projects.js" />
     <Content Include="app\Projects\HeartRateMonitor\HeartRateMonitor.html" />
