@@ -3,7 +3,7 @@
 angular.module('myApp.HeartRateMonitorView', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/projects/HeartRateMonitor', {
+  $routeProvider.when('/Projects/HeartRateMonitor', {
     templateUrl: 'projects/HeartRateMonitor/HeartRateMonitor.html',
     controller: 'ViewCtrl_HeartRateMonitor'
   });

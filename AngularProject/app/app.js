@@ -36,7 +36,7 @@ angular.module('myApp.HomeView', ['ngRoute'])
 angular.module('myApp.HeartRateMonitorView', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/projects/HeartRateMonitor', {
+  $routeProvider.when('/Projects/HeartRateMonitor', {
     templateUrl: 'projects/HeartRateMonitor/HeartRateMonitor.html',
     controller: 'ViewCtrl_HeartRateMonitor'
   });
@@ -61,16 +61,16 @@ angular.module('myApp.MotorTesterView', ['ngRoute'])
 }]);
 'use strict';
 
-angular.module('myApp.IraqAirplaneView', ['ngRoute'])
+angular.module('myApp.obd2View', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider) {
-    $routeProvider.when('/Projects/IraqAirplane', {
-        templateUrl: 'projects/IraqAirplane/IraqAirplane.html',
-        controller: 'ViewCtrl_IraqAirplane'
+    $routeProvider.when('/Projects/obd2', {
+        templateUrl: 'projects/obd2/obd2.html',
+        controller: 'ViewCtrl_obd2'
   });
 }])
 
-.controller('ViewCtrl_IraqAirplane', [function () {
+.controller('ViewCtrl_obd2', [function () {
 
 }]);
 'use strict';
@@ -89,30 +89,30 @@ angular.module('myApp.OpticalReceiverView', ['ngRoute'])
 }]);
 'use strict';
 
-angular.module('myApp.obd2View', ['ngRoute'])
-
-.config(['$routeProvider', function($routeProvider) {
-    $routeProvider.when('/Projects/obd2', {
-        templateUrl: 'projects/obd2/obd2.html',
-        controller: 'ViewCtrl_obd2'
-  });
-}])
-
-.controller('ViewCtrl_obd2', [function () {
-
-}]);
-'use strict';
-
 angular.module('myApp.RobotView', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/Projects/robot', {
+  $routeProvider.when('/Projects/Robot', {
     templateUrl: 'projects/robot/robot.html',
     controller: 'ViewCtrl_Robot'
   });
 }])
 
 .controller('ViewCtrl_Robot', [function() {
+
+}]);
+'use strict';
+
+angular.module('myApp.IraqAirplaneView', ['ngRoute'])
+
+.config(['$routeProvider', function($routeProvider) {
+    $routeProvider.when('/Projects/IraqAirplane', {
+        templateUrl: 'projects/IraqAirplane/IraqAirplane.html',
+        controller: 'ViewCtrl_IraqAirplane'
+  });
+}])
+
+.controller('ViewCtrl_IraqAirplane', [function () {
 
 }]);
 'use strict';

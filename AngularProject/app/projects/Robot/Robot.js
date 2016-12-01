@@ -3,7 +3,7 @@
 angular.module('myApp.RobotView', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/Projects/robot', {
+  $routeProvider.when('/Projects/Robot', {
     templateUrl: 'projects/robot/robot.html',
     controller: 'ViewCtrl_Robot'
   });
