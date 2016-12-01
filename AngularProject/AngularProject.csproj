@@ -140,6 +140,16 @@
     <Content Include="app\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="app\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="app\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="app\projects\HeartRateMonitor\Heartbeat.pdf" />
+    <Content Include="app\projects\HeartRateMonitor\HeartRate.docx" />
+    <Content Include="app\projects\IraqAirplane\IraqAirplane.docx" />
+    <Content Include="app\projects\IraqAirplane\IraqAirplane.pdf" />
+    <Content Include="app\projects\obd2\OBD2.docx" />
+    <Content Include="app\projects\obd2\OBD2.pdf" />
+    <Content Include="app\projects\OpticalReceiver\OpticalReceiver.docx" />
+    <Content Include="app\projects\OpticalReceiver\OpticalReceiver.pdf" />
+    <Content Include="app\projects\Robot\Robot.docx" />
+    <Content Include="app\projects\Robot\Robot.pdf" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -158,6 +168,11 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="app\bower_components\" />
+    <Folder Include="app\projects\HeartRateMonitor\img\" />
+    <Folder Include="app\projects\IraqAirplane\img\" />
+    <Folder Include="app\projects\obd2\img\" />
+    <Folder Include="app\projects\OpticalReceiver\img\" />
+    <Folder Include="app\projects\Robot\img\" />
     <Folder Include="e2e-tests\" />
   </ItemGroup>
   <ItemGroup>

@@ -4,7 +4,12 @@
 angular.module('myApp', [
   'ngRoute',
   'myApp.HomeView',
-  'myApp.view2',
+  'myApp.Robot',
+  'myApp.MotorTester',
+  'myApp.HeartRateMonitor',
+  'myApp.obd2',
+  'myApp.IraqAirplane',
+  'myApp.OpticalReceiver',
   'myApp.version'
 ]).
 config(['$routeProvider', function($routeProvider) {
@@ -28,16 +33,86 @@ angular.module('myApp.HomeView', ['ngRoute'])
 }]);
 'use strict';
 
-angular.module('myApp.view2', ['ngRoute'])
+angular.module('myApp.HeartRateMonitorView', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/Projects/view2', {
-    templateUrl: 'projects/view2/view2.html',
-    controller: 'View2Ctrl'
+  $routeProvider.when('/projects/HeartRateMonitor', {
+    templateUrl: 'projects/HeartRateMonitor/HeartRateMonitor.html',
+    controller: 'ViewCtrl_HeartRateMonitor'
   });
 }])
 
-.controller('View2Ctrl', [function() {
+.controller('ViewCtrl_HeartRateMonitor', [function () {
+
+}]);
+'use strict';
+
+angular.module('myApp.IraqAirplaneView', ['ngRoute'])
+
+.config(['$routeProvider', function($routeProvider) {
+    $routeProvider.when('/Projects/IraqAirplane', {
+        templateUrl: 'projects/IraqAirplane/IraqAirplane.html',
+        controller: 'ViewCtrl_IraqAirplane'
+  });
+}])
+
+.controller('ViewCtrl_IraqAirplane', [function () {
+
+}]);
+'use strict';
+
+angular.module('myApp.obd2View', ['ngRoute'])
+
+.config(['$routeProvider', function($routeProvider) {
+    $routeProvider.when('/Projects/obd2', {
+        templateUrl: 'projects/obd2/obd2.html',
+        controller: 'ViewCtrl_obd2'
+  });
+}])
+
+.controller('ViewCtrl_obd2', [function () {
+
+}]);
+'use strict';
+
+angular.module('myApp.MotorTesterView', ['ngRoute'])
+
+.config(['$routeProvider', function($routeProvider) {
+    $routeProvider.when('/Projects/MotorTester', {
+        templateUrl: 'projects/MotorTester/MotorTester.html',
+        controller: 'ViewCtrl_MotorTester'
+  });
+}])
+
+.controller('ViewCtrl_MotorTester', [function () {
+
+}]);
+'use strict';
+
+angular.module('myApp.OpticalReceiverView', ['ngRoute'])
+
+.config(['$routeProvider', function($routeProvider) {
+    $routeProvider.when('/Projects/OpticalReceiver', {
+        templateUrl: 'projects/OpticalReceiver/OpticalReceiver.html',
+        controller: 'ViewCtrl_OpticalReceiver'
+  });
+}])
+
+.controller('ViewCtrl_OpticalReceiver', [function () {
+
+}]);
+'use strict';
+
+angular.module('myApp.RobotView', ['ngRoute'])
+
+.config(['$routeProvider', function($routeProvider) {
+  $routeProvider.when('/Projects/robot', {
+    templateUrl: 'projects/robot/robot.html',
+    controller: 'ViewCtrl_Robot'
+  });
+}])
+
+.controller('ViewCtrl_Robot', [function() {
 
 }]);
 'use strict';
