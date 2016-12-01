@@ -1,9 +1,13 @@
 'use strict';
 
+var showProjects = true;
+
 // Declare app level module which depends on views, and components
 angular.module('myApp', [
   'ngRoute',
   'myApp.HomeView',
+  'myApp.ContactView',
+  'myApp.ProjectsView',
   'myApp.RobotView',
   'myApp.MotorTesterView',
   'myApp.HeartRateMonitorView',
@@ -11,11 +15,31 @@ angular.module('myApp', [
   'myApp.IraqAirplaneView',
   'myApp.OpticalReceiverView',
   'myApp.version'
-]).
-config(['$routeProvider', function($routeProvider) {
+])
+
+.config(['$routeProvider', function ($routeProvider) {
   $routeProvider.otherwise({redirectTo: '/HomeView'});
-}]);
+}])
+
+   
+.controller("appCtrl", ["$scope", function($scope) {
+
+}]);  
  
+'use strict';
+
+angular.module('myApp.ContactView', ['ngRoute'])
+
+.config(['$routeProvider', function($routeProvider) {
+  $routeProvider.when('/Contact', {
+    templateUrl: 'Contact/Contact.html',
+    controller: 'ViewCtrl_Contact',
+  });
+}])
+
+.controller('ViewCtrl_Contact', [function ($scope) {
+    showProjects = true;
+}]);
 'use strict';
 
 angular.module('myApp.HomeView', ['ngRoute'])
@@ -30,7 +54,53 @@ angular.module('myApp.HomeView', ['ngRoute'])
 .controller('HomeCtrl', ['$scope', function($scope) {
     $scope.customStyle = {};
     $scope.customStyle.mainClass = "HomeViewMain";
+    $scope.IsProject = true;
 }]);
+'use strict';
+
+angular.module('myApp.ProjectsView', ['ngRoute'])
+
+.config(['$routeProvider', function($routeProvider) {
+  $routeProvider.when('/Projects', {
+    templateUrl: 'Projects/Projects.html',
+    controller: 'ViewCtrl_Projects'
+  });
+}])
+
+.controller('ViewCtrl_Projects', [function ($scope, $rootScope) {
+
+}]);
+
+
+'use strict';
+
+angular.module('myApp.version.interpolate-filter', [])
+
+.filter('interpolate', ['version', function(version) {
+  return function(text) {
+    return String(text).replace(/\%VERSION\%/mg, version);
+  };
+}]);
+
+'use strict';
+
+angular.module('myApp.version.version-directive', [])
+
+.directive('appVersion', ['version', function(version) {
+  return function(scope, elm, attrs) {
+    elm.text(version);
+  };
+}]);
+
+'use strict';
+
+angular.module('myApp.version', [
+  'myApp.version.interpolate-filter',
+  'myApp.version.version-directive'
+])
+
+.value('version', '0.1');
+
 'use strict';
 
 angular.module('myApp.HeartRateMonitorView', ['ngRoute'])
@@ -39,10 +109,11 @@ angular.module('myApp.HeartRateMonitorView', ['ngRoute'])
   $routeProvider.when('/Projects/HeartRateMonitor', {
     templateUrl: 'projects/HeartRateMonitor/HeartRateMonitor.html',
     controller: 'ViewCtrl_HeartRateMonitor'
+
   });
 }])
 
-.controller('ViewCtrl_HeartRateMonitor', [function () {
+.controller('ViewCtrl_HeartRateMonitor', [function ($scope) {
 
 }]);
 'use strict';
@@ -107,7 +178,7 @@ angular.module('myApp.RobotView', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/Projects/Robot', {
-    templateUrl: 'projects/robot/robot.html',
+    templateUrl: 'Projects/Robot/Robot.html',
     controller: 'ViewCtrl_Robot'
   });
 }])
@@ -115,31 +186,3 @@ angular.module('myApp.RobotView', ['ngRoute'])
 .controller('ViewCtrl_Robot', [function() {
 
 }]);
-'use strict';
-
-angular.module('myApp.version.interpolate-filter', [])
-
-.filter('interpolate', ['version', function(version) {
-  return function(text) {
-    return String(text).replace(/\%VERSION\%/mg, version);
-  };
-}]);
-
-'use strict';
-
-angular.module('myApp.version.version-directive', [])
-
-.directive('appVersion', ['version', function(version) {
-  return function(scope, elm, attrs) {
-    elm.text(version);
-  };
-}]);
-
-'use strict';
-
-angular.module('myApp.version', [
-  'myApp.version.interpolate-filter',
-  'myApp.version.version-directive'
-])
-
-.value('version', '0.1');

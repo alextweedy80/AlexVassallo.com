@@ -22,8 +22,9 @@
 </head>
 <body>
     <div id="header" class="navbar navbar-default">
-        <div class="ml15"><a href="#/HomeView"><span class="size5vw h1">Alex Vassallo</span></a></div>
-        <div class="ml15"><a href="#/HomeView"><span class="size2vw h2">Software Engineer</span></a></div>
+        
+            <div class="ml15"><a href="#/HomeView"><span class="size5vw h1">Alex Vassallo</span></a></div>
+            <div class="ml15"><a href="#/HomeView"><span class="size2vw h2">Software Engineer</span></a></div>
         <div class="navbar-header">
             <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".navbar-collapse">
                 <i class="icon-reorder"></i>
@@ -34,7 +35,7 @@
             <a class="navbar-brand" href="#/Projects">
                 Projects
             </a>
-            <a class="navbar-brand" href="#/">
+            <a class="navbar-brand" href="#/Contact">
                 Contact
             </a>
 
@@ -65,21 +66,21 @@
             </ul>
         </nav>
     </div>
-    <div ng-view class="ml15 mr15"></div>
-    
-    <div id="wrapper">
+
+   
+    <div ng-show="true" id="wrapper">
         <div id="columns">
             <a class="pin" href="#/Projects/Robot">
                 <img src="/app/projects/Robot/img/robot.jpg" />
                 <p>
-                    awesome Robot
+                    Quadraped Robot
                 </p>
             </a>
 
             <a class="pin" href="#/Projects/MotorTester">
                 <img src="/app/projects/MotorTester/img/MotorTester.jpg" />
                 <p>
-                    This is a motor tester.
+                    Quadrature Decoder
                 </p>
             </a>
 
@@ -87,35 +88,37 @@
             <a class="pin" href="#/Projects/obd2">
                 <img src="/app/projects/obd2/img/obd2.jpg" />
                 <p>
-                    obd2 stuff.
+                    OBD2 Emulator
                 </p>
             </a>
 
             <a class="pin" href="#/Projects/OpticalReceiver">
                 <img src="/app/projects/OpticalReceiver/img/OptRcvr.jpg" />
                 <p>
-                    optical receiver
+                    Optical Receiver
                 </p>
             </a>
 
 
             <a class="pin" href="#/Projects/HeartRateMonitor">
-                <img height="205" src="/app/projects/HeartRateMonitor/img/heartrate.jpg" />
+                <img src="/app/projects/HeartRateMonitor/img/heartrate.jpg" />
                 <p>
-                    heart rate monitor blah blah
+                    Heart Rate Monitor
                 </p>
             </a>
 
             <a class="pin" href="#/Projects/IraqAirplane">
                 <img src="/app/projects/IraqAirplane/img/Airplane.jpg" />
                 <p>
-                    R/C airplance
+                    Paper Airplance
                 </p>
             </a>
 
-
-        </div>
+        </div>    
     </div>
+
+    <div ng-view class="ml15 mr15"></div>
+
     <div class="footer">
         <div style="display:none;">Angular seed app: v<span app-version></span></div>
     </div>

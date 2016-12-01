@@ -1,5 +1,706 @@
-<p>Heart Rate Monitor View.</p>
-<p>
-  Showing of 'interpolate' filter:
-  {{ 'Current version is v%VERSION%.' | interpolate }}
-</p>
+<P ALIGN=CENTER STYLE="margin-bottom: 0in">
+    <FONT FACE="Times New Roman, serif">
+        <FONT SIZE=6>
+            <B>
+                Heart
+                Rate Monitor
+            </B>
+        </FONT>
+    </FONT>
+</P>
+<P ALIGN=RIGHT STYLE="margin-bottom: 0in; line-height: 115%">
+    <FONT FACE="Times New Roman, serif">
+        <FONT SIZE=4 STYLE="font-size: 16pt">
+            Dec 2015 <br />
+            Alex Vassallo
+        </FONT>
+    </FONT>
+</P>
+
+<P ALIGN=CENTER STYLE="margin-bottom: 0in; line-height: 115%">
+    <IMG SRC="Projects/HeartRateMonitor/img/i_d7f206a75c15be46_html_bbbe9797.jpg" NAME="Picture 0" HSPACE=12 WIDTH=688 HEIGHT=387 BORDER=0><br />
+</P>
+
+<P STYLE="margin-bottom: 0in; line-height: 115%">
+    <FONT FACE="Times New Roman, serif">
+        <FONT SIZE=6>
+            <br />
+            1 Abstract
+        </FONT>
+    </FONT>
+</P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in">
+    <BR>
+</P>
+<P ALIGN=JUSTIFY STYLE="margin-left: 0.5in; margin-bottom: 0in">
+    <FONT FACE="Calibri, serif" ; SIZE="4">
+        This project was created as a final project for CSE 466 Embedded System
+        class at the University of Washington. The goal of the assignment was
+        to detect the QRS complex of a heartbeat, display it to the screen,
+        and write it to the SD card. The class was provided a Teensy 3.1
+        micro-controller and a schematic for a front end circuit used to
+        capture and amplify the differential voltage across a pair of
+        electrode leads.  When the circuit was originally built and tested it
+        performed very poorly due to excessive noise. Prior experience with
+        signal conditioning led me to find circuit changes which allowed
+        superior performance.  The software design included additional
+        digital filtering, heartbeat detectors, options menu, and a
+        calibrated display of the data including calculated heartbeat
+        characteristics.
+
+    </FONT>
+</P>
+<P STYLE="margin-bottom: 0in; line-height: 115%">
+    <BR>
+    <BR>
+</P>
+
+<P STYLE="margin-bottom: 0in">
+    <FONT FACE="Times New Roman, serif" SIZE=6>
+        2 Hardware<br />
+    </FONT>
+</P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in">
+    <FONT SIZE=5>
+        2.1	Provided Schematic
+    </FONT>
+
+</P>
+
+<P ALIGN=CENTER STYLE="margin-bottom: 0in">
+    <IMG SRC="Projects/HeartRateMonitor/img/i_d7f206a75c15be46_html_374d753a.png" NAME="Picture 13" HSPACE=12 WIDTH=645 HEIGHT=322 BORDER=0><br />
+    <FONT FACE="Times New Roman, serif" ; SIZE=3>
+        Figure 1:  Amplifier Schematic
+    </FONT>
+</P>
+
+<P STYLE="margin-left: 0.75in; margin-bottom: 0in">
+    <BR>
+</P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in">
+    <FONT SIZE=4 STYLE="font-size: 16pt">
+        <B>
+            Modification 1:
+        </B>
+    </FONT>
+</P>
+<P ALIGN=JUSTIFY STYLE="margin-left: 0.75in; margin-bottom: 0in">
+    <FONT SIZE=3>
+        The amount of noise around 60Hz was extremely high. For this project, we
+        only wanted signals up to about 10Hz. To help with this, I added two
+        low pass filters shown in Blue within Figure 1.  An active low pass
+        filter was created by adding C8 to the final op-amp feedback path.
+        This can be done since it outputs directly into a high impedance
+        input on the micro-controller. The 2nd low pass filter was created by
+        adding R18 and C9 to the previous output. Using the equation
+        1/(2*Pi*R*C), I was able to calculate the proper R and C values to
+        achieve a -3db roll off frequency around 15Hz to attenuate the
+        signal.
+    </FONT>
+</P>
+<P STYLE="margin-left: 0.75in; margin-bottom: 0in">
+    <BR>
+</P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in">
+    <FONT SIZE=4 STYLE="font-size: 16pt">
+        <B>
+            Modification 2:
+        </B>
+    </FONT>
+</P>
+<P ALIGN=JUSTIFY STYLE="margin-left: 0.75in; margin-bottom: 0in">
+    <FONT SIZE=3>
+        When the electrodes are not being contacted by anything, the amount of
+        ambient noise across them is enough to trigger the rhythm detector.
+        To resolve this undesired effect, a 1 Mega-ohm resistor was placed
+        across the inputs of the instrumentation amplifier. However, this
+        reduced the amplitude of the signal, so the value of R8 was lowered
+        to restore the previous gain level.
+        <br /><br />
+    </FONT>
+</P>
+
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in">
+    <FONT SIZE=4 STYLE="font-size: 16pt">
+        <B>
+            Modification 3:
+        </B>
+    </FONT>
+</P>
+
+<P ALIGN=JUSTIFY STYLE="margin-left: 0.75in; margin-bottom: 0in">
+    <FONT SIZE=3>
+        The IC chips used were the BB INA128U Low-Power Instrumentation Amplifier
+        and the Microchip MCP6004 Quad Low-Power Op-amp. Upon review of their
+        datasheets, it was discovered that those parts performed much better
+        at 5V instead of 3.3V, so the source voltage was moved to the 5V USB
+        supply.
+        <br /><br />
+    </FONT>
+</P>
+
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in">
+    <FONT SIZE=5>
+        2.2	System Schematic
+    </FONT>
+</P>
+<P ALIGN=CENTER>
+
+</P>
+
+<P ALIGN=CENTER STYLE="margin-bottom: 0in">
+    <IMG SRC="Projects/HeartRateMonitor/img/i_d7f206a75c15be46_html_ad97ed4e.png" NAME="Picture 2" ALIGN="middle" HSPACE=12 WIDTH=558 HEIGHT=749 BORDER=0><BR>
+    <FONT FACE="Times New Roman, serif" SIZE=3>
+        Figure 2: Schematic
+        <br /><br />
+
+    </FONT>
+</P>
+
+<P STYLE="margin-bottom: 0in">
+    <FONT FACE="Times New Roman, serif" SIZE=6>
+        3 Software
+    </FONT>
+</P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in">
+    <FONT SIZE=5>
+        3.1 Data Flow
+    </FONT>
+</P>
+<P ALIGN=JUSTIFY STYLE="margin-left: 0.5in; margin-bottom: 0in">
+    <FONT SIZE=3>
+        In my design, I used the onboard Programmable Delay Block (PDB) as a
+        timer source for capturing data.  The PDB triggered the Analog to
+        Digital Converter (ADC) to capture a data point, and upon ADC
+        conversion completion, the ADC triggered the Direct Memory Access
+        (DMA) to copy that 16 bit value directly into our array.  The DMA was
+        setup to trigger a software interrupt when 200 points of data has
+        been captured, which is when we rotate our array indexes to perform
+        different steps of operations. This allows each main loop in software
+        sufficient time to perform calculations or interact with peripherals.
+        As Figure 3 indicates, the DMA target is pointed to overwrite the
+        oldest block of data, the Digital Filter is pointed at the sample
+        that DMA has just completed filling, and the Rhythm Detector is
+        pointed at the block of data that the filter has just processed. The
+        blank block is necessary to preserve data that may be needed when
+        capturing a complete heartbeat rhythm into an array.
+    </FONT>
+</P>
+
+<P ALIGN=CENTER STYLE="margin-left: 0.5in; margin-bottom: 0in">
+    <IMG SRC="Projects/HeartRateMonitor/img/i_d7f206a75c15be46_html_95184b1d.jpg" NAME="Picture 17" HSPACE=12 WIDTH=300 HEIGHT=433 BORDER=0><br />
+    <FONT FACE="Times New Roman, serif" SIZE=3>
+        Figure3: Data Flow
+        <br /><br />
+    </FONT>
+</P>
+
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in">
+    <FONT SIZE=3>
+        If an 'R' peak is detected within a sample block, the arrays are scanned
+        backwards 119 points of data, and forward 200 points of data to
+        capture the entire rhythm into a known format, The rhythm is copied
+        into a new array of length 320, with the R peak aligned at position
+        120, where it can be stacked with other confirmed heartbeat rhythms
+        for further analysis over time.
+    </FONT>
+</P>
+<P ALIGN=CENTER STYLE="margin-bottom: 0in">
+    <IMG SRC="Projects/HeartRateMonitor/img/i_d7f206a75c15be46_html_7e2c6aee.jpg" NAME="Picture 18" HSPACE=12 WIDTH=556 HEIGHT=211 BORDER=0><BR>
+    <FONT FACE="Times New Roman, serif" SIZE=3>
+        Figure 4: Rhythm Collection
+        <br /><br />
+    </FONT>
+</P>
+
+
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in">
+    <FONT SIZE=5>
+        3.2	Digital
+        Filter
+    </FONT>
+</P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in"><FONT SIZE=4 STYLE="font-size: 16pt">	</FONT></P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in">
+    <FONT SIZE=4 STYLE="font-size: 16pt">	</FONT><FONT SIZE=3>
+        The
+        digital filter is a simple design which uses the average slope to
+        determine which direction the line is heading.  By excluding the
+        point that we are attempting to modify, any large noise that the
+        single point produces is not included in the calculation.  This
+        results in a very smooth line that we can use for finding the
+        derivative of the data plot.
+    </FONT>
+</P>
+<P ALIGN=CENTER STYLE="margin-left: 0.5in; margin-bottom: 0in">
+    <IMG SRC="Projects/HeartRateMonitor/img/i_d7f206a75c15be46_html_da2dd30e.png" NAME="Picture 19" ALIGN=LEFT HSPACE=12 WIDTH=660 HEIGHT=375 BORDER=0>
+    <FONT FACE="Times New Roman, serif">
+        <FONT SIZE=3>
+            Figure 5: Digital Filter
+        </FONT>
+    </FONT>
+</P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in">
+    <BR>
+</P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in">
+    <BR>
+</P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in">
+    <FONT SIZE=5>
+        3.3	Rhythm
+        Detection:
+    </FONT>
+</P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in">
+    <BR>
+</P>
+<P ALIGN=JUSTIFY STYLE="margin-left: 0.5in; margin-bottom: 0in">
+    <FONT SIZE=4 STYLE="font-size: 16pt"><B>	</B></FONT><FONT SIZE=3>
+        During
+        the filter stage, the calculated slopes are stored as an additional
+        element in the array.  A bitmap is also created where a 0 is stored
+        normally, but a 1 is stored if the slope transitions from positive to
+        negative, or negative to positive.  This captures all of our points
+        of interest in the potential heartbeat rhythm, and no calculations
+        are required from this point forward.  When attempting to pass a
+        segment of data through our heartbeat detection, we can quickly scan
+        our bitmap to find the associated values of data.
+    </FONT>
+</P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in">
+    <BR>
+</P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in">
+    <BR>
+</P>
+<P ALIGN=JUSTIFY STYLE="margin-left: 0.5in; margin-bottom: 0in">
+    <FONT SIZE=3>
+        To
+        locate a heartbeat, we scan our bitmap for the first value of 1, and
+        assign it as point T in our rhythm. We then go backwards through the
+        data samples, assigning P,Q,R, and S to the previous points of
+        interest by using the associated bitmaps. If the group of points does
+        not meet the requirements, then we slide all of our points over to
+        the next point of interest and check again. This is very simple to do
+        since we can assign P=Q, Q=R, R=S, S=T, and T= the next point.  In
+        parallel with this operation, we are also calculating the area under
+        the curve between each point in our derivative data. Since our data
+        has a finite amount of points, this is accomplished by simply summing
+        up the derivate values as we progress across, and carrying through
+        those values when we assign P=Q, Q=R, etc.
+    </FONT>
+</P>
+<P ALIGN=JUSTIFY STYLE="margin-left: 0.5in; margin-bottom: 0in"><FONT SIZE=3>	</FONT></P>
+<P ALIGN=JUSTIFY STYLE="margin-left: 0.5in; margin-bottom: 0in">
+    <BR>
+</P>
+<P ALIGN=JUSTIFY STYLE="margin-left: 0.5in; margin-bottom: 0in">
+    <FONT SIZE=3>
+        For the detection algorithm, I used a simple matching algorithm.  Using
+        the derivate data we check for the following:<br />
+        <IMG SRC="Projects/HeartRateMonitor/img/i_d7f206a75c15be46_html_be4193a5.jpg" NAME="Picture 20" ALIGN=LEFT HSPACE=12 WIDTH=389 HEIGHT=611 BORDER=5>
+        <OL>
+            <LI>
+            <I>
+                The area under the
+                curve between points Q to R is above the limit.
+            </I>
+        </LI>
+        </OL>
+    </FONT>
+
+</P>
+
+
+<P STYLE="margin-left: 0.75in; margin-bottom: 0in">
+    <BR>
+</P>
+<OL START=2>
+    <LI>
+        <P STYLE="margin-bottom: 0in">
+            <FONT SIZE=3>
+                <I>
+                    The negative area
+                    under the curve between points R to S is above the limit.
+                </I>
+            </FONT>
+        </P>
+</OL>
+<P STYLE="margin-left: 0.75in; margin-bottom: 0in">
+    <BR>
+</P>
+<OL START=3>
+    <LI>
+        <P STYLE="margin-bottom: 0in">
+            <FONT SIZE=3>
+                <I>
+                    The value of Point
+                    Q is roughly the average value of the data.
+                </I>
+            </FONT>
+        </P>
+</OL>
+<P STYLE="margin-left: 0.75in; margin-bottom: 0in">
+    <BR>
+</P>
+<OL START=4>
+    <LI>
+        <P STYLE="margin-bottom: 0in">
+            <FONT SIZE=3>
+                <I>
+                    The distance
+                    between points Q and S is within the human limits.
+                </I>
+            </FONT>
+        </P>
+</OL>
+<P STYLE="margin-left: 0.75in; margin-bottom: 0in">
+    <BR>
+</P>
+<P ALIGN=JUSTIFY STYLE="margin-left: 0.5in; margin-bottom: 0in">
+    <FONT SIZE=3>
+        If so, we capture it as a rhythm and use point R as our zero point.
+        Then to locate points P and T, we first check the bitmap for those
+        points, and if they are not a great enough distance from the QRS
+        complex, we move along the bitmap until we find a point that is
+        within the bounds expected of the human heart.
+    </FONT>
+</P>
+<P STYLE="margin-bottom: 0in">
+    <BR>
+</P>
+<P ALIGN=RIGHT STYLE="margin-bottom: 0in">
+    <BR>
+</P>
+<P ALIGN=RIGHT STYLE="margin-bottom: 0in">
+    <FONT FACE="Times New Roman, serif">
+        <FONT SIZE=3>
+            Figure
+            6: Rhythm Detection
+        </FONT>
+    </FONT>
+</P>
+<P STYLE="margin-bottom: 0in">
+    <BR>
+</P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in">
+    <FONT SIZE=5>
+        3.4
+        Graphical User Interface
+    </FONT><IMG SRC="Projects/HeartRateMonitor/img/i_d7f206a75c15be46_html_48f9ef75.jpg" NAME="Picture 21" ALIGN=LEFT HSPACE=12 WIDTH=353 HEIGHT=261 BORDER=0>
+</P>
+<P STYLE="margin-left: 0.75in; margin-bottom: 0in"><FONT SIZE=3>	</FONT></P>
+<P ALIGN=JUSTIFY STYLE="margin-left: 0.75in; margin-bottom: 0in">
+    <FONT SIZE=3>
+        The
+        Graphical User Interface displays a heartbeat trace grid, captured
+        rhythm area, status information, and an optional menu.  The heartbeat
+        trace has been calibrated to the specification of 1 vertical line per
+        1 mV and 1 horizontal line per 40 ms, which is maintained as it
+        automatically zooms in and out. The bpm is calculated from averaging
+        only concurrent rhythms. Any detected heart conditions are displayed
+        inside of the trace grid.
+    </FONT><IMG SRC="Projects/HeartRateMonitor/img/i_d7f206a75c15be46_html_739c027c.jpg" NAME="Picture 22" ALIGN=LEFT HSPACE=12 WIDTH=353 HEIGHT=269 BORDER=0>
+</P>
+<P STYLE="margin-left: 0.75in; margin-bottom: 0in">
+    <BR>
+</P>
+<P STYLE="margin-left: 0.63in; margin-bottom: 0in"><FONT SIZE=5><B>Menu</B></FONT></P>
+<P STYLE="margin-left: 0.75in; margin-bottom: 0in">
+    <FONT SIZE=4>
+        <B>
+            Record
+            Data (30 Sec):
+        </B>
+    </FONT>
+</P>
+<P ALIGN=JUSTIFY STYLE="margin-left: 0.75in; margin-bottom: 0in">
+    <FONT SIZE=3>
+        Selecting
+        &quot;Record Data&quot; will attempt to record 30 seconds of
+        heartbeat data onto the SD card. It will only record while a valid
+        rhythm is detected. Selecting &quot;Stop Recording&quot; from the
+        menu before 30 seconds will close the recording session and save the
+        data collected.
+    </FONT>
+</P>
+<P STYLE="margin-left: 0.75in; margin-bottom: 0in">
+    <IMG SRC="Projects/HeartRateMonitor/img/i_d7f206a75c15be46_html_c5676f21.jpg" NAME="Picture 23" ALIGN=LEFT HSPACE=12 WIDTH=353 HEIGHT=251 BORDER=0><BR>
+</P>
+<P STYLE="margin-left: 0.75in; margin-bottom: 0in">
+    <FONT SIZE=4>
+        <B>
+            Display
+            Data from SD:
+        </B>
+    </FONT>
+</P>
+<P ALIGN=JUSTIFY STYLE="margin-left: 0.75in; margin-bottom: 0in">
+    <FONT SIZE=3>
+        When
+        selecting &quot;Display Data&quot; from the menu, the software will
+        open each file on the SD card sequentially and display a full screen
+        of data at a time. Pressing the &quot;select&quot; button will cycle
+        through the next screen of data, until all files have been read.
+        Selecting &quot;Live Data&quot; from the menu will switch out of this
+        mode and back to displaying live data.
+    </FONT>
+</P>
+<P STYLE="margin-left: 0.75in; margin-bottom: 0in"><FONT SIZE=3>	</FONT></P>
+<P STYLE="margin-left: 0.75in; margin-bottom: 0in">
+    <FONT SIZE=4>
+        <B>
+            Erase
+            SD card:
+        </B>
+    </FONT><FONT SIZE=3>
+        This feature will erase all files
+        on the SD card.
+    </FONT>
+</P>
+<P STYLE="margin-left: 0.75in; margin-bottom: 0in"><FONT SIZE=3>	</FONT></P>
+<P STYLE="margin-left: 0.75in; margin-bottom: 0in">
+    <FONT SIZE=4>
+        <B>
+            Format
+            SD card:
+        </B>
+    </FONT><FONT SIZE=3>
+        This feature will format the
+        installed SD Card with a FAT32 format.
+    </FONT>
+</P>
+<P STYLE="margin-left: 0.75in; margin-bottom: 0in">
+    <BR>
+</P>
+<P STYLE="margin-left: 0.25in; text-indent: 0.25in; margin-bottom: 0in">
+    <FONT SIZE=5>3.5 Software Outline</FONT>
+</P>
+<P STYLE="margin-left: 0.25in; text-indent: 0.25in; margin-bottom: 0in; line-height: 100%">
+    <BR>
+</P>
+<P STYLE="margin-left: 0.25in; text-indent: 0.25in; margin-bottom: 0in; line-height: 100%">
+    <FONT SIZE=4><B>Main Loop()</B></FONT>
+</P>
+<UL>
+    <LI>
+        <P STYLE="margin-bottom: 0in; line-height: 100%">
+            Draw Graphics
+            <I>allows live trace graphics to update between stages</I>
+        </P>
+    <LI>
+        <P STYLE="margin-bottom: 0in; line-height: 100%">
+            Switch on
+            (stage++)
+        </P>
+</UL>
+<UL>
+    <LI>
+        <P STYLE="margin-bottom: 0in; line-height: 100%">
+            case 0:
+            filterData()		Run the digital filter on the captured data
+        </P>
+    <LI>
+        <P STYLE="margin-bottom: 0in; line-height: 100%">
+            case 1:
+            scanForQRS()	Scan for QRS complex in the previously filtered data
+        </P>
+    <LI>
+        <P STYLE="margin-bottom: 0in; line-height: 100%">
+            case 2:
+            drawRhythm	Draw the captured rhythm to the screen
+        </P>
+    <LI>
+        <P STYLE="margin-bottom: 0in; line-height: 100%">
+            case 3:
+            checkButtons()	Check button flags and adjust menu navigation
+        </P>
+    <LI>
+        <P STYLE="margin-bottom: 0in; line-height: 100%">
+            case 4:
+            drawMenu		Draw the current menu to the screen
+        </P>
+    <LI>
+        <P STYLE="margin-bottom: 0in; line-height: 100%">
+            case 5:
+            writeToSD()		Write data to SD card if selected
+        </P>
+    <LI>
+        <P STYLE="margin-bottom: 0in; line-height: 100%">
+            case 6:
+            sendBlueTooth()	Send data to bluetooth module for broadcast.
+        </P>
+</UL>
+<P STYLE="margin-left: 1.25in; text-indent: -0.75in; margin-bottom: 0in; line-height: 100%">
+    <BR>
+</P>
+<P STYLE="margin-left: 1.25in; text-indent: -0.75in; margin-bottom: 0in; line-height: 100%">
+    <FONT SIZE=4><B>filterData(n)</B></FONT>
+</P>
+<P STYLE="margin-left: 1.25in; text-indent: -0.75in; margin-bottom: 0in; line-height: 100%">
+    For each point in the selected data (offset by n)...
+</P>
+<UL>
+    <LI>
+        <P STYLE="margin-bottom: 0in; line-height: 100%">
+            Find the value
+            of the point
+        </P>
+    <LI>
+        <P STYLE="margin-bottom: 0in; line-height: 100%">
+            Find the memory
+            address of the next point of data
+        </P>
+    <LI>
+        <P STYLE="margin-bottom: 0in; line-height: 100%">
+            Find the memory
+            address to write slope value
+        </P>
+    <LI>
+        <P STYLE="margin-bottom: 0in; line-height: 100%">
+            Find the memory
+            address to write bitmap value
+        </P>
+    <LI>
+        <P STYLE="margin-bottom: 0in; line-height: 100%">
+            Calculate slope
+            to n points of data, and get average
+        </P>
+    <LI>
+        <P STYLE="margin-bottom: 0in; line-height: 100%">
+            Set bitmap
+            value to 1 if slope has changed polarity
+        </P>
+    <LI>
+        <P STYLE="margin-bottom: 0in; line-height: 100%">
+            Use slope to
+            overwrite next point of data
+        </P>
+    <LI>
+        <P STYLE="margin-bottom: 0in; line-height: 100%">
+            Write slope and
+            bitmap value to memory addresses
+        </P>
+</UL>
+<P STYLE="margin-left: 1.25in; text-indent: -0.25in; margin-bottom: 0in; line-height: 100%">
+    <BR>
+</P>
+<P STYLE="margin-left: 0.25in; text-indent: 0.25in; margin-bottom: 0in; line-height: 100%">
+    <FONT SIZE=4><B>scanForQRS()</B></FONT>
+</P>
+<P STYLE="margin-left: 0.25in; text-indent: 0.25in; margin-bottom: 0in; line-height: 100%">
+    For each marked value in the bitmap data...
+</P>
+<UL>
+    <LI>
+        <P STYLE="margin-bottom: 0in; line-height: 100%">
+            P=Q, Q=R, R=S,
+            S=T for value, integral area, and width
+        </P>
+    <LI>
+        <P STYLE="margin-bottom: 0in; line-height: 100%">
+            T = new point
+            associated with bitmap
+        </P>
+    <LI>
+        <P STYLE="margin-bottom: 0in; line-height: 100%">
+            check P, Q, R,
+            S, T against rules, if pass then captureRhythm(data position of R)
+        </P>
+    <LI>
+        <P STYLE="margin-bottom: 0in; line-height: 100%">
+            build rhythm
+            object from formatted heartbeat data
+        </P>
+    <LI>
+        <P STYLE="margin-bottom: 0in; line-height: 100%">
+            calculate
+            average rhythm data
+        </P>
+    <LI>
+        <P STYLE="margin-bottom: 0in; line-height: 100%">
+            check rhythm
+            object against known heart conditions and display any found.
+        </P>
+</UL>
+<P STYLE="margin-left: 0.25in; text-indent: 0.25in; margin-bottom: 0in; line-height: 100%">
+    <BR>
+</P>
+<P STYLE="margin-left: 0.25in; text-indent: 0.25in; margin-bottom: 0in; line-height: 100%">
+    <FONT SIZE=4><B>CheckButtons()</B></FONT>
+</P>
+<UL>
+    <LI>
+        <P STYLE="margin-bottom: 0in; line-height: 100%">
+            If button 1 is
+            pressed, rotate the menu selection
+        </P>
+    <LI>
+        <P STYLE="margin-bottom: 0in; line-height: 100%">
+            If button 2 is
+            pressed, switch on menu selection
+        </P>
+</UL>
+<UL>
+    <LI>
+        <P STYLE="margin-bottom: 0in; line-height: 100%">
+            case -1:  No
+            menu open, if 'Display Data' flag set then [readData() + drawData()]
+        </P>
+    <LI>
+        <P STYLE="margin-bottom: 0in; line-height: 100%">
+            case  0:
+            Record Data, toggle write flag, either 'start new file' or 'close
+            current file'
+        </P>
+    <LI>
+        <P STYLE="margin-bottom: 0in; line-height: 100%">
+            case  1:
+            Display Data, clear screen, toggle flag
+        </P>
+</UL>
+<P STYLE="margin-left: 1.81in; margin-bottom: 0in; line-height: 100%">
+    If flag is true then [openFile() + readData() + drawData()]
+</P>
+<UL>
+    <LI>
+        <P STYLE="margin-bottom: 0in; line-height: 100%">
+            case  2:  Erase
+            SD Card, eraseCard()
+        </P>
+    <LI>
+        <P STYLE="margin-bottom: 0in; line-height: 100%">
+            case  3:
+            Format SD Card, formatCard()
+        </P>
+</UL>
+<P STYLE="margin-left: 0.25in; text-indent: 0.25in; margin-bottom: 0in; line-height: 100%">
+    <BR>
+</P>
+<P STYLE="margin-left: 0.25in; text-indent: 0.25in; margin-bottom: 0in; line-height: 100%">
+    <FONT SIZE=4><B>Interrupt Routine for Buttons (1 of 2) </B></FONT>
+</P>
+<UL>
+    <LI>
+        <P STYLE="margin-bottom: 0in; line-height: 100%">
+            <FONT SIZE=3>
+                De-bounce
+                input
+            </FONT>
+        </P>
+    <LI>
+        <P STYLE="margin-bottom: 0in; line-height: 100%">
+            <FONT SIZE=3>
+                Set
+                button flags
+            </FONT>
+        </P>
+    <LI>
+        <P STYLE="margin-bottom: 0in; line-height: 100%">
+            <FONT SIZE=3>
+                Force
+                redraw of menu
+            </FONT>
+        </P>
+</UL>

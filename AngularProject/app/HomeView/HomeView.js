@@ -12,4 +12,5 @@ angular.module('myApp.HomeView', ['ngRoute'])
 .controller('HomeCtrl', ['$scope', function($scope) {
     $scope.customStyle = {};
     $scope.customStyle.mainClass = "HomeViewMain";
+    $scope.IsProject = true;
 }]);

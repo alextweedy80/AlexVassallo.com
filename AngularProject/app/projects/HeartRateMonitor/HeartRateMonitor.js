@@ -6,9 +6,10 @@ angular.module('myApp.HeartRateMonitorView', ['ngRoute'])
   $routeProvider.when('/Projects/HeartRateMonitor', {
     templateUrl: 'projects/HeartRateMonitor/HeartRateMonitor.html',
     controller: 'ViewCtrl_HeartRateMonitor'
+
   });
 }])
 
-.controller('ViewCtrl_HeartRateMonitor', [function () {
+.controller('ViewCtrl_HeartRateMonitor', [function ($scope) {
 
 }]);

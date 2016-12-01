@@ -1,5 +1,703 @@
-<p>obd2.</p>
-<p>
-  Showing of 'interpolate' filter:
-  {{ 'Current version is v%VERSION%.' | interpolate }}
-</p>
+<P ALIGN=CENTER STYLE="margin-bottom: 0in">
+    <FONT SIZE=6>
+        <B>
+            Vehicle On
+            Board Diagnostic (OBD2) Interface
+        </B>
+    </FONT>
+</P>
+<P ALIGN=RIGHT STYLE="margin-bottom: 0in">
+    <FONT SIZE=4 STYLE="font-size: 16pt">
+        July 2014
+    </FONT>
+</P>
+<P ALIGN=RIGHT STYLE="margin-bottom: 0in">
+    <FONT SIZE=4 STYLE="font-size: 16pt">
+        Alex Vassallo
+    </FONT>
+</P>
+<P STYLE="margin-bottom: 0in">
+    <BR>
+</P>
+<P ALIGN=CENTER STYLE="margin-bottom: 0in">
+    <IMG SRC="Projects/obd2/img/i_ac965724d2fb0386_html_72544c2.jpg" NAME="Picture 1" HSPACE=12 WIDTH=670 HEIGHT=377 BORDER=0><BR>
+</P>
+
+<P STYLE="margin-bottom: 0in">
+    <BR>
+</P>
+<P STYLE="margin-bottom: 0in; widows: 0; orphans: 0">
+    <FONT FACE="Times New Roman, serif" SIZE=6>
+            1 Abstract
+    </FONT>
+</P>
+
+<P ALIGN=JUSTIFY STYLE="margin-left: 0.5in; margin-bottom: 0in">
+    <FONT SIZE=4>
+        This project was designed to allow a non-OBD2 vehicle to communicate with
+        OBD2 diagnostic equipment using the standard OBD2 connection. The
+        On-Board Diagnostics II (OBD2) vehicle standard specifies the
+        connector, electrical signalling protocol, and the message format.
+        For this application, the signalling protocol implemented was the ISO
+        9141-2, which uses a single K line to both transmit and receive data.
+        Using this protocol, PID requests are sent by a tester unit, and the
+        vehicle responds with the requested information.  I used the MC33290
+        &quot;ISO k Line serial link interface&quot; chip to manage the
+        half-duplex communications, and an Arduino Uno as the microcontroller
+        to manage the data requests. These components were designed to mount
+        together underneath a vehicles dashboard, and connect to an OBD2 port
+        using a 4 pin connector.  OBD2 testing devices which connect to that
+        port receive vehicle information as if they were communicating with
+        an actual vehicle's OBD2 system.
+    </FONT>
+</P>
+<P STYLE="margin-bottom: 0in">
+    <BR>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="Times New Roman, serif"><FONT SIZE=6>2	Hardware</FONT></FONT></P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in">
+    <FONT SIZE=5>
+        2.1	System Schematic
+    </FONT>
+</P>
+<P ALIGN=CENTER STYLE="margin-bottom: 0in">
+    
+</P>
+
+<P ALIGN=CENTER STYLE="margin-bottom: 0in">
+    <IMG SRC="Projects/obd2/img/i_ac965724d2fb0386_html_917d7b1a.png" NAME="Picture 0" HSPACE=12 WIDTH=624 HEIGHT=321 BORDER=0><BR>
+    <FONT FACE="Times New Roman, serif">
+        Figure 1: Schematic
+    </FONT>
+</P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in">
+    <BR>
+</P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in">
+    <FONT SIZE=5>
+        2.2 Hardware Design
+    </FONT>
+</P>
+<P ALIGN=JUSTIFY STYLE="margin-left: 0.5in; margin-bottom: 0in">
+    <FONT SIZE=3>
+        The
+        hardware was designed to package together into a single unit that can
+        be installed under the dashboard. The MC33290 is a serial link bus
+        interface device designed to provide bi-directional half-duplex
+        communication, specifically for the ISO9141 protocol. It receives
+        power directly from the vehicle battery since the input voltage limit
+        for the Arduino is 20V, and the MC33290 limit is 18V. To monitor the
+        input voltage, a voltage divider scales down the voltage by 3 and
+        feeds an input pin on the Arduino.  There is a four pin harness, (not
+        shown), that routes each necessary connection to the appropriate pin
+        on the standard OBD2 connector.
+    </FONT>
+</P>
+<P STYLE="margin-bottom: 0in">
+    <BR>
+</P>
+<P ALIGN="CENTER" STYLE="margin-bottom: 0in">
+    <IMG SRC="Projects/obd2/img/i_ac965724d2fb0386_html_a68648d8.jpg" NAME="Picture 2" HSPACE=12 WIDTH=336 HEIGHT=189 BORDER=0> 
+    <IMG SRC="Projects/obd2/img/i_ac965724d2fb0386_html_2043ebb8.jpg" NAME="Picture 3" HSPACE=12 WIDTH=336 HEIGHT=189 BORDER=0><BR>
+    <FONT SIZE=3>
+         Arduino Uno and Vehicle Interface				Complete Assembly
+    </FONT>
+</P>
+
+    <BR>
+</P>
+<P STYLE="margin-bottom: 0in">
+
+</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="Times New Roman, serif"><FONT SIZE=6>3	Software</FONT></FONT></P>
+<P STYLE="margin-bottom: 0in"><FONT SIZE=5>	3.1 	Handshake</FONT></P>
+<P ALIGN=JUSTIFY STYLE="margin-left: 0.5in; margin-bottom: 0in">
+    <FONT SIZE=3>
+        To
+        begin communications, a handshake procedure must first be completed.
+        The tester unit initiates a request by sending 0x33 (00110011) at a
+        bit rate of 5 baud.  When this is received by the vehicle, the
+        vehicle waits for a time W1, switches to 10.4k baud,  and responds
+        with 0x55 (01010101) followed by two keywords, (typically 0x8 0x8),
+        which describe the communication format. The tester unit then
+        confirms those keywords by responding with the inverted value of the
+        second keyword, followed by the vehicle sending the inverted value of
+        the original address, 0xCC (11001100), to confirm the handshake is
+        complete. PID 01 requests by the tester are then used as &quot;keep
+        alive&quot; packets to avoid having to repeat this handshake.
+    </FONT>
+</P>
+<P STYLE="margin-bottom: 0in">
+    <BR>
+</P>
+<P ALIGN=CENTER STYLE="margin-bottom: 0in">
+    <IMG SRC="Projects/obd2/img/i_ac965724d2fb0386_html_c547e188.png" NAME="Picture 6" HSPACE=12 WIDTH=663 HEIGHT=263 BORDER=0><BR>
+    <FONT FACE="Times New Roman, serif">
+        Figure 2: Handshake
+    </FONT>
+</P>
+
+
+<P STYLE="margin-bottom: 0in">
+    <BR>
+</P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in">
+    <FONT SIZE=5>
+        3.2	Data Transfer
+    </FONT>
+</P>
+<P ALIGN=JUSTIFY STYLE="margin-left: 0.5in; margin-bottom: 0in">
+    <FONT SIZE=3>
+        To transfer data, a tester sends a multi-byte request on the K line, and
+        an ECU responds with a multi-byte reply containing the requested
+        information. As shown in Figure 3, the timing marks are defined by
+        the protocol, and imperative to follow since there is no other form
+        of synchronization. Time P1 and P4 define the delay between bytes, P2
+        defines the time between packets, and P3 is the request timeout
+        period. As Figure 3 indicates, it is possible for multiple ECU's to
+        each transfer data in turn.
+    </FONT>
+</P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in">
+    <BR>
+</P>
+
+<P ALIGN=CENTER STYLE="margin-bottom: 0in">
+    <IMG SRC="Projects/obd2/img/i_ac965724d2fb0386_html_4a76de56.jpg" NAME="Picture 8" HSPACE=12 WIDTH=668 HEIGHT=127 BORDER=0><BR>
+    <FONT FACE="Times New Roman, serif">
+        Figure 3: Data Transfer
+    </FONT>
+</P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in">
+    <FONT SIZE=5>
+        3.3	Data Format
+    </FONT>
+</P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in">
+    <BR>
+</P>
+<P ALIGN=JUSTIFY STYLE="margin-left: 0.5in; margin-right: 3.69in; margin-bottom: 0in">
+    <SPAN ID="Frame2" DIR="LTR" STYLE="position: absolute; top: 4.61in; left: 6.23in; width: 0.02in; border: none; padding: 0in; background: #ffffff">
+<P STYLE="margin-bottom: 0.14in; border: none; padding: 0in; line-height: 100%">
+    <FONT COLOR="#4f81bd">
+        <FONT SIZE=2 STYLE="font-size: 9pt">
+            <B>
+                <FONT SIZE=3>
+                    Table 2
+                </FONT>
+            </B>
+        </FONT>
+    </FONT>
+</P>
+
+<TABLE DIR="LTR" ALIGN=RIGHT WIDTH=318 HSPACE=4 CELLPADDING=7 CELLSPACING=0>
+    <COL WIDTH=27>
+    <COL WIDTH=261>
+    <TR>
+        <TD COLSPAN=2 WIDTH=302 VALIGN=TOP BGCOLOR="#c6d9f1" STYLE="border: 1px solid #00000a; padding: 0in 0.08in">
+            <P ALIGN=CENTER><SPAN ID="Frame1" DIR="LTR" STYLE="position: absolute; top: 1.8in; left: 6.15in; width: 0.02in; border: none; padding: 0in; background: #ffffff">
+            <P STYLE="border: none; padding: 0in">
+                <FONT COLOR="#4f81bd">
+                    <FONT SIZE=2 STYLE="font-size: 9pt">
+                        <B>
+                            <FONT SIZE=3>
+                                Table
+                                1
+                            </FONT>
+                        </B>
+                    </FONT>
+                </FONT>
+            </P>
+            </SPAN>
+            <TABLE DIR="LTR" ALIGN=RIGHT WIDTH=319 HSPACE=4 CELLPADDING=7 CELLSPACING=0>
+                <COL WIDTH=70>
+                <COL WIDTH=219>
+                <TR>
+                    <TD COLSPAN=2 WIDTH=303 VALIGN=TOP BGCOLOR="#c6d9f1" STYLE="border: 1px solid #00000a; padding: 0in 0.08in">
+                        <P ALIGN=CENTER><FONT SIZE=4>Byte Definitions</FONT></P>
+                    </TD>
+                </TR>
+                <TR VALIGN=TOP>
+                    <TD WIDTH=70 STYLE="border: 1px solid #00000a; padding: 0in 0.08in">
+                        <P>Byte[0]	</P>
+                    </TD>
+                    <TD WIDTH=219 STYLE="border: 1px solid #00000a; padding: 0in 0.08in">
+                        <P>0x68 for request, 0x48 for response</P>
+                    </TD>
+                </TR>
+                <TR VALIGN=TOP>
+                    <TD WIDTH=70 STYLE="border: 1px solid #00000a; padding: 0in 0.08in">
+                        <P>Byte[1]</P>
+                    </TD>
+                    <TD WIDTH=219 STYLE="border: 1px solid #00000a; padding: 0in 0.08in">
+                        <P>0x6A for request, 0x6B for response</P>
+                    </TD>
+                </TR>
+                <TR VALIGN=TOP>
+                    <TD WIDTH=70 STYLE="border: 1px solid #00000a; padding: 0in 0.08in">
+                        <P>Byte[2]</P>
+                    </TD>
+                    <TD WIDTH=219 STYLE="border: 1px solid #00000a; padding: 0in 0.08in">
+                        <P>Source address of sender</P>
+                    </TD>
+                </TR>
+                <TR VALIGN=TOP>
+                    <TD WIDTH=70 STYLE="border: 1px solid #00000a; padding: 0in 0.08in">
+                        <P>Byte[3]</P>
+                    </TD>
+                    <TD WIDTH=219 STYLE="border: 1px solid #00000a; padding: 0in 0.08in">
+                        <P>Mode</P>
+                    </TD>
+                </TR>
+                <TR VALIGN=TOP>
+                    <TD WIDTH=70 STYLE="border: 1px solid #00000a; padding: 0in 0.08in">
+                        <P>Byte[4]</P>
+                    </TD>
+                    <TD WIDTH=219 STYLE="border: 1px solid #00000a; padding: 0in 0.08in">
+                        <P>PID</P>
+                    </TD>
+                </TR>
+                <TR VALIGN=TOP>
+                    <TD WIDTH=70 STYLE="border: 1px solid #00000a; padding: 0in 0.08in">
+                        <P>Byte[5-12]</P>
+                    </TD>
+                    <TD WIDTH=219 STYLE="border: 1px solid #00000a; padding: 0in 0.08in">
+                        <P STYLE="page-break-after: avoid">Data</P>
+                    </TD>
+                </TR>
+                <TR VALIGN=TOP>
+                    <TD WIDTH=70 STYLE="border: 1px solid #00000a; padding: 0in 0.08in">
+                        <P>Byte[last]</P>
+                    </TD>
+                    <TD WIDTH=219 STYLE="border: 1px solid #00000a; padding: 0in 0.08in">
+                        <P STYLE="page-break-after: avoid">CRC checksum (sum of data)</P>
+                    </TD>
+                </TR>
+            </TABLE>Mode Definitions
+            </P>
+        </TD>
+    </TR>
+    <TR VALIGN=TOP>
+        <TD WIDTH=27 STYLE="border: 1px solid #00000a; padding: 0in 0.08in">
+            <P STYLE="margin-bottom: 0in; line-height: 100%">1</P>
+        </TD>
+        <TD WIDTH=261 STYLE="border: 1px solid #00000a; padding: 0in 0.08in">
+            <P STYLE="margin-bottom: 0in; line-height: 100%">Show current data</P>
+        </TD>
+    </TR>
+    <TR VALIGN=TOP>
+        <TD WIDTH=27 STYLE="border: 1px solid #00000a; padding: 0in 0.08in">
+            <P STYLE="margin-bottom: 0in; line-height: 100%">2</P>
+        </TD>
+        <TD WIDTH=261 STYLE="border: 1px solid #00000a; padding: 0in 0.08in">
+            <P STYLE="margin-bottom: 0in; line-height: 100%">
+                Show Freeze frame
+                data
+            </P>
+        </TD>
+    </TR>
+    <TR VALIGN=TOP>
+        <TD WIDTH=27 STYLE="border: 1px solid #00000a; padding: 0in 0.08in">
+            <P STYLE="margin-bottom: 0in; line-height: 100%">3</P>
+        </TD>
+        <TD WIDTH=261 STYLE="border: 1px solid #00000a; padding: 0in 0.08in">
+            <P STYLE="margin-bottom: 0in; line-height: 100%">
+                Show stored
+                Diagnostic Trouble Codes
+            </P>
+        </TD>
+    </TR>
+    <TR VALIGN=TOP>
+        <TD WIDTH=27 STYLE="border: 1px solid #00000a; padding: 0in 0.08in">
+            <P STYLE="margin-bottom: 0in; line-height: 100%">4</P>
+        </TD>
+        <TD WIDTH=261 STYLE="border: 1px solid #00000a; padding: 0in 0.08in">
+            <P STYLE="margin-bottom: 0in; line-height: 100%">
+                Clear stored
+                Diagnostic Trouble Codes
+            </P>
+        </TD>
+    </TR>
+    <TR VALIGN=TOP>
+        <TD WIDTH=27 STYLE="border: 1px solid #00000a; padding: 0in 0.08in">
+            <P STYLE="margin-bottom: 0in; line-height: 100%">5</P>
+        </TD>
+        <TD WIDTH=261 STYLE="border: 1px solid #00000a; padding: 0in 0.08in">
+            <P STYLE="margin-bottom: 0in; line-height: 100%">
+                System Monitor
+                (non-CAN)
+            </P>
+        </TD>
+    </TR>
+    <TR VALIGN=TOP>
+        <TD WIDTH=27 STYLE="border: 1px solid #00000a; padding: 0in 0.08in">
+            <P STYLE="margin-bottom: 0in; line-height: 100%">6</P>
+        </TD>
+        <TD WIDTH=261 STYLE="border: 1px solid #00000a; padding: 0in 0.08in">
+            <P STYLE="margin-bottom: 0in; line-height: 100%">
+                System Monitor(
+                CAN)
+            </P>
+        </TD>
+    </TR>
+    <TR VALIGN=TOP>
+        <TD WIDTH=27 STYLE="border: 1px solid #00000a; padding: 0in 0.08in">
+            <P STYLE="margin-bottom: 0in; line-height: 100%">7</P>
+        </TD>
+        <TD WIDTH=261 STYLE="border: 1px solid #00000a; padding: 0in 0.08in">
+            <P STYLE="margin-bottom: 0in; line-height: 100%">
+                Show pending
+                Diagnostic Trouble Codes
+            </P>
+        </TD>
+    </TR>
+    <TR VALIGN=TOP>
+        <TD WIDTH=27 STYLE="border: 1px solid #00000a; padding: 0in 0.08in">
+            <P STYLE="margin-bottom: 0in; line-height: 100%">8</P>
+        </TD>
+        <TD WIDTH=261 STYLE="border: 1px solid #00000a; padding: 0in 0.08in">
+            <P STYLE="margin-bottom: 0in; line-height: 100%">
+                Control Onboard
+                Systems
+            </P>
+        </TD>
+    </TR>
+    <TR VALIGN=TOP>
+        <TD WIDTH=27 STYLE="border: 1px solid #00000a; padding: 0in 0.08in">
+            <P STYLE="margin-bottom: 0in; line-height: 100%">9</P>
+        </TD>
+        <TD WIDTH=261 STYLE="border: 1px solid #00000a; padding: 0in 0.08in">
+            <P STYLE="margin-bottom: 0in; line-height: 100%">
+                Request vehicle
+                information
+            </P>
+        </TD>
+    </TR>
+    <TR VALIGN=TOP>
+        <TD WIDTH=27 STYLE="border: 1px solid #00000a; padding: 0in 0.08in">
+            <P STYLE="margin-bottom: 0in; line-height: 100%">10</P>
+        </TD>
+        <TD WIDTH=261 STYLE="border: 1px solid #00000a; padding: 0in 0.08in">
+            <P STYLE="margin-bottom: 0in; line-height: 100%; page-break-after: avoid">
+                Show Permanent Diagnostic Trouble Codes
+            </P>
+        </TD>
+    </TR>
+</TABLE>	<FONT SIZE=3>
+    The data format of each packet is defined by
+    the OBD2 specifications. Table 1 shows the definition of each byte by
+    position. The first two bytes defines whether it is a request or
+    response. The next byte is the source address of the equipment
+    sending the message. The next byte defines which mode the ECU should
+    be in when processing requests. Table 2 shows the various modes of
+    operation. The next byte contains the PID, or Parameter ID, that
+    specifies the exact data being requested. The bytes after the PID is
+    the data section for responses, which must be between 1 and 8 bytes
+    long. Large items such as VIN numbers are broken up into multi-packet
+    messages, and the first byte of the data section contains the packet
+    number. When responding to a request, the CRC checksum is always the
+    last byte. It is simply a summation of the data area truncated to 8
+    bits.
+</FONT>
+</P>
+<P STYLE="margin-bottom: 0in">		</P>
+<P STYLE="margin-bottom: 0in">
+    <BR>
+</P>
+<P STYLE="margin-bottom: 0in">
+    <BR>
+</P>
+<P ALIGN=JUSTIFY STYLE="margin-left: 0.5in; margin-bottom: 0in">
+    <FONT SIZE=3>
+        Each
+        mode of operation listed in Table 2 follows a specific format. Mode
+        3, (Show DTCs), requires 2 bytes of encoded data to define a DTC, and
+        requires sending multiple packets for 3 or more DTCs.  Mode 9 is used
+        to verify the vehicle's identity and all responses require a
+        multi-packet message. This includes information such as VIN numbers,
+        serial numbers, or &quot;tamper-proof&quot; checksums.  Modes 4
+        through 8 are not required for normal diagnostics, and are not used
+        in this project.
+    </FONT>
+</P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in">
+    <BR>
+</P>
+<P ALIGN=JUSTIFY STYLE="margin-left: 0.5in; margin-bottom: 0in">
+    <FONT SIZE=3>
+        Most
+        of the normal PID requests are done using Mode 1, (Show Current
+        Data), and require a specifically formatted data response.  PIDs that
+        request a sensor value each require a unique mathematical formula to
+        scale and translate the values to be stored inside of 8 or 16 bits.
+        PIDs that request status information will use an encoding map as
+        shown in Figure 4, where bits A7 through D0 are uniquely defined for
+        each specific PID.  The data format for Mode 2 is identical, except
+        the data being sent was all captured when first entering Mode 2.
+    </FONT>
+</P>
+<P STYLE="margin-bottom: 0in">
+    <IMG SRC="Projects/obd2/img/i_ac965724d2fb0386_html_a9415485.jpg" NAME="graphics1" ALIGN=LEFT HSPACE=12 WIDTH=689 HEIGHT=54 BORDER=0><BR>
+</P>
+<P STYLE="margin-bottom: 0in">
+    <BR>
+</P>
+<P ALIGN=CENTER STYLE="margin-bottom: 0in">
+    <FONT FACE="Times New Roman, serif">
+        Figure
+        4: Bit Encoding
+    </FONT>
+</P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in">
+    <TABLE DIR="LTR" ALIGN=LEFT WIDTH=271 HSPACE=4 CELLPADDING=7 CELLSPACING=0>
+        <COL WIDTH=255>
+        <TR>
+            <TD WIDTH=255 VALIGN=TOP STYLE="border-top: 1.50pt solid #00000a; border-bottom: none; border-left: 1.50pt solid #00000a; border-right: none; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0in">
+<P STYLE="margin-bottom: 0in">edgeTime += bitTime</P>
+<P STYLE="margin-bottom: 0in">if (txDataCount &gt; 0) {</P>
+<P STYLE="margin-bottom: 0in">    transmitProc()</P>
+<P STYLE="margin-bottom: 0in">} else if (handshake &gt; 0) {</P>
+<P STYLE="margin-bottom: 0in">    handshakeProc()</P>
+<P STYLE="margin-bottom: 0in">} else {</P>
+<P STYLE="margin-bottom: 0in">    receiveProc()</P>
+<P STYLE="margin-bottom: 0in">
+    if(data received and time W4
+    elapsed) {
+</P>
+<P>        processData()}}</P>
+		</TD>
+	</TR>
+</TABLE><FONT SIZE=5>3.4	Software Outline</FONT>
+</P>
+<P STYLE="margin-bottom: 0in">
+    <BR>
+</P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in">
+    <FONT SIZE=4>
+        <B>
+            Main
+            Loop()
+        </B>
+    </FONT>
+</P>
+<UL>
+    <UL>
+        <LI>
+            <P STYLE="margin-bottom: 0in; line-height: 100%">
+                Synchronize
+                data stream
+            </P>
+        <LI>
+            <P STYLE="margin-bottom: 0in; line-height: 100%">
+                Transmit any
+                queued data, or
+            </P>
+        <LI>
+            <P STYLE="margin-bottom: 0in; line-height: 100%">
+                Perform
+                handshake, or
+            </P>
+        <LI>
+            <P STYLE="margin-bottom: 0in; line-height: 100%">
+                Listen to Rx
+                signal
+            </P>
+        <LI>
+            <P STYLE="margin-bottom: 0in; line-height: 100%">
+                process OBD2
+                requests
+            </P>
+    </UL>
+</UL>
+<P ALIGN=RIGHT STYLE="margin-left: 0.75in; margin-bottom: 0in; line-height: 100%">
+    <FONT FACE="Times New Roman, serif">
+        Figure 5: Main Loop
+        Pseudo-Code
+    </FONT>
+</P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in; line-height: 100%"><FONT SIZE=4><B>handshakeProc()</B></FONT></P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in; line-height: 100%">
+    <I>switch </I>(handshake)
+</P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in; line-height: 100%">
+    <I>
+        case
+        1:
+    </I> 	0x33 @ 5 baud detected, wait time W1, switch to 10.4k baud,
+    transmit 0x55
+</P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in; line-height: 100%">
+    <I>
+        case
+        2:
+    </I>wait time W2 then transmit 0x8 0x8, prepare to measure time W4
+</P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in; line-height: 100%">
+    <I>
+        case
+        3:
+    </I>  call receiveProc() with handshake routines enabled, measures
+    time W4
+</P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in; line-height: 100%">
+    <I>
+        case
+        4:
+    </I>  wait time W4, transmit 0x33 inverted (0xCC) as &quot;ready to
+    communicate&quot;
+</P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in; line-height: 100%">
+    <BR>
+</P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in; line-height: 100%"><FONT SIZE=4><B>receiveProc()</B></FONT></P>
+<OL>
+    <UL>
+        <LI>
+            <P STYLE="margin-bottom: 0in; line-height: 100%">
+                Make sure it
+                is time to sample a bit
+            </P>
+        <LI>
+            <P STYLE="margin-bottom: 0in; line-height: 100%">
+                Sample the
+                current bit
+            </P>
+        <LI>
+            <P STYLE="margin-bottom: 0in; line-height: 100%">
+                check for 10
+                consecutive high bits (idle period) to enter idle state
+            </P>
+        <LI>
+            <P STYLE="margin-bottom: 0in; line-height: 100%">
+                check for 10
+                consecutive low bits (handshake request) to prepare for handshake
+            </P>
+        <LI>
+            <P STYLE="margin-bottom: 0in; line-height: 100%">
+                check for
+                valid start bit and begin collecting data:
+            </P>
+    </UL>
+</OL>
+<UL>
+    <UL>
+        <UL>
+            <LI>
+                <P STYLE="margin-bottom: 0in; line-height: 100%">
+                    Align and
+                    insert bits into byte packet
+                </P>
+            <LI>
+                <P STYLE="margin-bottom: 0in; line-height: 100%">
+                    store byte
+                    into local data structure
+                </P>
+            <LI>
+                <P STYLE="margin-bottom: 0in; line-height: 100%">
+                    check for
+                    handshake conditions (handshake=3 or 0x33 @ 5 baud)
+                </P>
+            <LI>
+                <P STYLE="margin-bottom: 0in; line-height: 100%">
+                    reset for
+                    next byte
+                </P>
+        </UL>
+    </UL>
+</UL>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in; line-height: 100%">
+    <BR>
+</P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in; line-height: 100%"><FONT SIZE=4><B>transmitProc()</B></FONT></P>
+<UL>
+    <UL>
+        <LI>
+            <P STYLE="margin-bottom: 0in; line-height: 100%">
+                Make sure it
+                is time to send next bit
+            </P>
+        <LI>
+            <P STYLE="margin-bottom: 0in; line-height: 100%">
+                transmit start
+                bit
+            </P>
+        <LI>
+            <P STYLE="margin-bottom: 0in; line-height: 100%">
+                transmit 8
+                bits of data
+            </P>
+        <LI>
+            <P STYLE="margin-bottom: 0in; line-height: 100%">
+                transmit stop
+                bit
+            </P>
+        <LI><P STYLE="margin-bottom: 0in; line-height: 100%">wait time W3</P>
+        <LI>
+            <P STYLE="margin-bottom: 0in; line-height: 100%">
+                repeat for
+                each byte
+            </P>
+    </UL>
+</UL>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in; line-height: 100%">
+    <BR>
+</P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in; line-height: 100%"><FONT SIZE=4><B>processData()</B></FONT></P>
+<UL>
+    <UL>
+        <LI>
+            <P STYLE="margin-bottom: 0in; line-height: 100%">
+                Verify valid
+                request package was received
+            </P>
+        <LI>
+            <P STYLE="margin-bottom: 0in; line-height: 100%">
+                Use Mode and
+                PID values to build proper response packets
+            </P>
+        <LI>
+            <P STYLE="margin-bottom: 0in; line-height: 100%">
+                Read sensor
+                values on Arduino analog input pins, or...
+            </P>
+        <LI>
+            <P STYLE="margin-bottom: 0in; line-height: 100%">
+                Measure
+                battery voltage on pin A0, engine running if greater than 12.5V
+            </P>
+        <LI>
+            <P STYLE="margin-bottom: 0in; line-height: 100%">
+                if engine
+                running, use random numbers to create &quot;dynamic&quot; data(i.e.
+                rpm, o2 voltage, etc)
+            </P>
+        <LI>
+            <P STYLE="margin-bottom: 0in; line-height: 100%">
+                compute and
+                append OBD2 CRC checksum byte
+            </P>
+        <LI>
+            <P STYLE="margin-bottom: 0in; line-height: 100%">
+                send completed
+                packet to transmit buffer
+            </P>
+    </UL>
+</UL>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in; line-height: 100%">
+    <BR>
+</P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in; line-height: 100%">
+    <FONT SIZE=4>
+        <B>
+            interrupt
+            routine for Rx pin:
+        </B>
+    </FONT>
+</P>
+<UL>
+    <LI>
+        <P STYLE="margin-bottom: 0in; line-height: 100%">
+            synchronize
+            data stream (edgeTime = [Time Now])
+        </P>
+</UL>

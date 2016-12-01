@@ -1,5 +1,907 @@
-<p>This is the Robot View.</p>
-<p>
-  Showing of 'interpolate' filter:
-  {{ 'Current version is v%VERSION%.' | interpolate }}
+﻿
+<P ALIGN=CENTER STYLE="margin-bottom: 0in"><FONT FACE="Times New Roman, serif"><FONT SIZE=6><B>Robot
+Dog</B></FONT></FONT></P>
+<P ALIGN=RIGHT STYLE="margin-bottom: 0in"><FONT FACE="Times New Roman, serif"><FONT SIZE=4 STYLE="font-size: 16pt">January
+2016</FONT></FONT></P>
+<P ALIGN=RIGHT STYLE="margin-bottom: 0in"><FONT FACE="Times New Roman, serif"><FONT SIZE=4 STYLE="font-size: 16pt">Alex
+Vassallo</FONT></FONT></P>
+<P ALIGN=CENTER STYLE="margin-bottom: 0in"><IMG SRC="Projects/Robot/img/i_2a584a74ff33d10d_html_ee30fdcb.jpg" NAME="Picture 3" ALIGN=LEFT HSPACE=12 WIDTH=661 HEIGHT=372 BORDER=0><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">	</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in; widows: 0; orphans: 0"><BR>
+</P>
+<P STYLE="margin-bottom: 0in; widows: 0; orphans: 0"><BR>
+</P>
+<P STYLE="margin-bottom: 0in; widows: 0; orphans: 0"><BR>
+</P>
+<P STYLE="margin-bottom: 0in; widows: 0; orphans: 0"><BR>
+</P>
+<P STYLE="margin-bottom: 0in; widows: 0; orphans: 0"><FONT FACE="Times New Roman, serif"><FONT SIZE=6>1	Abstract</FONT></FONT></P>
+<P ALIGN=JUSTIFY STYLE="margin-left: 0.5in; margin-bottom: 0in">	<FONT SIZE=3>This
+design was created as a midterm project for the CSE466 Embedded
+Systems class at the University of Washington.  The assignment was to
+implement any design that utilized the Teensy 3.1 microcontroller and
+various peripherals of our choice, within 2 weeks. I decided to use
+my mechanical skills to develop a robot that uses PWM servos. For
+mobility, the overall design of this project was based on my dog.
+Each leg is connected to two heavy-duty servos which allows precise
+control of each foot placement.  The power grid was designed to
+deliver up to 25 Amps of current to manipulate each of the leg servos
+to do various commands.  There is an additional servo mounted to the
+pivot point at the waist that allows up to 30 degrees of left/right
+rotation, and another servo mounted to a &quot;neck&quot; to rotate a
+range finder and produce a radar map to locate open routes and
+objects. The accelerometer and gyro unit, located on the system
+board, sends data to a quaternion algorithm to calculate yaw, pitch,
+and roll. This allows for a feedback system to keep the robot level
+by adjusting the height of each leg. An LCD screen is used to display
+data, including line drawings of each leg's current position.
+Currently, commands are entered into a startup script inside the
+source code, but development of a wireless command system is in
+progress.</FONT></P>
+<P STYLE="margin-bottom: 0in"><FONT SIZE=6>2	Hardware</FONT></P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in"><FONT SIZE=5>2.1	System
+Schematic</FONT></P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in"><IMG SRC="Projects/Robot/img/i_2a584a74ff33d10d_html_c53d4ea0.png" NAME="Picture 0" ALIGN=LEFT HSPACE=12 WIDTH=729 HEIGHT=758 BORDER=0><BR>
+</P>
+<P ALIGN=RIGHT STYLE="margin-bottom: 0in">Figure 1: Schematic</P>
+<P STYLE="margin-bottom: 0in">	 
+</P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in"><FONT FACE="Times New Roman, serif"><FONT SIZE=5>2.2
+	Frame</FONT></FONT></P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in"><FONT SIZE=5>	</FONT></P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in">	<IMG SRC="Projects/Robot/img/i_2a584a74ff33d10d_html_9ab3eeda.jpg" NAME="Picture 5" ALIGN=LEFT HSPACE=12 WIDTH=333 HEIGHT=477 BORDER=0></P>
+<P STYLE="margin-left: 1in; margin-bottom: 0in"><BR>
+</P>
+<P ALIGN=JUSTIFY STYLE="margin-left: 1in; margin-bottom: 0in"><FONT SIZE=3>	The
+prototype frame was constructed from modified Erector set parts and
+various linkages found at a local hobby store. It was designed to
+maintain a center of gravity that was low and in the center of the
+leg distribution. Figure 2 shows the geometry of the frame, and the
+red dots represent the feet inside of their range of motion with
+contact along the ground. In this diagram, the feet are placed in the
+center of motion and the center of gravity is marked at the pivot
+point of the frame, which is also geometrically the center of the
+foot distribution. By pivoting the frame, the center of gravity can
+be altered left or right. By placing all the hardware evenly along
+the frame, the weight distribution can be evenly maintained and
+gyroscopic balance can be used to achieve complex motions such as
+walking. </FONT>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">			Figure 2: Frame</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><IMG SRC="Projects/Robot/img/i_2a584a74ff33d10d_html_d78be2ca.jpg" NAME="Picture 14" ALIGN=LEFT HSPACE=12 WIDTH=346 HEIGHT=259 BORDER=0><IMG SRC="Projects/Robot/img/i_2a584a74ff33d10d_html_5640b87c.jpg" NAME="Picture 16" ALIGN=LEFT HSPACE=12 WIDTH=345 HEIGHT=259 BORDER=0><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><I>						Empty Metal Frame</I></P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in"><FONT SIZE=5>2.3   
+Legs</FONT></P>
+<P STYLE="margin-left: 1in; margin-bottom: 0in"><BR>
+</P>
+<P ALIGN=JUSTIFY STYLE="margin-left: 0.5in; margin-right: 2.06in; margin-bottom: 0in">
+<FONT SIZE=5>	</FONT><FONT SIZE=3>The hardware for the legs is
+modeled from my pet dog and includes various linkages to reduce the
+amount of muscle inputs needed. The target of this design was to
+allow for a wide range of motion while keeping the feet in alignment
+with the ground. Pivot points were carefully calculated to allow the
+servos full range of motion as they manipulate the legs.  Figure 3
+shows some various positions and how the hardware functions together.
+The servo arms are in Green, hard linkages are in Red, and Blue dots
+represent load bearing bushings.</FONT><IMG SRC="Projects/Robot/img/i_2a584a74ff33d10d_html_910f5ff9.jpg" NAME="Picture 21" ALIGN=LEFT HSPACE=12 WIDTH=276 HEIGHT=156 BORDER=0></P>
+<P STYLE="margin-left: 1in; margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-left: 1in; margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><IMG SRC="Projects/Robot/img/i_2a584a74ff33d10d_html_3ba28d73.jpg" NAME="Picture 13" ALIGN=BOTTOM WIDTH=720 HEIGHT=543 BORDER=0></P>
+<P ALIGN=RIGHT STYLE="margin-bottom: 0in">Figure 3: Leg Motion	</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in"><FONT SIZE=5>2.4   
+Rear Power Grid</FONT></P>
+<P ALIGN=JUSTIFY STYLE="margin-left: 0.5in; margin-bottom: 0in"><FONT SIZE=3>	The
+servo specifications show that their supply voltage can range from
+4.2V to 6V and the maximum current draw is 3 Amps each.  To provide
+this power to each servo, adjustable voltage regulation in the form
+of step-down converters are connected to each servo's power supply.
+The output voltage of each voltage converter is adjusted to 5.5V to
+allow maximum torque at each servo, while leaving 0.5V of room for
+inductive spikes from the motors.  Step-down converters were chosen
+for their efficiency to reduce overhead power loss as well as heat
+production. Each voltage converter is soldered together into a
+&quot;stack&quot;, and then a junction board with external
+connections is soldered onto one edge. To allow the power switch and
+power plug to be accessible from the rear, they were attached
+directly to the rear PCB assembly to allow solid connections to the
+power source.</FONT></P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in"><IMG SRC="Projects/Robot/img/i_2a584a74ff33d10d_html_c7b6c483.jpg" NAME="Picture 23" ALIGN=LEFT HSPACE=12 WIDTH=343 HEIGHT=259 BORDER=0><IMG SRC="Projects/Robot/img/i_2a584a74ff33d10d_html_abcf0487.jpg" NAME="Picture 24" ALIGN=LEFT HSPACE=12 WIDTH=345 HEIGHT=259 BORDER=0><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT SIZE=3>	</FONT><I>	Rear Step-down
+converter assembly				Installed into frame</I></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P ALIGN=JUSTIFY STYLE="margin-left: 0.5in; margin-bottom: 0in"><FONT SIZE=3>	Large
+470uF capacitors are connected in parallel with the step-down
+converters to supply a steady current when the large inductive spikes
+from the servo motors occur. The size of these capacitors have been
+calculated to restrict inductive voltage spikes to less than 0.5V,
+plus or minus.</FONT></P>
+<P STYLE="margin-bottom: 0in"><IMG SRC="Projects/Robot/img/i_2a584a74ff33d10d_html_dcb4f5d4.jpg" NAME="Picture 26" ALIGN=LEFT HSPACE=12 WIDTH=345 HEIGHT=259 BORDER=0><IMG SRC="Projects/Robot/img/i_2a584a74ff33d10d_html_6aafa9f9.jpg" NAME="Picture 27" ALIGN=LEFT HSPACE=12 WIDTH=342 HEIGHT=258 BORDER=0><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in">	</P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in">	<I>(5x) 470uF
+Electrolytic Capacitors					Installation</I></P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in"><FONT SIZE=5>2.5   
+Front Power Grid</FONT></P>
+<P ALIGN=JUSTIFY STYLE="margin-left: 0.5in; margin-bottom: 0in">	<FONT SIZE=3>Similar
+to the rear power grid, the front power grid also uses step-down
+converters coupled with 470uF capacitor to supply a smooth current
+flow to each servo. Unlike the rear, all the components have been
+packaged together into a cube that fits inside of a frame cage. The
+5th step-down converter supplies the microcontroller and peripherals
+with a steady 5V power supply. That output is coupled to a much
+smaller capacitor and a diode to prevent USB power from feeding back
+into the power system.</FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><IMG SRC="Projects/Robot/img/i_2a584a74ff33d10d_html_52ea3f6d.jpg" NAME="Picture 28" ALIGN=LEFT HSPACE=12 WIDTH=352 HEIGHT=264 BORDER=0><IMG SRC="Projects/Robot/img/i_2a584a74ff33d10d_html_ee07d1dc.jpg" NAME="Picture 29" ALIGN=LEFT HSPACE=12 WIDTH=352 HEIGHT=264 BORDER=0><BR>
+</P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in"><I>	Component
+Assembly							Final Assembly</I></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">		<I>	View From Left							View From
+Right</I><IMG SRC="Projects/Robot/img/i_2a584a74ff33d10d_html_cbd375ec.jpg" NAME="Picture 30" ALIGN=LEFT HSPACE=12 WIDTH=355 HEIGHT=266 BORDER=0><IMG SRC="Projects/Robot/img/i_2a584a74ff33d10d_html_218b2895.jpg" NAME="Picture 31" ALIGN=LEFT HSPACE=12 WIDTH=355 HEIGHT=266 BORDER=0></P>
+<P STYLE="margin-bottom: 0in">		</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in"><FONT SIZE=5>2.6   
+System Board</FONT></P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in"><FONT SIZE=3>	</FONT></P>
+<P ALIGN=JUSTIFY STYLE="margin-left: 0.5in; margin-bottom: 0in"><FONT SIZE=3>	The
+System Board was designed to allow easy connections with external
+devices, and to fit within the size limits of the frame.  All pins
+and connectors were soldered underneath to match the system
+schematic.  Servo signal wires are color coded for identification,
+and a partial strip of grey IDE cable was used to connect the LCD
+screen. A diode allows the System Board to be powered from the
+on-board power grid, or from USB power.</FONT></P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in">
+    <IMG SRC="Projects/Robot/img/i_2a584a74ff33d10d_html_c588c676.jpg" NAME="Picture 34" ALIGN=LEFT HSPACE=12 WIDTH=359 HEIGHT=269 BORDER=0><BR>
+</P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in">
+    <IMG SRC="Projects/Robot/img/i_2a584a74ff33d10d_html_1211789.jpg" NAME="Picture 33" ALIGN=LEFT HSPACE=12 WIDTH=360 HEIGHT=270 BORDER=0></P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in"><FONT SIZE=3><I>	Component
+Connections					Output Wires</I></FONT></P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in">
+    <IMG SRC="Projects/Robot/img/i_2a584a74ff33d10d_html_547c9350.jpg" NAME="Picture 36" ALIGN=LEFT HSPACE=12 WIDTH=361 HEIGHT=271 BORDER=0>
+    <IMG SRC="Projects/Robot/img/i_2a584a74ff33d10d_html_d7ff6074.jpg" NAME="Picture 35" ALIGN=LEFT HSPACE=12 WIDTH=359 HEIGHT=269 BORDER=0><BR>
+</P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in"><FONT SIZE=3><I>		View
+From Left					View From Right</I></FONT></P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in"><FONT SIZE=5>2.7   
+Servos</FONT></P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in"><TABLE DIR="LTR" ALIGN=RIGHT WIDTH=229 HSPACE=4 CELLPADDING=7 CELLSPACING=0>
+	<COL WIDTH=34>
+	<COL WIDTH=70>
+	<COL WIDTH=81>
+	<TR>
+		<TD COLSPAN=3 WIDTH=213 VALIGN=TOP BGCOLOR="#548dd4" STYLE="border: 1px solid #00000a; padding: 0in 0.08in">
+			<P><FONT SIZE=3>Tactic TSX55 Ball-Bearing Servo</FONT></P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=34 BGCOLOR="#bfbfbf" STYLE="border: 1px solid #00000a; padding: 0in 0.08in">
+			<P><FONT SIZE=3>Volts</FONT></P>
+		</TD>
+		<TD WIDTH=70 BGCOLOR="#bfbfbf" STYLE="border: 1px solid #00000a; padding: 0in 0.08in">
+			<P><FONT SIZE=3>Torque</FONT></P>
+		</TD>
+		<TD WIDTH=81 BGCOLOR="#bfbfbf" STYLE="border: 1px solid #00000a; padding: 0in 0.08in">
+			<P><FONT SIZE=3>Speed</FONT></P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=34 STYLE="border: 1px solid #00000a; padding: 0in 0.08in">
+			<P><FONT SIZE=3>4.8</FONT></P>
+		</TD>
+		<TD WIDTH=70 STYLE="border: 1px solid #00000a; padding: 0in 0.08in">
+			<P><FONT SIZE=3>181 oz-in</FONT></P>
+		</TD>
+		<TD WIDTH=81 STYLE="border: 1px solid #00000a; padding: 0in 0.08in">
+			<P><FONT SIZE=3>0.24 sec/60°</FONT></P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=34 STYLE="border: 1px solid #00000a; padding: 0in 0.08in">
+			<P><FONT SIZE=3>6.0</FONT></P>
+		</TD>
+		<TD WIDTH=70 STYLE="border: 1px solid #00000a; padding: 0in 0.08in">
+			<P><FONT SIZE=3>203 oz-in</FONT></P>
+		</TD>
+		<TD WIDTH=81 STYLE="border: 1px solid #00000a; padding: 0in 0.08in">
+			<P><FONT SIZE=3>0.21 sec/60°</FONT></P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD COLSPAN=2 WIDTH=118 BGCOLOR="#bfbfbf" STYLE="border: 1px solid #00000a; padding: 0in 0.08in">
+			<P><FONT SIZE=3>Dimensions</FONT></P>
+		</TD>
+		<TD WIDTH=81 BGCOLOR="#bfbfbf" STYLE="border: 1px solid #00000a; padding: 0in 0.08in">
+			<P><FONT SIZE=3>Weight</FONT></P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD COLSPAN=2 WIDTH=118 STYLE="border: 1px solid #00000a; padding: 0in 0.08in">
+			<P><FONT SIZE=3>1.6&quot; x 0.8&quot; x 1.5&quot;</FONT></P>
+		</TD>
+		<TD WIDTH=81 STYLE="border: 1px solid #00000a; padding: 0in 0.08in">
+			<P><FONT SIZE=3>2.1 oz (58 g)</FONT></P>
+		</TD>
+	</TR>
+</TABLE><FONT SIZE=3>	After doing some research and shopping, I found
+the best servo for this project to be the Tactic TSX55. They were
+each under $20 and provided the large amount of torque required to
+lift the robot.  </FONT>The servos all function using a PWM signal,
+with 1.5us being center of travel.  The TSX55 servos are high-torque,
+heavy duty, metal gear, ball bearing servos capable of producing 203
+oz/in of torque at full voltage. This is enough to support the weight
+of all the hardware while providing extra power to support an
+additional payload.  The leg servos are secured with screws and
+zip-ties for easy removal, and the waist servo is held down by a
+metal strap. Lastly, a small generic mini-servo is used to rotate the
+range detector.  It only delivers around 20 oz-in of torque, which
+consumes less than 0.5A at 5V, and is powered directly from the
+system board power supply.
+</P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in"><IMG SRC="Projects/Robot/img/i_2a584a74ff33d10d_html_431ae5d7.jpg" NAME="Picture 51" ALIGN=LEFT HSPACE=12 WIDTH=346 HEIGHT=260 BORDER=0><IMG SRC="img/i_2a584a74ff33d10d_html_d41d85cf.jpg" NAME="Picture 53" ALIGN=LEFT HSPACE=12 WIDTH=347 HEIGHT=260 BORDER=0><BR>
+</P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in"><FONT SIZE=3>	</FONT><I>Waist
+Servo Installation						Front Servo Installation</I><IMG SRC="Projects/Robot/img/i_2a584a74ff33d10d_html_69e13bc.jpg" NAME="Picture 54" ALIGN=LEFT HSPACE=12 WIDTH=347 HEIGHT=260 BORDER=0></P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in"><IMG SRC="Projects/Robot/img/i_2a584a74ff33d10d_html_3a789463.jpg" NAME="Picture 52" ALIGN=LEFT HSPACE=12 WIDTH=346 HEIGHT=259 BORDER=0><BR>
+</P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in"><I>	Rear Servo
+Installation						Linkages Calibrated</I></P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in"><FONT SIZE=5>2.8   
+Radar</FONT></P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in"><FONT SIZE=3>	</FONT></P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in"><FONT SIZE=3>	The
+head unit was constructed solely as a radar platform. I used an
+HC-SR04 Ultrasonic Ranging Module for the range detection, which
+accurately detects ranges between 1 inch and 13 feet. This module is
+mounted to an electrically insulated plate using zip-ties, and the
+mounting plate can be manually adjusted up and down.  This assembly
+is mounted directly to a servo head with small screws, to allow
+precise scanning of the environment.  All radar components are
+powered directly from the System Board power supply, so the system
+can operate when only plugged into USB power.</FONT></P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in"><IMG SRC="Projects/Robot/img/i_2a584a74ff33d10d_html_35a3a061.jpg" NAME="Picture 4" ALIGN=LEFT HSPACE=12 WIDTH=255 HEIGHT=234 BORDER=0><BR>
+</P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in"><IMG SRC="Projects/Robot/img/i_2a584a74ff33d10d_html_9a8039d7.jpg" NAME="graphics1" ALIGN=LEFT HSPACE=12 WIDTH=367 HEIGHT=537 BORDER=0><BR>
+</P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><IMG SRC="Projects/Robot/img/i_2a584a74ff33d10d_html_65f62344.jpg" NAME="Picture 6" ALIGN=LEFT HSPACE=12 WIDTH=255 HEIGHT=303 BORDER=0><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P ALIGN=CENTER STYLE="margin-bottom: 0in"><FONT FACE="Times New Roman, serif"><I>Radar
+Assembly</I></FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="Times New Roman, serif"><FONT SIZE=6>3
+Software</FONT></FONT></P>
+<P STYLE="margin-bottom: 0in">	 
+</P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in"><FONT SIZE=5>3.1	Leg
+Geometry</FONT></P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in"><BR>
+</P>
+<P ALIGN=JUSTIFY STYLE="margin-left: 0.5in; margin-right: 4.13in; margin-bottom: 0in">
+	The leg hardware for the servos have been carefully tuned and
+measured for each leg.  Exact distances between key points of the
+movable legs are essential for geometric calculations to be
+performed. The Law of Cosines is used for determining the appropriate
+servo angles. First, the origin of the coordinate system is placed
+exactly at the shoulder joint, and the target (X,Y) coordinates are
+relative of that. It can then solve the distance and angle of the
+line from the origin to the point (X,Y), giving both the length of
+the third side of the red triangle and also its rotation. It can then
+use the Law of Cosines to calculate the angle of the corner that
+touches the servo, and subtract the red triangle's degree of rotation
+to determine our servo angle.  Once it solves the angle of the bottom
+servo, it can calculate all points along the red triangle, such as
+the point where the green triangle meets the leg. With that, it can
+then calculate the distance between that point and the top servo,
+solving the length of the third side of the green triangle. Using the
+Law of Cosines again, it can solve for the angle of the top servo.<IMG SRC="Projects/Robot/img/i_2a584a74ff33d10d_html_8416a759.png" NAME="Picture 1" ALIGN=LEFT HSPACE=12 WIDTH=405 HEIGHT=524 BORDER=0></P>
+<P ALIGN=RIGHT STYLE="margin-left: 0.5in; margin-bottom: 0in">Figure
+4: Leg Geometry</P>
+<P STYLE="margin-left: 0.5in; margin-right: 4in; margin-bottom: 0in"><IMG SRC="Projects/Robot/img/i_2a584a74ff33d10d_html_634c2e9b.png" NAME="Picture 61" ALIGN=LEFT HSPACE=12 WIDTH=217 HEIGHT=209 BORDER=0><BR>
+</P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in">				     			 
+Figure 5: Law of Cosines</P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in"><FONT SIZE=5>3.2
+Pivot Compensation</FONT></P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in"><FONT SIZE=3>	</FONT></P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in"><FONT SIZE=3>	As
+the frame pivots, the feet naturally rotate with it. This causes a
+skewed placement of the feet which will disrupt the center of
+balance.  In this design, the feet automatically compensate their
+horizontal positions to maintain a square base. The entire range of
+motion for each foot is offset by this amount to allow smooth
+transitions as the frame pivots left and right.</FONT></P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in">
+    <IMG SRC="Projects/Robot/img/i_2a584a74ff33d10d_html_76b05153.jpg" NAME="Picture 46" ALIGN=LEFT HSPACE=12 WIDTH=218 HEIGHT=312 BORDER=0>
+    <IMG SRC="Projects/Robot/img/i_2a584a74ff33d10d_html_ab8ecf37.jpg" NAME="Picture 48" ALIGN=LEFT HSPACE=12 WIDTH=217 HEIGHT=312 BORDER=0>
+    <IMG SRC="Projects/Robot/img/i_2a584a74ff33d10d_html_4967dd88.jpg" NAME="Picture 47" ALIGN=LEFT HSPACE=12 WIDTH=216 HEIGHT=312 BORDER=0><BR>
+</P>
+<P ALIGN=CENTER STYLE="margin-bottom: 0in"><FONT SIZE=3>Figure 6:
+Pivot compensation</FONT></P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in"><FONT SIZE=5>3.3	Graphics</FONT></P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in"><BR>
+</P>
+<P ALIGN=JUSTIFY STYLE="margin-left: 0.5in; margin-right: 3.81in; margin-bottom: 0in">
+<FONT SIZE=3>	The graphics display shows the current status of the
+robot. The four leg positions are drawn to scale and show the current
+calculated positions of each servo.  The command being executed is
+displayed at the top, above the legs.  The Roll and Pitch that is
+used to maintain stability are both displayed in real time, as well
+as the predicted yaw heading.  The radar map is kept in the bottom
+corner and is a representation of the distances found by the range
+finder. The orientation of the head is also synchronized with a red
+sweeping line inside the radar map.</FONT>
+    <IMG SRC="Projects/Robot/img/i_2a584a74ff33d10d_html_bba21330.jpg" NAME="Picture 8" ALIGN=LEFT HSPACE=12 WIDTH=342 HEIGHT=248 BORDER=0></P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in">
+    <FONT SIZE=5>3.4
+        Self Leveling
+    </FONT>
+    <IMG SRC="Projects/Robot/img/i_2a584a74ff33d10d_html_42694a8c.jpg" NAME="Picture 11" ALIGN=LEFT HSPACE=12 WIDTH=169 HEIGHT=300 BORDER=0><IMG SRC="i_2a584a74ff33d10d_html_3949f897.jpg" NAME="Picture 12" ALIGN=LEFT HSPACE=12 WIDTH=174 HEIGHT=300 BORDER=0></P>
 </p>
+
+<P ALIGN=JUSTIFY STYLE="margin-left: 0.5in; margin-right: 3.69in; margin-bottom: 0in; line-height: 110%">
+<FONT SIZE=3>	This robot can automatically compensate the height of
+each leg to maintain a level orientation. Roll and pitch are
+independently monitored and adjustments are made for each
+two-dimensional plane. The robot will slowly adjust all four legs,
+for each axis, in an attempt to bring roll and pitch values back to
+0. To maintain symmetry, legs are adjusted in pairs and are moved
+opposite of each other to maintain the same average height.  Limits
+are placed on these adjustments to stay within the hardware limit of
+travel.</FONT>
+    <IMG SRC="Projects/Robot/img/i_2a584a74ff33d10d_html_10c58524.jpg" NAME="graphics2" ALIGN=LEFT HSPACE=12 WIDTH=345 HEIGHT=194 BORDER=0></P>
+<P ALIGN=JUSTIFY STYLE="margin-left: 0.5in; margin-right: 3.69in; margin-bottom: 0in; line-height: 110%">
+<BR>
+</P>
+<P ALIGN=JUSTIFY STYLE="margin-left: 0.5in; margin-right: 3.69in; margin-bottom: 0in; line-height: 110%">
+<FONT SIZE=3>	The speed at which this system responds can cause
+extremely unstable conditions. If the reaction speed is too fast, the
+legs will overshoot their target, and the extra momentum can result
+in an unrecoverable side-to-side oscillation.  By using multiple
+equations, it can react differently for each range of roll and pitch
+values. This allows it to make quick gross adjustments, while still
+reducing the speed gracefully as it reaches zero. Large roll angles
+are defined to detect a roll-over, and to avoid overreactions near
+the tipping point.</FONT>
+    <IMG SRC="Projects/Robot/img/i_2a584a74ff33d10d_html_be7d0e32.jpg" NAME="graphics3" ALIGN=LEFT HSPACE=12 WIDTH=346 HEIGHT=195 BORDER=0></P>
+<P ALIGN=JUSTIFY STYLE="margin-left: 0.5in; margin-right: 3.69in; margin-bottom: 0in; line-height: 110%">
+<BR>
+</P>
+<P ALIGN=JUSTIFY STYLE="margin-left: 0.5in; margin-right: 3.69in; margin-bottom: 0in; line-height: 110%">
+<FONT SIZE=3>	The sensor data obtained from both the accelerometer
+and gyroscope are used for a quaternion algorithm which computes them
+as two vectors in a three-dimensional space. While in motion, this
+algorithm produces estimated values for yaw, pitch, and roll. While
+the robot is steady, gravity is used to calibrate center. </FONT>
+    <IMG SRC="Projects/Robot/img/i_2a584a74ff33d10d_html_a69cfc7c.jpg" NAME="graphics4" ALIGN=LEFT HSPACE=12 WIDTH=346 HEIGHT=195 BORDER=0>
+</P>
+<P ALIGN=JUSTIFY STYLE="margin-left: 0.5in; margin-right: 3.69in; margin-bottom: 0in; line-height: 110%">
+<BR>
+</P>
+<P ALIGN=JUSTIFY STYLE="margin-left: 0.5in; margin-right: 3.69in; margin-bottom: 0in; line-height: 110%">
+<FONT SIZE=3>	Once calibrated, this system performed well on both a
+tilt-table test, and an obstacle test.  The legs have a good natural
+reaction to large events, and constant adjustments can keep it level
+while in motion.</FONT></P>
+<P ALIGN=CENTER STYLE="margin-left: 0.5in; margin-bottom: 0in"><BR>
+</P>
+<P ALIGN=CENTER STYLE="margin-left: 0.5in; margin-bottom: 0in"><FONT SIZE=3>Video:
+</FONT> <A HREF="http://homes.cs.washington.edu/~alexvass/Robot/Autolevel.avi">http://homes.cs.washington.edu/~alexvass/Robot/Autolevel.avi</A></P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in"><FONT SIZE=5>3.5
+Walking</FONT></P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in"><FONT SIZE=3>	</FONT><SPAN DIR="LTR" STYLE="float: left; width: 3.23in; height: 0.2in; border: none; padding: 0in; background: #ffffff">
+	<P ALIGN=CENTER STYLE="margin-bottom: 0.14in; line-height: 100%"><FONT COLOR="#4f81bd"><FONT SIZE=2 STYLE="font-size: 9pt"><FONT COLOR="#000000"><FONT FACE="Times New Roman, serif"><FONT SIZE=2 STYLE="font-size: 11pt"><SPAN STYLE="font-weight: normal">Figure
+	7: Step path</SPAN></FONT></FONT></FONT></FONT></FONT></P>
+</SPAN>
+</P>
+<P ALIGN=JUSTIFY STYLE="margin-left: 0.5in; margin-bottom: 0in"><FONT SIZE=3>	The
+walking algorithm was designed to keep the center of gravity balanced
+within the 3 planted feet.  To create distinct phases of a step loop,
+it is divided into 4 segments. The range of motion of the feet are
+divided into 3 even segments and the 4th segment is a lift and place
+routine, as shown in Figure 7.  Each foot is always in a unique phase
+so that only one foot is stepping at a time, and stepping is
+alternated from front to rear, one side at a time. As each side is
+stepping, the frame pivots away to adjust the center of gravity away
+from the lifted foot.  The auto-leveling routine is also sent
+configuration variables that cause it to roll and pitch away from the
+lifted foot.  This assists by preemptively orientating the robot away
+from falling when the foot is first picked up.  To further assist
+this function, each foot quickly presses down before lifting up,
+which causes the weight to securely rest on the red triangles shown
+in Figure 8.</FONT>
+    <IMG SRC="Projects/Robot/img/i_2a584a74ff33d10d_html_7a2f3f96.jpg" NAME="Picture 22" ALIGN=LEFT HSPACE=12 WIDTH=310 HEIGHT=168 BORDER=0></P>
+<P ALIGN=JUSTIFY STYLE="margin-left: 0.5in; margin-bottom: 0in">
+    <IMG SRC="Projects/Robot/img/i_2a584a74ff33d10d_html_96bfc6f8.jpg" NAME="Picture 42" ALIGN=LEFT HSPACE=12 WIDTH=697 HEIGHT=512 BORDER=0><BR>
+</P>
+<P ALIGN=JUSTIFY STYLE="margin-left: 0.5in; margin-bottom: 0in"><BR>
+</P>
+<P ALIGN=JUSTIFY STYLE="margin-left: 0.5in; margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in"><SPAN DIR="LTR" STYLE="float: left; width: 7.42in; height: 0.22in; border: none; padding: 0in; background: #ffffff">
+	<P ALIGN=CENTER STYLE="margin-bottom: 0.14in; line-height: 100%"><FONT COLOR="#4f81bd"><FONT SIZE=2 STYLE="font-size: 9pt"><FONT COLOR="#000000"><FONT FACE="Times New Roman, serif"><FONT SIZE=2 STYLE="font-size: 11pt"><SPAN STYLE="font-weight: normal">Figure
+	8: Walking Algorithm</SPAN></FONT></FONT></FONT></FONT></FONT></P>
+</SPAN><BR>
+</P>
+<P ALIGN=CENTER STYLE="margin-left: 0.5in; margin-bottom: 0in"><FONT SIZE=3>Video:
+</FONT><A HREF="http://homes.cs.washington.edu/~alexvass/Robot/Walking.avi">http://homes.cs.washington.edu/~alexvass/Robot/Walking.avi</A></P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in"><FONT SIZE=5>3.6	Radar</FONT></P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in"><FONT SIZE=3>	</FONT><IMG SRC="i_2a584a74ff33d10d_html_946f528a.jpg" NAME="Picture 60" ALIGN=LEFT HSPACE=12 WIDTH=329 HEIGHT=224 BORDER=0></P>
+<P ALIGN=JUSTIFY STYLE="margin-left: 0.5in; margin-bottom: 0in"><FONT SIZE=3>	The
+radar is used to detect objects that are in front of the robot.  The
+resolution is adjustable in the source code, and the range of motion
+was calibrated to the servo.  These variables are used to accurately
+display the radar map using the correct angles. As the range finder
+sweeps across the field, the distances are stored in an array, and a
+new line segment is drawn on the radar map. This system was designed
+to build a 2D map as it moved through the environment, but
+development is still in progress.</FONT><SPAN DIR="LTR" STYLE="float: left; width: 3.43in; height: 0.25in; border: none; padding: 0in; background: #ffffff">
+	<P ALIGN=CENTER STYLE="margin-bottom: 0.14in; line-height: 100%"><FONT COLOR="#4f81bd"><FONT SIZE=2 STYLE="font-size: 9pt"><FONT COLOR="#000000"><FONT FACE="Times New Roman, serif"><FONT SIZE=2 STYLE="font-size: 11pt"><SPAN STYLE="font-weight: normal">Figure
+	9: Radar Map</SPAN></FONT></FONT></FONT></FONT></FONT></P>
+</SPAN>
+</P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in"><FONT SIZE=3>	</FONT></P>
+<P ALIGN=JUSTIFY STYLE="margin-left: 0.5in; margin-bottom: 0in"><FONT SIZE=3>	The
+radar system operates by rotating the range finder to each point, in
+a back and forth sweeping motion, and activating the range finder at
+each one.  To activate the radar pulse, it sets the Trigger line high
+for 10us, and then measure the time until the falling edge occurs on
+the Echo line. It uses a falling-edge triggered hardware interrupt on
+the Echo line to maintain high precision.  This &quot;ping&quot; is
+repeated multiple times at each position to develop an average value
+to store in the array.  </FONT>
+</P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in"><FONT SIZE=5>3.7	Current
+Development</FONT></P>
+<P STYLE="margin-left: 1in; margin-top: 0.08in; margin-bottom: 0in"><FONT SIZE=4><B>Bluetooth
+Connection:</B></FONT></P>
+<P ALIGN=JUSTIFY STYLE="margin-left: 1.25in; margin-bottom: 0in"><FONT SIZE=4><B>	</B></FONT><FONT SIZE=3>Currently,
+commands must be entered into the source code before uploading.  By
+adding a Bluetooth module, more sophisticated controls can be
+developed. Development of an Android application to control the robot
+is in progress. Bluetooth could also allow access to a network of
+various remote devices to help direct commands, including the
+internet.  The hardware component will be added underneath the
+Gyro/Accel module and will also communicate on the SPI bus.</FONT></P>
+<P STYLE="margin-left: 1in; margin-top: 0.08in; margin-bottom: 0in"><FONT SIZE=4><B>Steering:</B></FONT></P>
+<P ALIGN=JUSTIFY STYLE="margin-left: 1.25in; margin-bottom: 0in"><FONT SIZE=3>	To
+allow the robot to walk around obstacles,  a turning algorithm must
+still be developed.  While walking, the center of gravity restricts
+large variations from the normal algorithm.  I believe a modified
+walking algorithm that involves slipping the feet, pivoting the
+frame, and forcing a heavy roll can maintain center balance while
+turning.</FONT></P>
+<P STYLE="margin-left: 1in; margin-top: 0.08in; margin-bottom: 0in"><FONT SIZE=4><B>Radar
+Based Route:</B></FONT></P>
+<P ALIGN=JUSTIFY STYLE="margin-left: 1.25in; margin-bottom: 0in"><FONT SIZE=3>	Although
+the radar is collecting data and drawing a map, it is not affecting
+the actions of the robot.  Once steering has been developed, the
+radar values can be used to locate open routes and avoid obstacles. 
+The (X,Y) coordinate system of the feet are calibrated in inches, so
+real distances can be used to build layers of data into a 2D map.</FONT></P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in"><FONT SIZE=5>3.8	Software
+Outline</FONT></P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in"><FONT SIZE=4><B>setup
+()</B></FONT></P>
+<UL>
+	<UL>
+		<LI><P STYLE="margin-bottom: 0in">load startup routine into memory</P>
+		<LI><P STYLE="margin-bottom: 0in">initialize servo pins</P>
+		<LI><P STYLE="margin-bottom: 0in">set PWM frequency</P>
+		<LI><P STYLE="margin-bottom: 0in">initialize range finder</P>
+		<LI><P STYLE="margin-bottom: 0in">initialize LCD screen</P>
+		<LI><P STYLE="margin-bottom: 0in">initialize gyro/accel</P>
+		<LI><P STYLE="margin-bottom: 0in">set head, legs, and waist to
+		start position</P>
+	</UL>
+</UL>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in"><FONT SIZE=4><B>Main
+loop()</B></FONT></P>
+<UL>
+	<UL>
+		<LI><P STYLE="margin-bottom: 0in"><TABLE DIR="LTR" ALIGN=LEFT WIDTH=379 HSPACE=4 CELLPADDING=7 CELLSPACING=0>
+			<COL WIDTH=363>
+			<TR>
+				<TD WIDTH=363 HEIGHT=139 VALIGN=TOP BGCOLOR="#c6d9f1" STYLE="border: 1px solid #00000a; padding: 0in 0.08in">
+					<UL>
+						<LI><P STYLE="margin-bottom: 0in">calculate yaw, pitch, and
+						roll</P>
+						<LI><P STYLE="margin-bottom: 0in">load next command into
+						memory?</P>
+						<LI><P STYLE="margin-bottom: 0in">load next movement of current
+						command into memory?</P>
+						<LI><P STYLE="margin-bottom: 0in">adjust height of each leg to
+						maintain level</P>
+						<LI><P STYLE="margin-bottom: 0in">adjust each servo to move
+						feet to new locations</P>
+						<LI><P STYLE="margin-bottom: 0in">run radar routine to build
+						radar map</P>
+						<LI><P>draw graphics to display</P>
+					</UL>
+				</TD>
+			</TR>
+		</TABLE>processGyro()
+		</P>
+		<LI><P STYLE="margin-bottom: 0in">loadCommand() 
+		</P>
+		<LI><P STYLE="margin-bottom: 0in">executeCommand()  	</P>
+		<LI><P STYLE="margin-bottom: 0in">autolevel() 
+		</P>
+		<LI><P STYLE="margin-bottom: 0in">moveServo()  		  
+		</P>
+		<LI><P STYLE="margin-bottom: 0in">sweep()  		</P>
+		<LI><P STYLE="margin-bottom: 0in">drawData()  		</P>
+	</UL>
+</UL>
+<P ALIGN=CENTER STYLE="margin-left: 0.5in; margin-bottom: 0in"><BR>
+</P>
+<P ALIGN=CENTER STYLE="margin-left: 0.5in; margin-bottom: 0in">				Figure
+8: Main Loop Description</P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in"><FONT SIZE=4><B>processGyro()</B></FONT>
+  	</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0in">Capture and adjust current
+	gyro/accel values</P>
+	<LI><P STYLE="margin-bottom: 0in">Run Quaternion algorithm to
+	calculate Yaw, Pitch, and Roll</P>
+</UL>
+<P STYLE="margin-left: 1in; margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-left: 1in; margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in"><FONT SIZE=4><B>loadCommand()</B></FONT>	</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0in">Check flag to verify the current
+	command has completed 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in">load movements for next command
+	into memory</P>
+</UL>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in"><FONT SIZE=4><B>executeCommand()	</B></FONT></P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0in">Verify the current movement has
+	completed</P>
+	<LI><P STYLE="margin-bottom: 0in">load next movement into memory to
+	be executed by moveServo()</P>
+	<LI><P STYLE="margin-bottom: 0in">If entire command is complete, set
+	flag to trigger loadCommand()</P>
+</UL>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in">	</P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in"><FONT SIZE=4><B>autolevel()	</B></FONT></P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0in">Calculate new pitch and roll
+	values from locally stored gyro/accel data</P>
+	<LI><P STYLE="margin-bottom: 0in">Use various equations to calculate
+	amount of leg height compensation to adjust</P>
+	<LI><P STYLE="margin-bottom: 0in">Verify final values are within
+	physical limits</P>
+</UL>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in"><FONT SIZE=4><B>moveServo()</B></FONT></P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0in">Calculate the progress % of time
+	elapsed  / total time movement should take</P>
+	<LI><P STYLE="margin-bottom: 0in">Use preset equations and progress
+	% to determine where each foot should be</P>
+	<LI><P STYLE="margin-bottom: 0in">Calculate foot compensation for
+	any twisting at waist so feet remain parallel.</P>
+	<LI><P STYLE="margin-bottom: 0in">set waist servo to new position</P>
+	<LI><P STYLE="margin-bottom: 0in">call moveArm(leg, x, y)  for each
+	leg</P>
+</UL>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in"><FONT SIZE=4><B>moveArm(leg,
+x, y)</B></FONT></P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0in">Use law of cosines to calculate
+	angle of bottom servo</P>
+	<LI><P STYLE="margin-bottom: 0in">Use law of cosines to calculate
+	angle of top servo</P>
+	<LI><P STYLE="margin-bottom: 0in">Draw leg position on LCD screen</P>
+	<LI><P STYLE="margin-bottom: 0in">Convert angle into PWM value</P>
+	<LI><P STYLE="margin-bottom: 0in">Output PWM signal to servo</P>
+</UL>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in"><FONT SIZE=4><B>sweep()			</B></FONT></P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0in">send head servo to new position</P>
+	<LI><P STYLE="margin-bottom: 0in">wait for servo movement to
+	complete, based on time</P>
+	<LI><P STYLE="margin-bottom: 0in">trigger radar pulse</P>
+	<LI><P STYLE="margin-bottom: 0in">wait for radar return and then
+	store value</P>
+	<LI><P STYLE="margin-bottom: 0in">repeat radar ping to gather an
+	average value</P>
+	<LI><P STYLE="margin-bottom: 0in">store final value and update radar
+	map on LCD</P>
+</UL>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in">		</P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in">	</P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in"><FONT SIZE=4><B>Interrupt
+Routines:</B></FONT></P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-left: 0.75in; margin-bottom: 0in"><FONT SIZE=3><B>pulseEnd()
+	</B></FONT></P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0in">subtract current time from start
+	time to compute elapsed time of radar return</P>
+	<LI><P STYLE="margin-bottom: 0in">set dataReady flag to true</P>
+</UL>
+<P STYLE="margin-left: 0.75in; margin-bottom: 0in"><FONT SIZE=3><B>readMPU()</B></FONT></P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0in">new gyro/accel data is ready, copy
+	values from registers into local variables</P>
+</UL>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in">			</P>
+<P STYLE="margin-left: 0.5in; margin-bottom: 0in">	</P>
+<P ALIGN=CENTER STYLE="margin-bottom: 0in">Arduino Source Code: 
+<A HREF="http://homes.cs.washington.edu/~alexvass/Robot/RobotWalking_v3.ino">http://homes.cs.washington.edu/~alexvass/Robot/RobotWalking_v3.ino</A></P>
+<P ALIGN=CENTER STYLE="margin-bottom: 0in"><BR>
+</P>
+<P ALIGN=CENTER STYLE="margin-bottom: 0in">Video Walkthrough:
+<A HREF="http://homes.cs.washington.edu/~alexvass/Robot/RobotDemo.avi">http://homes.cs.washington.edu/~alexvass/Robot/RobotDemo.avi</A></P>

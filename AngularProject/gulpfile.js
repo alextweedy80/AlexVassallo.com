@@ -66,8 +66,6 @@ gulp.task('js', function () {
             '!./app/**/*_test*.js',
             './app/**/**/*.js',
             '!./app/**/**/*_test*.js',
-            './app/projects/**/*.js',
-            './app/projects/**/*_test*.js',
             '!./app/bower_components/**/*',
             '!./app/css/*',
             '!./app/js/*',
