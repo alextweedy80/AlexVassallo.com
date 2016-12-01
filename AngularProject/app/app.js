@@ -47,6 +47,20 @@ angular.module('myApp.HeartRateMonitorView', ['ngRoute'])
 }]);
 'use strict';
 
+angular.module('myApp.IraqAirplaneView', ['ngRoute'])
+
+.config(['$routeProvider', function($routeProvider) {
+    $routeProvider.when('/Projects/IraqAirplane', {
+        templateUrl: 'projects/IraqAirplane/IraqAirplane.html',
+        controller: 'ViewCtrl_IraqAirplane'
+  });
+}])
+
+.controller('ViewCtrl_IraqAirplane', [function () {
+
+}]);
+'use strict';
+
 angular.module('myApp.MotorTesterView', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider) {
@@ -99,20 +113,6 @@ angular.module('myApp.RobotView', ['ngRoute'])
 }])
 
 .controller('ViewCtrl_Robot', [function() {
-
-}]);
-'use strict';
-
-angular.module('myApp.IraqAirplaneView', ['ngRoute'])
-
-.config(['$routeProvider', function($routeProvider) {
-    $routeProvider.when('/Projects/IraqAirplane', {
-        templateUrl: 'projects/IraqAirplane/IraqAirplane.html',
-        controller: 'ViewCtrl_IraqAirplane'
-  });
-}])
-
-.controller('ViewCtrl_IraqAirplane', [function () {
 
 }]);
 'use strict';

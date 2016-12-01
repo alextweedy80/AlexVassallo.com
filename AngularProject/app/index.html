@@ -6,7 +6,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>My AngularJS App</title>
+  <title>Alex Vassallo</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="css/normalize.css">
@@ -28,11 +28,14 @@
             <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".navbar-collapse">
                 <i class="icon-reorder"></i>
             </button>
-            <a class="navbar-brand" href="#" >
-                Portfollio
+            <a class="navbar-brand" href="#/HomeView" >
+                Home
             </a>
-            <a class="navbar-brand" href="#">
-                About
+            <a class="navbar-brand" href="#/Projects">
+                Projects
+            </a>
+            <a class="navbar-brand" href="#/">
+                Contact
             </a>
 
         </div>
@@ -63,6 +66,7 @@
         </nav>
     </div>
     <div ng-view class="ml15 mr15"></div>
+    
     <div id="wrapper">
         <div id="columns">
             <a class="pin" href="#/Projects/Robot">
@@ -96,7 +100,7 @@
 
 
             <a class="pin" href="#/Projects/HeartRateMonitor">
-                <img src="/app/projects/HeartRateMonitor/img/heartrate.jpg" />
+                <img height="205" src="/app/projects/HeartRateMonitor/img/heartrate.jpg" />
                 <p>
                     heart rate monitor blah blah
                 </p>
