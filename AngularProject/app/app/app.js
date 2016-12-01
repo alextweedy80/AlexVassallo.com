@@ -4,12 +4,12 @@
 angular.module('myApp', [
   'ngRoute',
   'myApp.HomeView',
-  'myApp.Robot',
-  'myApp.MotorTester',
-  'myApp.HeartRateMonitor',
-  'myApp.obd2',
-  'myApp.IraqAirplane',
-  'myApp.OpticalReceiver',
+  'myApp.RobotView',
+  'myApp.MotorTesterView',
+  'myApp.HeartRateMonitorView',
+  'myApp.obd2View',
+  'myApp.IraqAirplaneView',
+  'myApp.OpticalReceiverView',
   'myApp.version'
 ]).
 config(['$routeProvider', function($routeProvider) {

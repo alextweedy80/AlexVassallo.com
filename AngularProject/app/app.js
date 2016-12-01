@@ -4,12 +4,12 @@
 angular.module('myApp', [
   'ngRoute',
   'myApp.HomeView',
-  'myApp.Robot',
-  'myApp.MotorTester',
-  'myApp.HeartRateMonitor',
-  'myApp.obd2',
-  'myApp.IraqAirplane',
-  'myApp.OpticalReceiver',
+  'myApp.RobotView',
+  'myApp.MotorTesterView',
+  'myApp.HeartRateMonitorView',
+  'myApp.obd2View',
+  'myApp.IraqAirplaneView',
+  'myApp.OpticalReceiverView',
   'myApp.version'
 ]).
 config(['$routeProvider', function($routeProvider) {
@@ -61,20 +61,6 @@ angular.module('myApp.IraqAirplaneView', ['ngRoute'])
 }]);
 'use strict';
 
-angular.module('myApp.obd2View', ['ngRoute'])
-
-.config(['$routeProvider', function($routeProvider) {
-    $routeProvider.when('/Projects/obd2', {
-        templateUrl: 'projects/obd2/obd2.html',
-        controller: 'ViewCtrl_obd2'
-  });
-}])
-
-.controller('ViewCtrl_obd2', [function () {
-
-}]);
-'use strict';
-
 angular.module('myApp.MotorTesterView', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider) {
@@ -85,6 +71,20 @@ angular.module('myApp.MotorTesterView', ['ngRoute'])
 }])
 
 .controller('ViewCtrl_MotorTester', [function () {
+
+}]);
+'use strict';
+
+angular.module('myApp.obd2View', ['ngRoute'])
+
+.config(['$routeProvider', function($routeProvider) {
+    $routeProvider.when('/Projects/obd2', {
+        templateUrl: 'projects/obd2/obd2.html',
+        controller: 'ViewCtrl_obd2'
+  });
+}])
+
+.controller('ViewCtrl_obd2', [function () {
 
 }]);
 'use strict';
