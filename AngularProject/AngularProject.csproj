@@ -88,6 +88,7 @@
     <Content Include="app\fonts\fontawesome-webfont.svg" />
     <Content Include="app\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="app\img\Coast to Coast.jpg" />
+    <Content Include="app\img\selfie.jpg" />
     <Content Include="app\img\Sunset.jpg" />
     <Content Include="app\index-async.html" />
     <Content Include="app\index.html" />
@@ -108,18 +109,24 @@
     <Content Include="app\projects\HeartRateMonitor\HeartRateMonitor.html" />
     <Content Include="app\projects\HeartRateMonitor\HeartRateMonitor.js" />
     <Content Include="app\projects\HeartRateMonitor\HeartRateMonitor_test.js" />
+    <Content Include="app\projects\HeartRateMonitor\img\heartrate.jpg" />
+    <Content Include="app\projects\IraqAirplane\img\Airplane.jpg" />
     <Content Include="app\projects\IraqAirplane\IraqAirplane.html" />
     <Content Include="app\projects\IraqAirplane\IraqAirplane.js" />
     <Content Include="app\projects\IraqAirplane\IraqAirplane_test.js" />
+    <Content Include="app\projects\MotorTester\img\MotorTester.jpg" />
     <Content Include="app\projects\MotorTester\MotorTester.html" />
     <Content Include="app\projects\MotorTester\MotorTester.js" />
     <Content Include="app\projects\MotorTester\MotorTester_test.js" />
+    <Content Include="app\projects\obd2\img\obd2.jpg" />
     <Content Include="app\projects\obd2\obd2.html" />
     <Content Include="app\projects\obd2\obd2.js" />
     <Content Include="app\projects\obd2\obd2_test.js" />
+    <Content Include="app\projects\OpticalReceiver\img\OptRcvr.jpg" />
     <Content Include="app\projects\OpticalReceiver\OpticalReceiver.html" />
     <Content Include="app\projects\OpticalReceiver\OpticalReceiver.js" />
     <Content Include="app\projects\OpticalReceiver\OpticalReceiver_test.js" />
+    <Content Include="app\projects\Robot\img\robot.jpg" />
     <Content Include="app\projects\Robot\Robot.html" />
     <Content Include="app\projects\Robot\Robot.js" />
     <Content Include="app\projects\Robot\Robot_test.js" />
@@ -168,11 +175,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="app\bower_components\" />
-    <Folder Include="app\projects\HeartRateMonitor\img\" />
-    <Folder Include="app\projects\IraqAirplane\img\" />
-    <Folder Include="app\projects\obd2\img\" />
-    <Folder Include="app\projects\OpticalReceiver\img\" />
-    <Folder Include="app\projects\Robot\img\" />
     <Folder Include="e2e-tests\" />
   </ItemGroup>
   <ItemGroup>
