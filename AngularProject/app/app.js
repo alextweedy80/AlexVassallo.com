@@ -47,20 +47,6 @@ angular.module('myApp.HeartRateMonitorView', ['ngRoute'])
 }]);
 'use strict';
 
-angular.module('myApp.IraqAirplaneView', ['ngRoute'])
-
-.config(['$routeProvider', function($routeProvider) {
-    $routeProvider.when('/Projects/IraqAirplane', {
-        templateUrl: 'projects/IraqAirplane/IraqAirplane.html',
-        controller: 'ViewCtrl_IraqAirplane'
-  });
-}])
-
-.controller('ViewCtrl_IraqAirplane', [function () {
-
-}]);
-'use strict';
-
 angular.module('myApp.MotorTesterView', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider) {
@@ -75,16 +61,16 @@ angular.module('myApp.MotorTesterView', ['ngRoute'])
 }]);
 'use strict';
 
-angular.module('myApp.obd2View', ['ngRoute'])
+angular.module('myApp.IraqAirplaneView', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider) {
-    $routeProvider.when('/Projects/obd2', {
-        templateUrl: 'projects/obd2/obd2.html',
-        controller: 'ViewCtrl_obd2'
+    $routeProvider.when('/Projects/IraqAirplane', {
+        templateUrl: 'projects/IraqAirplane/IraqAirplane.html',
+        controller: 'ViewCtrl_IraqAirplane'
   });
 }])
 
-.controller('ViewCtrl_obd2', [function () {
+.controller('ViewCtrl_IraqAirplane', [function () {
 
 }]);
 'use strict';
@@ -99,6 +85,20 @@ angular.module('myApp.OpticalReceiverView', ['ngRoute'])
 }])
 
 .controller('ViewCtrl_OpticalReceiver', [function () {
+
+}]);
+'use strict';
+
+angular.module('myApp.obd2View', ['ngRoute'])
+
+.config(['$routeProvider', function($routeProvider) {
+    $routeProvider.when('/Projects/obd2', {
+        templateUrl: 'projects/obd2/obd2.html',
+        controller: 'ViewCtrl_obd2'
+  });
+}])
+
+.controller('ViewCtrl_obd2', [function () {
 
 }]);
 'use strict';
