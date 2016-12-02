@@ -30,7 +30,7 @@
 </P>
 <P STYLE="margin-bottom: 0in; widows: 0; orphans: 0">
     <FONT FACE="Times New Roman, serif" SIZE=6>
-            1 Abstract
+        1 Abstract
     </FONT>
 </P>
 
@@ -63,7 +63,7 @@
     </FONT>
 </P>
 <P ALIGN=CENTER STYLE="margin-bottom: 0in">
-    
+
 </P>
 
 <P ALIGN=CENTER STYLE="margin-bottom: 0in">
@@ -99,20 +99,20 @@
     <BR>
 </P>
 <P ALIGN="CENTER" STYLE="margin-bottom: 0in">
-    <IMG SRC="Projects/obd2/img/i_ac965724d2fb0386_html_a68648d8.jpg" NAME="Picture 2" HSPACE=12 WIDTH=336 HEIGHT=189 BORDER=0> 
+    <IMG SRC="Projects/obd2/img/i_ac965724d2fb0386_html_a68648d8.jpg" NAME="Picture 2" HSPACE=12 WIDTH=336 HEIGHT=189 BORDER=0>
     <IMG SRC="Projects/obd2/img/i_ac965724d2fb0386_html_2043ebb8.jpg" NAME="Picture 3" HSPACE=12 WIDTH=336 HEIGHT=189 BORDER=0><BR>
     <FONT SIZE=3>
-         Arduino Uno and Vehicle Interface				Complete Assembly
+        Arduino Uno and Vehicle Interface				Complete Assembly
     </FONT>
 </P>
 
-    <BR>
+<BR>
 </P>
 <P STYLE="margin-bottom: 0in">
 
 </P>
-<P STYLE="margin-bottom: 0in"><FONT FACE="Times New Roman, serif"><FONT SIZE=6>3	Software</FONT></FONT></P>
-<P STYLE="margin-bottom: 0in"><FONT SIZE=5>	3.1 	Handshake</FONT></P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="Times New Roman, serif"><FONT SIZE=6>3 Software<br /><br /></FONT></FONT></P>
+<P STYLE="margin-left:0.5in; margin-bottom: 0in"><FONT SIZE=5>	3.1 	Handshake</FONT></P>
 <P ALIGN=JUSTIFY STYLE="margin-left: 0.5in; margin-bottom: 0in">
     <FONT SIZE=3>
         To
@@ -170,53 +170,49 @@
         Figure 3: Data Transfer
     </FONT>
 </P>
-<P STYLE="margin-left: 0.5in; margin-bottom: 0in">
-    <FONT SIZE=5>
-        3.3	Data Format
-    </FONT>
-</P>
+
 <P STYLE="margin-left: 0.5in; margin-bottom: 0in">
     <BR>
 </P>
-<P ALIGN=JUSTIFY STYLE="margin-left: 0.5in; margin-right: 3.69in; margin-bottom: 0in">
-    <SPAN ID="Frame2" DIR="LTR" STYLE="position: absolute; top: 4.61in; left: 6.23in; width: 0.02in; border: none; padding: 0in; background: #ffffff">
-<P STYLE="margin-bottom: 0.14in; border: none; padding: 0in; line-height: 100%">
-    <FONT COLOR="#4f81bd">
-        <FONT SIZE=2 STYLE="font-size: 9pt">
-            <B>
-                <FONT SIZE=3>
-                    Table 2
-                </FONT>
-            </B>
-        </FONT>
-    </FONT>
-</P>
 
-<TABLE DIR="LTR" ALIGN=RIGHT WIDTH=318 HSPACE=4 CELLPADDING=7 CELLSPACING=0>
-    <COL WIDTH=27>
-    <COL WIDTH=261>
-    <TR>
-        <TD COLSPAN=2 WIDTH=302 VALIGN=TOP BGCOLOR="#c6d9f1" STYLE="border: 1px solid #00000a; padding: 0in 0.08in">
-            <P ALIGN=CENTER><SPAN ID="Frame1" DIR="LTR" STYLE="position: absolute; top: 1.8in; left: 6.15in; width: 0.02in; border: none; padding: 0in; background: #ffffff">
-            <P STYLE="border: none; padding: 0in">
-                <FONT COLOR="#4f81bd">
-                    <FONT SIZE=2 STYLE="font-size: 9pt">
-                        <B>
-                            <FONT SIZE=3>
-                                Table
-                                1
-                            </FONT>
-                        </B>
-                    </FONT>
+<TABLE dir="LTR">
+    <TR VALIGN=TOP>
+        <td>
+            <P STYLE="margin-left: 0.5in; margin-bottom: 0in">
+                <FONT SIZE=5>
+                    3.3	Data Format<br /><br />
                 </FONT>
             </P>
-            </SPAN>
-            <TABLE DIR="LTR" ALIGN=RIGHT WIDTH=319 HSPACE=4 CELLPADDING=7 CELLSPACING=0>
-                <COL WIDTH=70>
-                <COL WIDTH=219>
+            <P STYLE="margin-left: 0.5in; margin-bottom: 0in">
+
+                <FONT SIZE=3>
+                    The data format of each packet is defined by
+                    the OBD2 specifications. Table 1 shows the definition of each byte by
+                    position. The first two bytes defines whether it is a request or
+                    response. The next byte is the source address of the equipment
+                    sending the message. The next byte defines which mode the ECU should
+                    be in when processing requests. Table 2 shows the various modes of
+                    operation. The next byte contains the PID, or Parameter ID, that
+                    specifies the exact data being requested. The bytes after the PID is
+                    the data section for responses, which must be between 1 and 8 bytes
+                    long. Large items such as VIN numbers are broken up into multi-packet
+                    messages, and the first byte of the data section contains the packet
+                    number. When responding to a request, the CRC checksum is always the
+                    last byte. It is simply a summation of the data area truncated to 8
+                    bits.
+                </FONT>
+            </P>
+        </td>
+        <td>
+            <TABLE DIR="LTR" ALIGN=RIGHT WIDTH=318 HSPACE=4 CELLPADDING=7 CELLSPACING=0>
+
                 <TR>
                     <TD COLSPAN=2 WIDTH=303 VALIGN=TOP BGCOLOR="#c6d9f1" STYLE="border: 1px solid #00000a; padding: 0in 0.08in">
-                        <P ALIGN=CENTER><FONT SIZE=4>Byte Definitions</FONT></P>
+                        <P ALIGN=CENTER>
+                            <FONT SIZE=4>
+                                Byte Definitions
+                            </FONT>
+                        </P>
                     </TD>
                 </TR>
                 <TR VALIGN=TOP>
@@ -275,153 +271,162 @@
                         <P STYLE="page-break-after: avoid">CRC checksum (sum of data)</P>
                     </TD>
                 </TR>
-            </TABLE>Mode Definitions
+            </TABLE>
+            <P ALIGN=CENTER STYLE="border: none; padding: 0in">
+                <FONT COLOR="#4f81bd" SIZE=3>
+                    <B>Table 1</B>
+                </FONT>
             </P>
-        </TD>
+        </td>
     </TR>
-    <TR VALIGN=TOP>
-        <TD WIDTH=27 STYLE="border: 1px solid #00000a; padding: 0in 0.08in">
-            <P STYLE="margin-bottom: 0in; line-height: 100%">1</P>
-        </TD>
-        <TD WIDTH=261 STYLE="border: 1px solid #00000a; padding: 0in 0.08in">
-            <P STYLE="margin-bottom: 0in; line-height: 100%">Show current data</P>
-        </TD>
-    </TR>
-    <TR VALIGN=TOP>
-        <TD WIDTH=27 STYLE="border: 1px solid #00000a; padding: 0in 0.08in">
-            <P STYLE="margin-bottom: 0in; line-height: 100%">2</P>
-        </TD>
-        <TD WIDTH=261 STYLE="border: 1px solid #00000a; padding: 0in 0.08in">
-            <P STYLE="margin-bottom: 0in; line-height: 100%">
-                Show Freeze frame
-                data
+    <tr>
+        <td>
+            <P STYLE="margin-left: 0.5in; margin-bottom: 0in">
+                <FONT SIZE=3>
+                    Each mode of operation listed in Table 2 follows a specific format. Mode
+                    3, (Show DTCs), requires 2 bytes of encoded data to define a DTC, and
+                    requires sending multiple packets for 3 or more DTCs.  Mode 9 is used
+                    to verify the vehicle's identity and all responses require a
+                    multi-packet message. This includes information such as VIN numbers,
+                    serial numbers, or &quot;tamper-proof&quot; checksums.  Modes 4
+                    through 8 are not required for normal diagnostics, and are not used
+                    in this project.
+                </FONT>
             </P>
-        </TD>
-    </TR>
-    <TR VALIGN=TOP>
-        <TD WIDTH=27 STYLE="border: 1px solid #00000a; padding: 0in 0.08in">
-            <P STYLE="margin-bottom: 0in; line-height: 100%">3</P>
-        </TD>
-        <TD WIDTH=261 STYLE="border: 1px solid #00000a; padding: 0in 0.08in">
-            <P STYLE="margin-bottom: 0in; line-height: 100%">
-                Show stored
-                Diagnostic Trouble Codes
+
+        </td>
+        <td>
+            <TABLE DIR="LTR" ALIGN=RIGHT WIDTH=318 HSPACE=4 CELLPADDING=7 CELLSPACING=0>
+
+
+                <TR>
+                    <TD COLSPAN=2 WIDTH=303 VALIGN=TOP BGCOLOR="#c6d9f1" STYLE="border: 1px solid #00000a; padding: 0in 0.08in">
+                        <P ALIGN=CENTER><FONT SIZE=4>Mode Definitions</FONT></P>
+                    </TD>
+                </TR>
+
+
+                <TR VALIGN=TOP>
+                    <TD WIDTH=27 STYLE="border: 1px solid #00000a; padding: 0in 0.08in">
+                        <P STYLE="margin-bottom: 0in; line-height: 100%">1</P>
+                    </TD>
+                    <TD WIDTH=261 STYLE="border: 1px solid #00000a; padding: 0in 0.08in">
+                        <P STYLE="margin-bottom: 0in; line-height: 100%">Show current data</P>
+                    </TD>
+                </TR>
+                <TR VALIGN=TOP>
+                    <TD WIDTH=27 STYLE="border: 1px solid #00000a; padding: 0in 0.08in">
+                        <P STYLE="margin-bottom: 0in; line-height: 100%">2</P>
+                    </TD>
+                    <TD WIDTH=261 STYLE="border: 1px solid #00000a; padding: 0in 0.08in">
+                        <P STYLE="margin-bottom: 0in; line-height: 100%">
+                            Show Freeze frame
+                            data
+                        </P>
+                    </TD>
+                </TR>
+                <TR VALIGN=TOP>
+                    <TD WIDTH=27 STYLE="border: 1px solid #00000a; padding: 0in 0.08in">
+                        <P STYLE="margin-bottom: 0in; line-height: 100%">3</P>
+                    </TD>
+                    <TD WIDTH=261 STYLE="border: 1px solid #00000a; padding: 0in 0.08in">
+                        <P STYLE="margin-bottom: 0in; line-height: 100%">
+                            Show stored
+                            Diagnostic Trouble Codes
+                        </P>
+                    </TD>
+                </TR>
+                <TR VALIGN=TOP>
+                    <TD WIDTH=27 STYLE="border: 1px solid #00000a; padding: 0in 0.08in">
+                        <P STYLE="margin-bottom: 0in; line-height: 100%">4</P>
+                    </TD>
+                    <TD WIDTH=261 STYLE="border: 1px solid #00000a; padding: 0in 0.08in">
+                        <P STYLE="margin-bottom: 0in; line-height: 100%">
+                            Clear stored
+                            Diagnostic Trouble Codes
+                        </P>
+                    </TD>
+                </TR>
+                <TR VALIGN=TOP>
+                    <TD WIDTH=27 STYLE="border: 1px solid #00000a; padding: 0in 0.08in">
+                        <P STYLE="margin-bottom: 0in; line-height: 100%">5</P>
+                    </TD>
+                    <TD WIDTH=261 STYLE="border: 1px solid #00000a; padding: 0in 0.08in">
+                        <P STYLE="margin-bottom: 0in; line-height: 100%">
+                            System Monitor
+                            (non-CAN)
+                        </P>
+                    </TD>
+                </TR>
+                <TR VALIGN=TOP>
+                    <TD WIDTH=27 STYLE="border: 1px solid #00000a; padding: 0in 0.08in">
+                        <P STYLE="margin-bottom: 0in; line-height: 100%">6</P>
+                    </TD>
+                    <TD WIDTH=261 STYLE="border: 1px solid #00000a; padding: 0in 0.08in">
+                        <P STYLE="margin-bottom: 0in; line-height: 100%">
+                            System Monitor(
+                            CAN)
+                        </P>
+                    </TD>
+                </TR>
+                <TR VALIGN=TOP>
+                    <TD WIDTH=27 STYLE="border: 1px solid #00000a; padding: 0in 0.08in">
+                        <P STYLE="margin-bottom: 0in; line-height: 100%">7</P>
+                    </TD>
+                    <TD WIDTH=261 STYLE="border: 1px solid #00000a; padding: 0in 0.08in">
+                        <P STYLE="margin-bottom: 0in; line-height: 100%">
+                            Show pending Diagnostic Trouble Codes
+                        </P>
+                    </TD>
+                </TR>
+                <TR VALIGN=TOP>
+                    <TD WIDTH=27 STYLE="border: 1px solid #00000a; padding: 0in 0.08in">
+                        <P STYLE="margin-bottom: 0in; line-height: 100%">8</P>
+                    </TD>
+                    <TD WIDTH=261 STYLE="border: 1px solid #00000a; padding: 0in 0.08in">
+                        <P STYLE="margin-bottom: 0in; line-height: 100%">
+                            Control Onboard Systems
+                        </P>
+                    </TD>
+                </TR>
+                <TR VALIGN=TOP>
+                    <TD WIDTH=27 STYLE="border: 1px solid #00000a; padding: 0in 0.08in">
+                        <P STYLE="margin-bottom: 0in; line-height: 100%">9</P>
+                    </TD>
+                    <TD WIDTH=261 STYLE="border: 1px solid #00000a; padding: 0in 0.08in">
+                        <P STYLE="margin-bottom: 0in; line-height: 100%">
+                            Request vehicle information
+                        </P>
+                    </TD>
+                </TR>
+                <TR VALIGN=TOP>
+                    <TD WIDTH=27 STYLE="border: 1px solid #00000a; padding: 0in 0.08in">
+                        <P STYLE="margin-bottom: 0in; line-height: 100%">10</P>
+                    </TD>
+                    <TD WIDTH=261 STYLE="border: 1px solid #00000a; padding: 0in 0.08in">
+                        <P STYLE="margin-bottom: 0in; line-height: 100%; page-break-after: avoid">
+                            Show Permanent Diagnostic Trouble Codes
+                        </P>
+                    </TD>
+                </TR>
+                
+            </TABLE>
+            <P ALIGN=CENTER STYLE="border: none; padding: 0in">
+                <FONT COLOR="#4f81bd" SIZE=3>
+                    <B>Table 2</B>
+                </FONT>
             </P>
-        </TD>
-    </TR>
-    <TR VALIGN=TOP>
-        <TD WIDTH=27 STYLE="border: 1px solid #00000a; padding: 0in 0.08in">
-            <P STYLE="margin-bottom: 0in; line-height: 100%">4</P>
-        </TD>
-        <TD WIDTH=261 STYLE="border: 1px solid #00000a; padding: 0in 0.08in">
-            <P STYLE="margin-bottom: 0in; line-height: 100%">
-                Clear stored
-                Diagnostic Trouble Codes
-            </P>
-        </TD>
-    </TR>
-    <TR VALIGN=TOP>
-        <TD WIDTH=27 STYLE="border: 1px solid #00000a; padding: 0in 0.08in">
-            <P STYLE="margin-bottom: 0in; line-height: 100%">5</P>
-        </TD>
-        <TD WIDTH=261 STYLE="border: 1px solid #00000a; padding: 0in 0.08in">
-            <P STYLE="margin-bottom: 0in; line-height: 100%">
-                System Monitor
-                (non-CAN)
-            </P>
-        </TD>
-    </TR>
-    <TR VALIGN=TOP>
-        <TD WIDTH=27 STYLE="border: 1px solid #00000a; padding: 0in 0.08in">
-            <P STYLE="margin-bottom: 0in; line-height: 100%">6</P>
-        </TD>
-        <TD WIDTH=261 STYLE="border: 1px solid #00000a; padding: 0in 0.08in">
-            <P STYLE="margin-bottom: 0in; line-height: 100%">
-                System Monitor(
-                CAN)
-            </P>
-        </TD>
-    </TR>
-    <TR VALIGN=TOP>
-        <TD WIDTH=27 STYLE="border: 1px solid #00000a; padding: 0in 0.08in">
-            <P STYLE="margin-bottom: 0in; line-height: 100%">7</P>
-        </TD>
-        <TD WIDTH=261 STYLE="border: 1px solid #00000a; padding: 0in 0.08in">
-            <P STYLE="margin-bottom: 0in; line-height: 100%">
-                Show pending
-                Diagnostic Trouble Codes
-            </P>
-        </TD>
-    </TR>
-    <TR VALIGN=TOP>
-        <TD WIDTH=27 STYLE="border: 1px solid #00000a; padding: 0in 0.08in">
-            <P STYLE="margin-bottom: 0in; line-height: 100%">8</P>
-        </TD>
-        <TD WIDTH=261 STYLE="border: 1px solid #00000a; padding: 0in 0.08in">
-            <P STYLE="margin-bottom: 0in; line-height: 100%">
-                Control Onboard
-                Systems
-            </P>
-        </TD>
-    </TR>
-    <TR VALIGN=TOP>
-        <TD WIDTH=27 STYLE="border: 1px solid #00000a; padding: 0in 0.08in">
-            <P STYLE="margin-bottom: 0in; line-height: 100%">9</P>
-        </TD>
-        <TD WIDTH=261 STYLE="border: 1px solid #00000a; padding: 0in 0.08in">
-            <P STYLE="margin-bottom: 0in; line-height: 100%">
-                Request vehicle
-                information
-            </P>
-        </TD>
-    </TR>
-    <TR VALIGN=TOP>
-        <TD WIDTH=27 STYLE="border: 1px solid #00000a; padding: 0in 0.08in">
-            <P STYLE="margin-bottom: 0in; line-height: 100%">10</P>
-        </TD>
-        <TD WIDTH=261 STYLE="border: 1px solid #00000a; padding: 0in 0.08in">
-            <P STYLE="margin-bottom: 0in; line-height: 100%; page-break-after: avoid">
-                Show Permanent Diagnostic Trouble Codes
-            </P>
-        </TD>
-    </TR>
-</TABLE>	<FONT SIZE=3>
-    The data format of each packet is defined by
-    the OBD2 specifications. Table 1 shows the definition of each byte by
-    position. The first two bytes defines whether it is a request or
-    response. The next byte is the source address of the equipment
-    sending the message. The next byte defines which mode the ECU should
-    be in when processing requests. Table 2 shows the various modes of
-    operation. The next byte contains the PID, or Parameter ID, that
-    specifies the exact data being requested. The bytes after the PID is
-    the data section for responses, which must be between 1 and 8 bytes
-    long. Large items such as VIN numbers are broken up into multi-packet
-    messages, and the first byte of the data section contains the packet
-    number. When responding to a request, the CRC checksum is always the
-    last byte. It is simply a summation of the data area truncated to 8
-    bits.
-</FONT>
-</P>
-<P STYLE="margin-bottom: 0in">		</P>
+        </td>
+    </tr>
+</TABLE>
+
 <P STYLE="margin-bottom: 0in">
     <BR>
 </P>
 <P STYLE="margin-bottom: 0in">
     <BR>
 </P>
-<P ALIGN=JUSTIFY STYLE="margin-left: 0.5in; margin-bottom: 0in">
-    <FONT SIZE=3>
-        Each
-        mode of operation listed in Table 2 follows a specific format. Mode
-        3, (Show DTCs), requires 2 bytes of encoded data to define a DTC, and
-        requires sending multiple packets for 3 or more DTCs.  Mode 9 is used
-        to verify the vehicle's identity and all responses require a
-        multi-packet message. This includes information such as VIN numbers,
-        serial numbers, or &quot;tamper-proof&quot; checksums.  Modes 4
-        through 8 are not required for normal diagnostics, and are not used
-        in this project.
-    </FONT>
-</P>
+
 <P STYLE="margin-left: 0.5in; margin-bottom: 0in">
     <BR>
 </P>
