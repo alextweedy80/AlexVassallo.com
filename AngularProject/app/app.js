@@ -42,22 +42,6 @@ angular.module('myApp.ContactView', ['ngRoute'])
 }]);
 'use strict';
 
-angular.module('myApp.HomeView', ['ngRoute'])
-
-.config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/HomeView', {
-    templateUrl: 'HomeView/HomeView.html',
-    controller: 'HomeCtrl'
-  });
-}])
-
-.controller('HomeCtrl', ['$scope', function($scope) {
-    $scope.customStyle = {};
-    $scope.customStyle.mainClass = "HomeViewMain";
-    $scope.IsProject = true;
-}]);
-'use strict';
-
 angular.module('myApp.ProjectsView', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider) {
@@ -72,6 +56,22 @@ angular.module('myApp.ProjectsView', ['ngRoute'])
 }]);
 
 
+'use strict';
+
+angular.module('myApp.HomeView', ['ngRoute'])
+
+.config(['$routeProvider', function($routeProvider) {
+  $routeProvider.when('/HomeView', {
+    templateUrl: 'HomeView/HomeView.html',
+    controller: 'HomeCtrl'
+  });
+}])
+
+.controller('HomeCtrl', ['$scope', function($scope) {
+    $scope.customStyle = {};
+    $scope.customStyle.mainClass = "HomeViewMain";
+    $scope.IsProject = true;
+}]);
 'use strict';
 
 angular.module('myApp.version.interpolate-filter', [])
@@ -103,20 +103,6 @@ angular.module('myApp.version', [
 
 'use strict';
 
-angular.module('myApp.IraqAirplaneView', ['ngRoute'])
-
-.config(['$routeProvider', function($routeProvider) {
-    $routeProvider.when('/Projects/IraqAirplane', {
-        templateUrl: 'projects/IraqAirplane/IraqAirplane.html',
-        controller: 'ViewCtrl_IraqAirplane'
-  });
-}])
-
-.controller('ViewCtrl_IraqAirplane', [function () {
-
-}]);
-'use strict';
-
 angular.module('myApp.MotorTesterView', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider) {
@@ -131,16 +117,16 @@ angular.module('myApp.MotorTesterView', ['ngRoute'])
 }]);
 'use strict';
 
-angular.module('myApp.obd2View', ['ngRoute'])
+angular.module('myApp.IraqAirplaneView', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider) {
-    $routeProvider.when('/Projects/obd2', {
-        templateUrl: 'projects/obd2/obd2.html',
-        controller: 'ViewCtrl_obd2'
+    $routeProvider.when('/Projects/IraqAirplane', {
+        templateUrl: 'projects/IraqAirplane/IraqAirplane.html',
+        controller: 'ViewCtrl_IraqAirplane'
   });
 }])
 
-.controller('ViewCtrl_obd2', [function () {
+.controller('ViewCtrl_IraqAirplane', [function () {
 
 }]);
 'use strict';
@@ -159,16 +145,16 @@ angular.module('myApp.OpticalReceiverView', ['ngRoute'])
 }]);
 'use strict';
 
-angular.module('myApp.RobotView', ['ngRoute'])
+angular.module('myApp.obd2View', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/Projects/Robot', {
-    templateUrl: 'Projects/Robot/Robot.html',
-    controller: 'ViewCtrl_Robot'
+    $routeProvider.when('/Projects/obd2', {
+        templateUrl: 'projects/obd2/obd2.html',
+        controller: 'ViewCtrl_obd2'
   });
 }])
 
-.controller('ViewCtrl_Robot', [function() {
+.controller('ViewCtrl_obd2', [function () {
 
 }]);
 'use strict';
@@ -184,5 +170,19 @@ angular.module('myApp.HeartRateMonitorView', ['ngRoute'])
 }])
 
 .controller('ViewCtrl_HeartRateMonitor', [function ($scope) {
+
+}]);
+'use strict';
+
+angular.module('myApp.RobotView', ['ngRoute'])
+
+.config(['$routeProvider', function($routeProvider) {
+  $routeProvider.when('/Projects/Robot', {
+    templateUrl: 'Projects/Robot/Robot.html',
+    controller: 'ViewCtrl_Robot'
+  });
+}])
+
+.controller('ViewCtrl_Robot', [function() {
 
 }]);

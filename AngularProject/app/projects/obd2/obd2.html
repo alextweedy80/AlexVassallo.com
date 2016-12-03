@@ -2,19 +2,16 @@
 
 <P ALIGN=CENTER STYLE="margin-bottom: 0in">
     <FONT SIZE=6>
-        <B>
-            Vehicle On
-            Board Diagnostic (OBD2) Interface
-        </B>
+        <B>Vehicle On Board Diagnostic (OBD2) Interface</B>
     </FONT>
 </P>
 <P ALIGN=RIGHT STYLE="margin-bottom: 0in">
-    <FONT SIZE=4 STYLE="font-size: 16pt">
+    <FONT SIZE=4>
         July 2014
     </FONT>
 </P>
 <P ALIGN=RIGHT STYLE="margin-bottom: 0in">
-    <FONT SIZE=4 STYLE="font-size: 16pt">
+    <FONT SIZE=4>
         Alex Vassallo
     </FONT>
 </P>
@@ -22,7 +19,7 @@
     <BR>
 </P>
 <P ALIGN=CENTER STYLE="margin-bottom: 0in">
-    <IMG SRC="Projects/obd2/img/i_ac965724d2fb0386_html_72544c2.jpg" NAME="Picture 1" HSPACE=12 WIDTH=670 HEIGHT=377 BORDER=0><BR>
+    <IMG style="display:block; width:50%" SRC="Projects/obd2/img/i_ac965724d2fb0386_html_72544c2.jpg" NAME="Picture 1">
 </P>
 
 <P STYLE="margin-bottom: 0in">
@@ -82,17 +79,16 @@
 </P>
 <P ALIGN=JUSTIFY STYLE="margin-left: 0.5in; margin-bottom: 0in">
     <FONT SIZE=3>
-        The
-        hardware was designed to package together into a single unit that can
-        be installed under the dashboard. The MC33290 is a serial link bus
-        interface device designed to provide bi-directional half-duplex
-        communication, specifically for the ISO9141 protocol. It receives
+        The hardware was designed to be packaged together into a single unit that can
+        be installed behind the dashboard. The MC33290 is a serial link bus
+        interface device designed to provide level shifting and bi-directional half-duplex
+        communication, specifically made for the ISO9141 protocol. This unit can receive
         power directly from the vehicle battery since the input voltage limit
-        for the Arduino is 20V, and the MC33290 limit is 18V. To monitor the
+        for the Arduino Uno is 20V, and the MC33290 limit is 18V. To monitor the
         input voltage, a voltage divider scales down the voltage by 3 and
-        feeds an input pin on the Arduino.  There is a four pin harness, (not
+        feeds an input pin on the Arduino.  Then there is a four pin harness, (not
         shown), that routes each necessary connection to the appropriate pin
-        on the standard OBD2 connector.
+        on the back of the standard male OBD2 connector.
     </FONT>
 </P>
 <P STYLE="margin-bottom: 0in">
@@ -432,8 +428,7 @@
 </P>
 <P ALIGN=JUSTIFY STYLE="margin-left: 0.5in; margin-bottom: 0in">
     <FONT SIZE=3>
-        Most
-        of the normal PID requests are done using Mode 1, (Show Current
+        Most of the normal PID requests are done using Mode 1, (Show Current
         Data), and require a specifically formatted data response.  PIDs that
         request a sensor value each require a unique mathematical formula to
         scale and translate the values to be stored inside of 8 or 16 bits.
