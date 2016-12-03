@@ -7,6 +7,9 @@ angular.module('myApp', [
   'ngRoute',
   'myApp.HomeView',
   'myApp.ContactView',
+  'myApp.AboutView',
+  'myApp.ResumeView',
+
   'myApp.ProjectsView',
   'myApp.RobotView',
   'myApp.MotorTesterView',

@@ -18,6 +18,18 @@ body {
 .navbar-default {
     
     border-color:transparent;
+    font-family: "proxima-nova","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 1px;
+    font-family: "proxima-nova";
+    font-size: 13px;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 2px;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1em;
 }
 .size5vw {
     font-size: 5vw;
@@ -162,3 +174,4 @@ a:focus {
 #columns:hover .pin:not(:hover) {
 	opacity: 0.4;
 }
+

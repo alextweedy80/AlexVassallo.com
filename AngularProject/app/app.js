@@ -7,6 +7,9 @@ angular.module('myApp', [
   'ngRoute',
   'myApp.HomeView',
   'myApp.ContactView',
+  'myApp.AboutView',
+  'myApp.ResumeView',
+
   'myApp.ProjectsView',
   'myApp.RobotView',
   'myApp.MotorTesterView',
@@ -38,7 +41,23 @@ angular.module('myApp.ContactView', ['ngRoute'])
 }])
 
 .controller('ViewCtrl_Contact', [function ($scope) {
-    showProjects = true;
+
+}]);
+'use strict';
+
+angular.module('myApp.HomeView', ['ngRoute'])
+
+.config(['$routeProvider', function($routeProvider) {
+  $routeProvider.when('/HomeView', {
+    templateUrl: 'HomeView/HomeView.html',
+    controller: 'HomeCtrl'
+  });
+}])
+
+.controller('HomeCtrl', ['$scope', function($scope) {
+    $scope.customStyle = {};
+    $scope.customStyle.mainClass = "HomeViewMain";
+    $scope.IsProject = true;
 }]);
 'use strict';
 
@@ -58,19 +77,31 @@ angular.module('myApp.ProjectsView', ['ngRoute'])
 
 'use strict';
 
-angular.module('myApp.HomeView', ['ngRoute'])
+angular.module('myApp.ResumeView', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/HomeView', {
-    templateUrl: 'HomeView/HomeView.html',
-    controller: 'HomeCtrl'
+    $routeProvider.when('/Resume', {
+        templateUrl: 'Resume/Resume.html',
+        controller: 'ViewCtrl_Resume',
   });
 }])
 
-.controller('HomeCtrl', ['$scope', function($scope) {
-    $scope.customStyle = {};
-    $scope.customStyle.mainClass = "HomeViewMain";
-    $scope.IsProject = true;
+.controller('ViewCtrl_Resume', [function ($scope) {
+
+}]);
+'use strict';
+
+angular.module('myApp.AboutView', ['ngRoute'])
+
+.config(['$routeProvider', function($routeProvider) {
+    $routeProvider.when('/About', {
+        templateUrl: 'About/About.html',
+        controller: 'ViewCtrl_About',
+  });
+}])
+
+.controller('ViewCtrl_About', [function ($scope) {
+
 }]);
 'use strict';
 
@@ -103,16 +134,17 @@ angular.module('myApp.version', [
 
 'use strict';
 
-angular.module('myApp.MotorTesterView', ['ngRoute'])
+angular.module('myApp.HeartRateMonitorView', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider) {
-    $routeProvider.when('/Projects/MotorTester', {
-        templateUrl: 'projects/MotorTester/MotorTester.html',
-        controller: 'ViewCtrl_MotorTester'
+  $routeProvider.when('/Projects/HeartRateMonitor', {
+    templateUrl: 'projects/HeartRateMonitor/HeartRateMonitor.html',
+    controller: 'ViewCtrl_HeartRateMonitor'
+
   });
 }])
 
-.controller('ViewCtrl_MotorTester', [function () {
+.controller('ViewCtrl_HeartRateMonitor', [function ($scope) {
 
 }]);
 'use strict';
@@ -131,16 +163,16 @@ angular.module('myApp.IraqAirplaneView', ['ngRoute'])
 }]);
 'use strict';
 
-angular.module('myApp.OpticalReceiverView', ['ngRoute'])
+angular.module('myApp.MotorTesterView', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider) {
-    $routeProvider.when('/Projects/OpticalReceiver', {
-        templateUrl: 'projects/OpticalReceiver/OpticalReceiver.html',
-        controller: 'ViewCtrl_OpticalReceiver'
+    $routeProvider.when('/Projects/MotorTester', {
+        templateUrl: 'projects/MotorTester/MotorTester.html',
+        controller: 'ViewCtrl_MotorTester'
   });
 }])
 
-.controller('ViewCtrl_OpticalReceiver', [function () {
+.controller('ViewCtrl_MotorTester', [function () {
 
 }]);
 'use strict';
@@ -159,17 +191,16 @@ angular.module('myApp.obd2View', ['ngRoute'])
 }]);
 'use strict';
 
-angular.module('myApp.HeartRateMonitorView', ['ngRoute'])
+angular.module('myApp.OpticalReceiverView', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/Projects/HeartRateMonitor', {
-    templateUrl: 'projects/HeartRateMonitor/HeartRateMonitor.html',
-    controller: 'ViewCtrl_HeartRateMonitor'
-
+    $routeProvider.when('/Projects/OpticalReceiver', {
+        templateUrl: 'projects/OpticalReceiver/OpticalReceiver.html',
+        controller: 'ViewCtrl_OpticalReceiver'
   });
 }])
 
-.controller('ViewCtrl_HeartRateMonitor', [function ($scope) {
+.controller('ViewCtrl_OpticalReceiver', [function () {
 
 }]);
 'use strict';

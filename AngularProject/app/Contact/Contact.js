@@ -10,5 +10,5 @@ angular.module('myApp.ContactView', ['ngRoute'])
 }])
 
 .controller('ViewCtrl_Contact', [function ($scope) {
-    showProjects = true;
+
 }]);

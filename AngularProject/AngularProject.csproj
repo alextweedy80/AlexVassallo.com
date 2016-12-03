@@ -70,6 +70,9 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\About\About.html" />
+    <Content Include="app\About\About.js" />
+    <Content Include="app\About\About_test.js" />
     <Content Include="app\app.css" />
     <Content Include="app\app.js" />
     <Content Include="app\app\app.js" />
@@ -372,6 +375,9 @@
     <Content Include="app\Projects\Robot\Robot.html" />
     <Content Include="app\Projects\Robot\Robot.js" />
     <Content Include="app\Projects\Robot\Robot_test.js" />
+    <Content Include="app\Resume\Resume.html" />
+    <Content Include="app\Resume\Resume.js" />
+    <Content Include="app\Resume\Resume_test.js" />
     <Content Include="packages.config" />
     <Content Include=".tfignore" />
     <Content Include=".bowerrc" />
