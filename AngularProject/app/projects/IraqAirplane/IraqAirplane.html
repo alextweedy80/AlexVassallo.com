@@ -1,733 +1,737 @@
-<div ng-include="'projects/nav.html'"></div>
+<div ng-controller="ViewCtrl_IraqAirplane">
+    <div ng-include="'Projects/nav.html'"></div>
 
-<P ALIGN=CENTER STYLE="margin-bottom: 0.14in">
-    <FONT FACE="Times New Roman, serif" SIZE=6>
-        <B>Paper Airplane</B>
-    </FONT>
-</P>
-<P ALIGN=RIGHT STYLE="margin-bottom: 0in">
-    <FONT FACE="Times New Roman, serif" SIZE=4>
-        June 2008
-    </FONT>
-</P>
-<P ALIGN=RIGHT STYLE="margin-bottom: 0in">
-    <FONT FACE="Times New Roman, serif" SIZE=4>
-        Alex Vassallo
-    </FONT>
-</P>
-<P ALIGN=RIGHT STYLE="margin-bottom: 0in">
-    <BR>
-</P>
-<P ALIGN=CENTER STYLE="margin-bottom: 0.14in">
-    <IMG style="width:50%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_25071a6e.jpg" NAME="Picture 10" BORDER=0><br />
-</P>
-
-<P ALIGN=CENTER STYLE="margin-bottom: 0.14in; margin-left:10%; margin-right:10%">
-    <span style="text-align:center; width:80%">
-        <FONT size="5">
-            This project took place while serving on duty during Operation Iraqi Freedom. The
-            material used for construction was nothing more than the thin
-            cardboard found on the back of our notepads, the lined paper from in it,
-            superglue from the supply tent, paperclips, coffee straws,
-            thumbtacks, cigarette cellophane, the hardware found in
-            retractable pens. The electrical components were all scavanged from
-            broken devices, such as microwaves, printers, etc. The one exception
-            to local material was the 6 channel  R/C transmitter that a family
-            member had specially shipped to me.<br /><br />
+    <P ALIGN=CENTER STYLE="margin-bottom: 0.14in">
+        <FONT FACE="Times New Roman, serif" SIZE=6>
+            <B>Paper Airplane</B>
         </FONT>
-    </span>
-</P>
-<P STYLE="margin-bottom: 0.14in">
-    <FONT size="3">
-        The design began with detailed and scaled drawings done on graph paper. The airfoil chosen was a
-        Clark 'Y' airfoil due to the high lift, slow stall speed, and overall
-        simplicity requirements.  The width and length of the wings, (chord
-        and wingspan), were designed to be short and stubby to allow for large error
-        tolerances during construction and responsiveness of controls during
-        flight, while maintaining appropriate surface area for the projected
-        weight. The tail section was placed slightly closer to the center of
-        gravity than normal, to allow for more responsive controls rather
-        than overall stability during straight flight. The terrain that this
-        craft would be landing on would normally be dirt and rock, so
-        aluminum (soda cans) covered landing skids rather than wheels were
-        chosen, and would be retractable due to the high drag they create.
-        Lastly, because we had just captured a small mouse who had been
-        caught attempting to steal from our food stash, it was decided that
-        the mouse should 'pilot' this craft. Since no animals were harmed
-        during this project, an ejection seat was designed in the case of
-        catastrophic failure.<br /><br />
-    </FONT>
-</P>
+    </P>
+    <P ALIGN=RIGHT STYLE="margin-bottom: 0in">
+        <FONT FACE="Times New Roman, serif" SIZE=4>
+            June 2008
+        </FONT>
+    </P>
+    <P ALIGN=RIGHT STYLE="margin-bottom: 0in">
+        <FONT FACE="Times New Roman, serif" SIZE=4>
+            Alex Vassallo
+        </FONT>
+    </P>
+    <P ALIGN=RIGHT STYLE="margin-bottom: 0in">
+        <BR>
+    </P>
+    <P ALIGN=CENTER STYLE="margin-bottom: 0.14in">
+        <IMG style="width:50%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_25071a6e.jpg" NAME="Picture 10" BORDER=0><br />
+    </P>
+    <div ng-click="gotoChpt1()">click here  </div>
+    <P ALIGN=CENTER STYLE="margin-bottom: 0.14in; margin-left:10%; margin-right:10%">
+        <span style="text-align:center; width:80%">
+            <FONT size="5">
+                This project took place while serving on duty during Operation Iraqi Freedom. The
+                material used for construction was nothing more than the thin
+                cardboard found on the back of our notepads, the lined paper from in it,
+                superglue from the supply tent, paperclips, coffee straws,
+                thumbtacks, cigarette cellophane, the hardware found in
+                retractable pens. The electrical components were all scavanged from
+                broken devices, such as microwaves, printers, etc. The one exception
+                to local material was the 6 channel  R/C transmitter that a family
+                member had specially shipped to me.<br /><br />
+            </FONT>
+        </span>
+    </P>
+    <P STYLE="margin-bottom: 0.14in">
+        <FONT size="3">
+            The design began with detailed and scaled drawings done on graph paper. The airfoil chosen was a
+            Clark 'Y' airfoil due to the high lift, slow stall speed, and overall
+            simplicity requirements.  The width and length of the wings, (chord
+            and wingspan), were designed to be short and stubby to allow for large error
+            tolerances during construction and responsiveness of controls during
+            flight, while maintaining appropriate surface area for the projected
+            weight. The tail section was placed slightly closer to the center of
+            gravity than normal, to allow for more responsive controls rather
+            than overall stability during straight flight. The terrain that this
+            craft would be landing on would normally be dirt and rock, so
+            aluminum (soda cans) covered landing skids rather than wheels were
+            chosen, and would be retractable due to the high drag they create.
+            Lastly, because we had just captured a small mouse who had been
+            caught attempting to steal from our food stash, it was decided that
+            the mouse should 'pilot' this craft. Since no animals were harmed
+            during this project, an ejection seat was designed in the case of
+            catastrophic failure.<br /><br />
+        </FONT>
+    </P>
 
-<P ALIGN=CENTER STYLE="margin-bottom: 0.14in">
-    <table style="width:90%; margin-left:5%">
+    <P ALIGN=CENTER STYLE="margin-bottom: 0.14in">
+        <table style="width:90%; margin-left:5%">
+            <tr>
+                <td>
+                    <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_d4acfab7.jpg" NAME="Picture 12" BORDER=0>
+                </td>
+                <td>
+                    <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_44f18e84.jpg" NAME="Picture 11" BORDER=0>
+                </td>
+                <td>
+                    <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_6e9bf641.jpg" NAME="Picture 13" BORDER=0>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_437448b4.jpg" NAME="Picture 16" BORDER=0>
+                </td>
+                <td>
+                    <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_de1614cf.jpg" NAME="Picture 14" BORDER=0>
+                </td>
+                <td>
+                    <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_cae21691.jpg" NAME="Picture 9" BORDER=0>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_d9b47988.jpg" NAME="Picture 17" BORDER=0>
+                </td>
+                <td>
+                    <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_b01ed214.jpg" NAME="graphics1" BORDER=0>
+                </td>
+                <td>
+                    <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_e54e577a.jpg" NAME="Picture 15" BORDER=0>
+                </td>
+            </tr>
+            <tr>
+                <td align="center" colspan="3">
+                    <FONT size="3">
+                        The original sketches from Iraq that survived
+                    </FONT>
+                </td>
+            </tr>
+
+        </table>
+
+
+    </P>
+
+
+    <P STYLE="margin-bottom: 0.14in">
+        <BR><BR><BR>
+    </P>
+
+
+    <P STYLE="margin-bottom: 0.14in">
+        <FONT SIZE=3>
+            These are the basic components for construction. Bulkheads and ribs were carefully cut out from the
+            cardboard backings of my notepad books, and were typically 3-4 layers
+            thick each. The spars and stringers were made by carefully drawing
+            lines exactly 1/4 inch apart, and folding the paper into tight
+            squares while using stick glue to harden it into place.
+        </FONT>
+    </P>
+    <table style="width:80%" align="center">
         <tr>
             <td>
-                <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_d4acfab7.jpg" NAME="Picture 12" BORDER=0>
+                <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_5d574ef8.jpg" NAME="Picture 26">
             </td>
             <td>
-                <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_44f18e84.jpg" NAME="Picture 11" BORDER=0>
-            </td>
-            <td>
-                <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_6e9bf641.jpg" NAME="Picture 13" BORDER=0>
+                <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_da682799.jpg" NAME="Picture 27">
             </td>
         </tr>
         <tr>
             <td>
-                <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_437448b4.jpg" NAME="Picture 16" BORDER=0>
+                <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_50bb957a.jpg" NAME="Picture 28">
             </td>
             <td>
-                <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_de1614cf.jpg" NAME="Picture 14" BORDER=0>
-            </td>
-            <td>
-                <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_cae21691.jpg" NAME="Picture 9" BORDER=0>
+                <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_4ff6a1bb.jpg" NAME="Picture 30">
             </td>
         </tr>
         <tr>
-            <td>
-                <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_d9b47988.jpg" NAME="Picture 17" BORDER=0>
-            </td>
-            <td>
-                <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_b01ed214.jpg" NAME="graphics1" BORDER=0>
-            </td>
-            <td>
-                <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_e54e577a.jpg" NAME="Picture 15" BORDER=0>
-            </td>
-        </tr>
-        <tr>
-            <td align="center" colspan="3">
-                <FONT size="3">
-                    The original sketches from Iraq that survived
-                </FONT>
+            <td colspan="2">
+                <P STYLE="margin-bottom: 0.14in">
+                    <I>
+                        Fun fact: During the construction
+                        of this airplane, I built a side project to help out our late night
+                        gate guards. The electronics shown in these two top pictures was
+                        scavenged from a broken R/C car. The transmitter was combined with
+                        parts from a nightlight to transmit when a vehicle's headlights
+                        shined upon it, and the receiver portion was combined with a peizo
+                        speaker to alert them when a vehicle was approaching.<br /><br />
+                    </I>
+                </P>
             </td>
         </tr>
 
     </table>
 
 
-</P>
+    <table style="width:90%; margin-left:5%">
+        <tr>
+            <td style="width:40%">
+                <p>
+                    <FONT SIZE=3>
+                        The overall flow of the ejection seat process.
+                    </FONT>
+                </p>
+                <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_ba955358.jpg" NAME="Picture 31">
+            </td>
+            <td style="width:25%">
+                <P STYLE="margin-bottom: 0.14in; margin-left:10px; margin-right:10px">
+                    <FONT SIZE=2>
+                        Our pilot was held in place by a
+                        custom suit that was tailored out of 550 chord and had a strip of
+                        velcro sewn into the back. The parachute was found inside of a defused mortar
+                        flare round.
+                    </FONT>
+                </P>
+            </td>
+            <td style="width:25%">
+                <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_a7752239.jpg" NAME="Picture 35"><br />
+                <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_9fd461d3.jpg" NAME="Picture 34">
+            </td>
+        </tr>
 
 
-<P STYLE="margin-bottom: 0.14in">
-    <BR><BR><BR>
-</P>
+    </table>
 
 
-<P STYLE="margin-bottom: 0.14in">
-    <FONT SIZE=3>
-        These are the basic components for construction. Bulkheads and ribs were carefully cut out from the
-        cardboard backings of my notepad books, and were typically 3-4 layers
-        thick each. The spars and stringers were made by carefully drawing
-        lines exactly 1/4 inch apart, and folding the paper into tight
-        squares while using stick glue to harden it into place.
-    </FONT>
-</P>
-<table style="width:80%" align="center">
-    <tr>
-        <td>
-            <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_5d574ef8.jpg" NAME="Picture 26">
-        </td>
-        <td>
-            <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_da682799.jpg" NAME="Picture 27">
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_50bb957a.jpg" NAME="Picture 28">
-        </td>
-        <td>
-            <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_4ff6a1bb.jpg" NAME="Picture 30">
-        </td>
-    </tr>
-    <tr>
-        <td colspan="2">
-            <P STYLE="margin-bottom: 0.14in">
-                <I>
-                    Fun fact: During the construction
-                    of this airplane, I built a side project to help out our late night
-                    gate guards. The electronics shown in these two top pictures was
-                    scavenged from a broken R/C car. The transmitter was combined with
-                    parts from a nightlight to transmit when a vehicle's headlights
-                    shined upon it, and the receiver portion was combined with a peizo
-                    speaker to alert them when a vehicle was approaching.<br /><br />
-                </I>
-            </P>
-        </td>
-    </tr>
-
-</table>
+    <P STYLE="margin-bottom: 0.14in">
+        <BR><BR>
+    </P>
 
 
-<table style="width:90%; margin-left:5%">
-    <tr>
-        <td style="width:40%">
-            <p>
-                <FONT SIZE=3>
-                    The overall flow of the ejection seat process.
-                </FONT>
-            </p>
-            <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_ba955358.jpg" NAME="Picture 31">
-        </td>
-        <td style="width:25%">
-            <P STYLE="margin-bottom: 0.14in; margin-left:10px; margin-right:10px">
-                <FONT SIZE=2>
-                    Our pilot was held in place by a
-                    custom suit that was tailored out of 550 chord and had a strip of
-                    velcro sewn into the back. The parachute was found inside of a defused mortar
-                    flare round.
-                </FONT>
-            </P>
-        </td>
-        <td style="width:25%">
-            <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_a7752239.jpg" NAME="Picture 35"><br />
-            <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_9fd461d3.jpg" NAME="Picture 34">
-        </td>
-    </tr>
+    <P STYLE="margin-bottom: 0.14in">
+        <FONT size="3">
+            The ejection seat sat on top of a
+            platform that could be raised by pulling on a set of four strings.
+            These strings were later attached to large rubber bands with a lock
+            and release system to hold it under tension and explosively release.
+            The inner parts of a pen were used as string guides to eliminate
+            friction. The dual 9v batteries located in the nose were pulled
+            forward during the ejection process to counter-balance the immediate
+            loss of pilot weight.
+        </FONT>
+    </P>
+    <table style="width:80%; margin-left:10%">
+        <tr>
+            <td>
+                <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_b386a051.jpg" NAME="Picture 37">
+            </td>
+            <td>
+                <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_42434e5d.jpg" NAME="Picture 38">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_3e7e0277.jpg" NAME="Picture 39">
+            </td>
+            <td>
+                <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_179269db.jpg" NAME="Picture 40">
+            </td>
+        </tr>
+    </table>
+
+    <P STYLE="margin-bottom: 0.14in">
+        <BR><BR>
+    </P>
+    <P STYLE="margin-bottom: 0.14in">
+        <FONT size="3">
+            The forward retractable landing
+            skid was constructed from outer pen casings and thumbtacks. It was
+            designed to lock in place when fully extended and the small cardboard
+            peices were soaked in superglue for strength. The servo attachment
+            point is located behind the blue power switch and cannot be seen. The
+            actual skid itself will not appear until later pictures. The string
+            shown is for the ejection platform from the last step, and notice the
+            nose and tail sections have not been permanently glued together yet.
+        </FONT>
+    </P>
+    <table style="width:90%; margin-left:5%">
+        <tr>
+            <td>
+                <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_50cc2757.jpg" NAME="Picture 43">
+            </td>
+            <td>
+                <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_7e5c7a46.jpg" NAME="Picture 44">
+            </td>
+            <td>
+                <a name="frontSkid"></a>
+                <video height='100%' width='100%' controls="true" poster="/app/Projects/IraqAirplane/video/Airplane.jpg" src="/app/Projects/IraqAirplane/video/FrontSkid.mp4" type="video/mp4" loop autoplay />
+                Fuck you internets
+                </video>
+            </td>
+        </tr>
+    </table>
+
+    <P STYLE="margin-bottom: 0.14in">
+        <BR><BR><BR><BR>
+    </P>
+
+    <P STYLE="margin-bottom: 0.14in">
+        <FONT size="3">
+            The wings were constructed on a
+            large and perfectly flat surface. The center of the wing is
+            reinforced by extra cardboard to prevent them folding up during
+            flight. Large ailerons are controlled by using coffee straws and
+            paperclips as pushrods, which attach to a common servo. Bellcranks
+            were built using superglue soaked cardboard to translate pushrods 90
+            degrees to the ailerons.
+        </FONT>
+    </P>
+    <table style="width:90%; margin-left:5%">
+        <tr>
+            <td>
+                <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_c36724b6.jpg" NAME="Picture 45">
+            </td>
+            <td>
+                <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_e3b61b7f.jpg" NAME="Picture 47">
+            </td>
+            <td>
+                <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_cea734ae.jpg" NAME="Picture 50">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_b2956772.jpg" NAME="Picture 52">
+            </td>
+            <td>
+                <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_7484eef2.jpg" NAME="Picture 48">
+            </td>
+            <td>
+                <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_df937e9b.jpg" NAME="Picture 49">
+            </td>
+        </tr>
+    </table>
+
+    <P STYLE="margin-bottom: 0.14in">
+        <BR><BR><BR><BR>
+    </P>
+    <P STYLE="margin-bottom: 0.14in">
+        <font size="3">
+            It may be noted that the color of
+            the paper has changed to white. During construction, I was relocated
+            to another station, which required me to dismantle most of the parts
+            I had built. This new location had white notepads which I found much
+            more aesthetically pleasing anyways. I reconstructed the tail section
+            with this new paper. The elevator was built with a split surface
+            design connected to a servo via coffee straws and paperclips, and the
+            addition of LED navigation lights began. Cardboard was used to
+            strengthen leading and trailing surfaces.
+        </font>
+    </P>
+    <table style="width:90%; margin-left:5%">
+        <tr>
+            <td>
+                <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_69274437.jpg" NAME="Picture 5">
+            </td>
+            <td>
+                <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_42f0df87.jpg" NAME="Picture 0">
+            </td>
+            <td>
+                <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_ff3e1574.jpg" NAME="Picture 1">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_514d3768.jpg" NAME="Picture 2">
+            </td>
+            <td>
+                <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_b5cfdb6d.jpg" NAME="Picture 3">
+            </td>
+            <td>
+                <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_cac8f9.jpg" NAME="Picture 4">
+            </td>
+        </tr>
+    </table>
 
 
-</table>
+    <P STYLE="margin-bottom: 0.14in">
+        <BR><BR><BR><BR>
+    </P>
 
 
-<P STYLE="margin-bottom: 0.14in">
-    <BR><BR>
-</P>
+    <P STYLE="margin-bottom: 0.14in">
+        And now the more complicated peices. Here is the latch that holds the canopy down.
+    </P>
+
+    <table style="width:90%; margin-left:5%">
+        <tr>
+            <td>
+                <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_a4e74f6f.jpg" NAME="graphics2">
+            </td>
+            <td>
+                <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_d4eadd68.jpg" NAME="Picture 8">
+            </td>
+            <td>
+                <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_2eedeacf.jpg" NAME="Picture 7">
+            </td>
+        </tr>
+    </table>
+
+    <P STYLE="margin-bottom: 0.14in">
+        <A HREF="http://www.alexvassallo.com/Projects/IraqAirplane/Video/CanopyRelease.avi">
+            http://www.alexvassallo.com/Projects/IraqAirplane/Video/CanopyRelease.avi
+        </A>
+    </P>
+
+    <P STYLE="margin-bottom: 0.14in">
+        <BR><BR><BR><BR>
+    </P>
 
 
-<P STYLE="margin-bottom: 0.14in">
-    <FONT size="3">
-        The ejection seat sat on top of a
-        platform that could be raised by pulling on a set of four strings.
-        These strings were later attached to large rubber bands with a lock
-        and release system to hold it under tension and explosively release.
-        The inner parts of a pen were used as string guides to eliminate
-        friction. The dual 9v batteries located in the nose were pulled
-        forward during the ejection process to counter-balance the immediate
-        loss of pilot weight.
-    </FONT>
-</P>
-<table style="width:80%; margin-left:10%">
-    <tr>
-        <td>
-            <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_b386a051.jpg" NAME="Picture 37">
-        </td>
-        <td>
-            <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_42434e5d.jpg" NAME="Picture 38">
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_3e7e0277.jpg" NAME="Picture 39">
-        </td>
-        <td>
-            <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_179269db.jpg" NAME="Picture 40">
-        </td>
-    </tr>
-</table>
+    <P STYLE="margin-bottom: 0.14in">
+        Here is the ejection seat being built with a breakaway parachute box, a timer, and a PWM servo controller.
+    </P>
+    <table style="width:80%; margin-left:10%">
+        <tr>
+            <td>
+                <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_c77d3c31.jpg" NAME="graphics3">
+            </td>
+            <td>
+                <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_228ed840.jpg" NAME="graphics4">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_b87f7d45.jpg" NAME="graphics5">
+            </td>
+            <td>
+                <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_3b622d7d.jpg" NAME="graphics6">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <P margin-bottom 0.14in">
+                    <font size="2">
+                        <I>
+                            Large circuit was later reduced in size to fit pilot and a small
+                            battery fit into the corner. Contacts on the bottom were later added
+                            to detect when it had ejected.
+                        </I>
+                    </font>
+                </P>
+            </td>
+        </tr>
+    </table>
 
-<P STYLE="margin-bottom: 0.14in">
-    <BR><BR>
-</P>
-<P STYLE="margin-bottom: 0.14in">
-    <FONT size="3">
-        The forward retractable landing
-        skid was constructed from outer pen casings and thumbtacks. It was
-        designed to lock in place when fully extended and the small cardboard
-        peices were soaked in superglue for strength. The servo attachment
-        point is located behind the blue power switch and cannot be seen. The
-        actual skid itself will not appear until later pictures. The string
-        shown is for the ejection platform from the last step, and notice the
-        nose and tail sections have not been permanently glued together yet.
-    </FONT>
-</P>
-<table style="width:90%; margin-left:5%">
-    <tr>
-        <td>
-            <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_50cc2757.jpg" NAME="Picture 43">
-        </td>
-        <td>
-            <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_7e5c7a46.jpg" NAME="Picture 44">
-        </td>
-        <td>
-            <embed style="display:block; width:100%" src="Projects/IraqAirplane/video/frontSkid.avi" type="video/x-msvideo" Pluginspage="http://www.apple.com/quicktime/" CONTROLLER="true" LOOP="true" AUTOPLAY="false" name="front Skid Video">
-        </td>
-    </tr>
-</table>
-
-<P STYLE="margin-bottom: 0.14in">
-    <BR><BR><BR><BR>
-</P>
-
-<P STYLE="margin-bottom: 0.14in">
-    <FONT size="3">
-        The wings were constructed on a
-        large and perfectly flat surface. The center of the wing is
-        reinforced by extra cardboard to prevent them folding up during
-        flight. Large ailerons are controlled by using coffee straws and
-        paperclips as pushrods, which attach to a common servo. Bellcranks
-        were built using superglue soaked cardboard to translate pushrods 90
-        degrees to the ailerons.
-    </FONT>
-</P>
-<table style="width:90%; margin-left:5%">
-    <tr>
-        <td>
-            <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_c36724b6.jpg" NAME="Picture 45">
-        </td>
-        <td>
-            <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_e3b61b7f.jpg" NAME="Picture 47">
-        </td>
-        <td>
-            <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_cea734ae.jpg" NAME="Picture 50">
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_b2956772.jpg" NAME="Picture 52">
-        </td>
-        <td>
-            <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_7484eef2.jpg" NAME="Picture 48">
-        </td>
-        <td>
-            <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_df937e9b.jpg" NAME="Picture 49">
-        </td>
-    </tr>
-</table>
-
-<P STYLE="margin-bottom: 0.14in">
-    <BR><BR><BR><BR>
-</P>
-<P STYLE="margin-bottom: 0.14in">
-    <font size="3">
-        It may be noted that the color of
-        the paper has changed to white. During construction, I was relocated
-        to another station, which required me to dismantle most of the parts
-        I had built. This new location had white notepads which I found much
-        more aesthetically pleasing anyways. I reconstructed the tail section
-        with this new paper. The elevator was built with a split surface
-        design connected to a servo via coffee straws and paperclips, and the
-        addition of LED navigation lights began. Cardboard was used to
-        strengthen leading and trailing surfaces.
-    </font>
-</P>
-<table style="width:90%; margin-left:5%">
-    <tr>
-        <td>
-            <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_69274437.jpg" NAME="Picture 5">
-        </td>
-        <td>
-            <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_42f0df87.jpg" NAME="Picture 0">
-        </td>
-        <td>
-            <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_ff3e1574.jpg" NAME="Picture 1">
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_514d3768.jpg" NAME="Picture 2">
-        </td>
-        <td>
-            <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_b5cfdb6d.jpg" NAME="Picture 3">
-        </td>
-        <td>
-            <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_cac8f9.jpg" NAME="Picture 4">
-        </td>
-    </tr>
-</table>
+    <P STYLE="margin-bottom: 0.14in">
+        <BR><BR><BR><BR>
+    </P>
 
 
-<P STYLE="margin-bottom: 0.14in">
-    <BR><BR><BR><BR>
-</P>
+    <P STYLE="margin-bottom: 0.14in">
+        Here are the latches that held back
+        the huge tension that ejected the seat. The latches were release by
+        activating a motor connected to a gear box, (salvaged
+        from a R/C car), which pulled a common release string for both sides. These parts
+        were the most difficult to build. The release strings had routing tubes
+        glued into an exact alignment, which rested in this catch.
+    </P>
+
+    <table style="width:90%; margin-left:5%">
+        <tr>
+            <td>
+                <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_b998f91b.jpg" NAME="graphics7">
+            </td>
+            <td>
+                <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_8ca78ca8.jpg" NAME="Picture 18">
+            </td>
+            <td>
+                <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_d2a07f7d.jpg" NAME="Picture 29">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_81aecd08.jpg" NAME="graphics8">
+            </td>
+            <td>
+                <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_b5796bca.jpg" NAME="Picture 32">
+            </td>
+            <td>
+                <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_2b52336.jpg" NAME="graphics9">
+            </td>
+        </tr>
+    </table>
+
+    <P STYLE="margin-bottom: 0.14in">
+        <BR><BR><BR><BR>
+    </P>
 
 
-<P STYLE="margin-bottom: 0.14in">
-    And now the more complicated peices. Here is the latch that holds the canopy down.
-</P>
+    <P STYLE="margin-bottom: 0.14in">
+        Servo bay, receiver, motor, motor
+        controller, and forward landing skid. The propeller shown is only for
+        testing. The motor which pulls the ejection seat release will be
+        mounted into the open bay shown in the bottom right picture.
+    </P>
+    <table style="width:80%; margin-left:10%">
+        <tr>
+            <td>
+                <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_13128cf6.jpg" NAME="graphics10">
+            </td>
+            <td>
+                <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_5d027ef7.jpg" NAME="Picture 46">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_c8b4b339.jpg" NAME="graphics11">
+            </td>
+            <td>
+                <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_4e6f2a0e.jpg" NAME="graphics12">
+            </td>
+        </tr>
 
-<table style="width:90%; margin-left:5%">
-    <tr>
-        <td>
-            <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_a4e74f6f.jpg" NAME="graphics2">
-        </td>
-        <td>
-            <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_d4eadd68.jpg" NAME="Picture 8">
-        </td>
-        <td>
-            <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_2eedeacf.jpg" NAME="Picture 7">
-        </td>
-    </tr>
-</table>
+    </table>
 
-<P STYLE="margin-bottom: 0.14in">
-    <A HREF="http://www.alexvassallo.com/Projects/IraqAirplane/Video/CanopyRelease.avi">
-        http://www.alexvassallo.com/Projects/IraqAirplane/Video/CanopyRelease.avi
-    </A>
-</P>
+    <P STYLE="margin-bottom: 0.14in">
+        <BR><BR><BR><BR>
+    </P>
 
-<P STYLE="margin-bottom: 0.14in">
-    <BR><BR><BR><BR>
-</P>
+    <P STYLE="margin-bottom: 0.14in">
+        <font size="3">
+            Folding propeller blades. Superglue hardened cardboard with plastic tube hinge points.
+        </font>
+    </P>
+    <table style="width:80%; margin-left:10%">
+        <tr>
+            <td>
+                <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_d984694b.jpg" NAME="Picture 63">
+            </td>
+            <td>
+                <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_542e6f1d.jpg" NAME="Picture 64">
+            </td>
+        </tr>
+    </table>
 
+    <P STYLE="margin-bottom: 0.14in">
+        <BR><BR><BR><BR>
+    </P>
 
-<P STYLE="margin-bottom: 0.14in">
-    Here is the ejection seat being built with a breakaway parachute box, a timer, and a PWM servo controller.
-</P>
-<table style="width:80%; margin-left:10%">
-    <tr>
-        <td>
-            <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_c77d3c31.jpg" NAME="graphics3">
-        </td>
-        <td>
-            <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_228ed840.jpg" NAME="graphics4">
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_b87f7d45.jpg" NAME="graphics5">
-        </td>
-        <td>
-            <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_3b622d7d.jpg" NAME="graphics6">
-        </td>
-    </tr>
-    <tr>
-        <td colspan="2">
-            <P margin-bottom 0.14in">
-                <font size="2">
-                    <I>
-                        Large circuit was later reduced in size to fit pilot and a small
-                        battery fit into the corner. Contacts on the bottom were later added
-                        to detect when it had ejected.
-                    </I>
-                </font>
-            </P>
-        </td>
-    </tr>
-</table>
+    <P STYLE="margin-bottom: 0.14in">
+        <font size="3">
+            Rear retractable landing skids. Like the front landing skid, these also lock into place when fully extended.
+        </font>
+    </P>
 
-<P STYLE="margin-bottom: 0.14in">
-    <BR><BR><BR><BR>
-</P>
+    <table style="width:90%; margin-left:5%">
+        <tr>
+            <td>
+                <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_245a79bd.jpg" NAME="Picture 56">
+            </td>
+            <td>
+                <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_d0ab97ac.jpg" NAME="graphics13">
+            </td>
+            <td>
+                <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_4201f52d.jpg" NAME="Picture 57">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_5089af3c.jpg" NAME="Picture 58">
+            </td>
+            <td>
+                <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_fd50e6fc.jpg" NAME="Picture 59">
+            </td>
+            <td>
+                <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_494fc2bc.jpg" NAME="Picture 62">
+            </td>
+        </tr>
+    </table>
 
+    <P STYLE="margin-bottom: 0.14in">
+        <A HREF="http://www.alexvassallo.com/Projects/IraqAirplane/Video/MainSkids.avi">
+            http://www.alexvassallo.com/Projects/IraqAirplane/Video/MainSkids.avi
+        </A>
+    </P>
 
-<P STYLE="margin-bottom: 0.14in">
-    Here are the latches that held back
-    the huge tension that ejected the seat. The latches were release by
-    activating a motor connected to a gear box, (salvaged
-    from a R/C car), which pulled a common release string for both sides. These parts
-    were the most difficult to build. The release strings had routing tubes
-    glued into an exact alignment, which rested in this catch.
-</P>
+    <P STYLE="margin-bottom: 0.14in">
+        <BR><BR><BR><BR>
+    </P>
 
-<table style="width:90%; margin-left:5%">
-    <tr>
-        <td>
-            <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_b998f91b.jpg" NAME="graphics7">
-        </td>
-        <td>
-            <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_8ca78ca8.jpg" NAME="Picture 18">
-        </td>
-        <td>
-            <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_d2a07f7d.jpg" NAME="Picture 29">
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_81aecd08.jpg" NAME="graphics8">
-        </td>
-        <td>
-            <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_b5796bca.jpg" NAME="Picture 32">
-        </td>
-        <td>
-            <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_2b52336.jpg" NAME="graphics9">
-        </td>
-    </tr>
-</table>
+    <P STYLE="margin-bottom: 0.14in">
+        <font size="3">
+            The leading edge was added by
+            rolling cardboard over the ribs. This actually made the wing
+            structure incredibly strong, much stronger than expected.  Wingtip
+            plates were also added to reduce the wing tip vortex produced by the
+            large chord of these wings.
+        </font>
+    </P>
 
-<P STYLE="margin-bottom: 0.14in">
-    <BR><BR><BR><BR>
-</P>
+    <table style="width:80%; margin-left:10%">
+        <tr>
+            <td>
+                <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_6ee5a068.jpg" NAME="Picture 65">
+            </td>
+            <td>
+                <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_2e7a0063.jpg" NAME="Picture 66">
+            </td>
+        </tr>
+    </table>
 
-
-<P STYLE="margin-bottom: 0.14in">
-    Servo bay, receiver, motor, motor
-    controller, and forward landing skid. The propeller shown is only for
-    testing. The motor which pulls the ejection seat release will be
-    mounted into the open bay shown in the bottom right picture.
-</P>
-<table style="width:80%; margin-left:10%">
-    <tr>
-        <td>
-            <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_13128cf6.jpg" NAME="graphics10">
-        </td>
-        <td>
-            <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_5d027ef7.jpg" NAME="Picture 46">
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_c8b4b339.jpg" NAME="graphics11">
-        </td>
-        <td>
-            <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_4e6f2a0e.jpg" NAME="graphics12">
-        </td>
-    </tr>
-
-</table>
-
-<P STYLE="margin-bottom: 0.14in">
-    <BR><BR><BR><BR>
-</P>
-
-<P STYLE="margin-bottom: 0.14in">
-    <font size="3">
-        Folding propeller blades. Superglue hardened cardboard with plastic tube hinge points.
-    </font>
-</P>
-<table style="width:80%; margin-left:10%">
-    <tr>
-        <td>
-            <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_d984694b.jpg" NAME="Picture 63">
-        </td>
-        <td>
-            <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_542e6f1d.jpg" NAME="Picture 64">
-        </td>
-    </tr>
-</table>
-
-<P STYLE="margin-bottom: 0.14in">
-    <BR><BR><BR><BR>
-</P>
-
-<P STYLE="margin-bottom: 0.14in">
-    <font size="3">
-        Rear retractable landing skids. Like the front landing skid, these also lock into place when fully extended.
-    </font>
-</P>  
-
-<table style="width:90%; margin-left:5%">
-    <tr>
-        <td>
-            <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_245a79bd.jpg" NAME="Picture 56">
-        </td>
-        <td>
-            <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_d0ab97ac.jpg" NAME="graphics13">
-        </td>
-        <td>
-            <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_4201f52d.jpg" NAME="Picture 57">
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_5089af3c.jpg" NAME="Picture 58">
-        </td>
-        <td>
-            <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_fd50e6fc.jpg" NAME="Picture 59">
-        </td>
-        <td>
-            <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_494fc2bc.jpg" NAME="Picture 62">
-        </td>
-    </tr>
-</table>
-    
-<P STYLE="margin-bottom: 0.14in">
-    <A HREF="http://www.alexvassallo.com/Projects/IraqAirplane/Video/MainSkids.avi">
-        http://www.alexvassallo.com/Projects/IraqAirplane/Video/MainSkids.avi
-    </A>
-</P>
-
-<P STYLE="margin-bottom: 0.14in">
-    <BR><BR><BR><BR>
-</P>
-    
-<P STYLE="margin-bottom: 0.14in">
-    <font size="3">
-        The leading edge was added by
-        rolling cardboard over the ribs. This actually made the wing
-        structure incredibly strong, much stronger than expected.  Wingtip
-        plates were also added to reduce the wing tip vortex produced by the
-        large chord of these wings.
-    </font>
-</P>
-
-<table style="width:80%; margin-left:10%">
-    <tr>
-        <td>
-            <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_6ee5a068.jpg" NAME="Picture 65">
-        </td>
-        <td>
-            <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_2e7a0063.jpg" NAME="Picture 66">
-        </td>
-    </tr>
-</table>
-    
-<P STYLE="margin-bottom: 0.14in">
-    <BR><BR><BR><BR>
-</P>
+    <P STYLE="margin-bottom: 0.14in">
+        <BR><BR><BR><BR>
+    </P>
 
 
-<P STYLE="margin-bottom: 0.14in">
-    <font size="3">
-        This onboard circuit served many
-        purposes. It held 5v regulators needed to reduce the voltage of the
-        9v batteries. It contained a 556 chip (dual 555) which controlled a
-        blinking strobe light, and triggered the 1st phase of the ejection
-        process. The 4 volt drop across the 5v regulator (7805) produced
-        enough heat to require a cooling fan.
-    </font>
-</P>
+    <P STYLE="margin-bottom: 0.14in">
+        <font size="3">
+            This onboard circuit served many
+            purposes. It held 5v regulators needed to reduce the voltage of the
+            9v batteries. It contained a 556 chip (dual 555) which controlled a
+            blinking strobe light, and triggered the 1st phase of the ejection
+            process. The 4 volt drop across the 5v regulator (7805) produced
+            enough heat to require a cooling fan.
+        </font>
+    </P>
 
-<table style="width:80%; margin-left:10%">
-    <tr>
-        <td>
-            <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_59ac0ad1.jpg" NAME="Picture 70">
-        </td>
-        <td>
-            <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_36bb23e9.jpg" NAME="Picture 69">
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_5678d0e6.jpg" NAME="Picture 67">
-        </td>
-        <td>
-            <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_8441629c.jpg" NAME="Picture 68">
-        </td>
-    </tr>
-</table>
-<P STYLE="margin-bottom: 0.14in">
-    <BR><BR><BR><BR>
-</P>
-    
-<P STYLE="margin-bottom: 0.14in">
-    <font size="3">
-        The navigation lights followed the
-        standard convention for aircraft. Green on the right, red on the
-        left, red on the tail, a white strobe on the belly, and two super
-        bright landing lights located inside of the forward skid compartment,
-        which only turned on when the landing skids were fully extended..
-    </font>
-</P>
+    <table style="width:80%; margin-left:10%">
+        <tr>
+            <td>
+                <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_59ac0ad1.jpg" NAME="Picture 70">
+            </td>
+            <td>
+                <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_36bb23e9.jpg" NAME="Picture 69">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_5678d0e6.jpg" NAME="Picture 67">
+            </td>
+            <td>
+                <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_8441629c.jpg" NAME="Picture 68">
+            </td>
+        </tr>
+    </table>
+    <P STYLE="margin-bottom: 0.14in">
+        <BR><BR><BR><BR>
+    </P>
 
-<table style="width:80%; margin-left:10%">
-    <tr>
-        <td>
-            <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_d4791a04.jpg" NAME="Picture 71">
-        </td>
-        <td>
-            <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_6f0cbbec.jpg" NAME="Picture 72">
-        </td>
-    </tr>
+    <P STYLE="margin-bottom: 0.14in">
+        <font size="3">
+            The navigation lights followed the
+            standard convention for aircraft. Green on the right, red on the
+            left, red on the tail, a white strobe on the belly, and two super
+            bright landing lights located inside of the forward skid compartment,
+            which only turned on when the landing skids were fully extended..
+        </font>
+    </P>
 
-</table>
+    <table style="width:80%; margin-left:10%">
+        <tr>
+            <td>
+                <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_d4791a04.jpg" NAME="Picture 71">
+            </td>
+            <td>
+                <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_6f0cbbec.jpg" NAME="Picture 72">
+            </td>
+        </tr>
 
-<P STYLE="margin-bottom: 0.14in">
-    <A HREF="http://www.alexvassallo.com/Projects/IraqAirplane/Video/Lights.avi">
-        http://www.alexvassallo.com/Projects/IraqAirplane/Video/Lights.avi
-    </A>
-</P>
+    </table>
 
-
-<P STYLE="margin-bottom: 0.14in">
-    <BR><BR><BR><BR>
-</P>    
-
-    
-<P STYLE="margin-bottom: 0.14in">
-    <font size="3">
-        This latch was designed to hold down
-        a large spring-loaded parachute box which was to be deployed in the
-        event of radio failure. Military bases commonly used radio jammers to
-        prevent missile and IED attacks. These jammers could completely
-        disrupt radio communication with the airplane. This latch was
-        designed as a multi-stage locking latch which could hold back a huge
-        amount of tension, but be easily released by the small force applied
-        by a microservo.
-    </font>
-</P>
-
-<table style="width:80%; margin-left:10%">
-    <tr>
-        <td>
-            <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_e8b6eecc.jpg" NAME="Picture 74"> 
-        </td>
-        <td>
-            <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_3f2879ec.jpg" NAME="Picture 75">
-        </td>
-    </tr>
-
-</table>
-
-<P STYLE="margin-bottom: 0.14in">
-    <A HREF="http://www.alexvassallo.com/Projects/IraqAirplane/Video/ParachuteRelease.avi">
-    http://www.alexvassallo.com/Projects/IraqAirplane/Video/ParachuteRelease.avi
-    </A>
-</P>
-<P STYLE="margin-bottom: 0.14in">
-    <BR><BR><BR><BR>
-</P>
-
-<P STYLE="margin-bottom: 0.14in">
-    <font size="3">
-        All the peices coming together. The
-        wings connected to the fuselage via two large platic bolts, and a set
-        of male and female connectors which perfectly aligned with each
-        other. Two square blocks on the wing mated with two square holes on
-        top of the fuselage to allow for easy installation.
-    </font>
-</P>
-
-<table style="width:80%; margin-left:10%">
-    <tr>
-        <td>
-            <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_8209b303.jpg" NAME="Picture 78">
-        </td>
-        <td>
-            <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_ab7c932e.jpg" NAME="Picture 79">
-        </td>
-        <td>
-            <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_8a7d0268.jpg" NAME="Picture 80">
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_f494c67e.jpg" NAME="Picture 81">
-        </td>
-        <td>
-            <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_17de265a.jpg" NAME="Picture 83">
-        </td>
-        <td>
-            <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_40221e2.jpg" NAME="Picture 82">
-        </td>
-    </tr>
-</table>
-
-<P STYLE="margin-bottom: 0.14in"><A HREF="http://www.alexvassallo.com/Projects/IraqAirplane/Video/Walkthrough.avi">http://www.alexvassallo.com/Projects/IraqAirplane/Video/Walkthrough.avi</A></P>
-<P STYLE="margin-bottom: 0.14in"><A NAME="_GoBack"></A><A HREF="http://www.alexvassallo.com/Projects/IraqAirplane/Video/RadioTest.avi">http://www.alexvassallo.com/Projects/IraqAirplane/Video/RadioTest.avi</A></P>
-   
- <P STYLE="margin-bottom: 0.14in">
-    <BR><BR><BR><BR>
-</P>
-
-<P STYLE="margin-bottom: 0.14in">
-    <font size="3">
-        The majority of the aircraft was
-        now covered with normal white printer paper from the supply tent.
-        The batteries for the motor were built into a disposable pod which
-        sat streamlined on the belly, and made contact with two large metal
-        connectors.  Due to weight, this battery pack was designed to be
-        jettison before landing. The canopy openings were covered by
-        cellophane from a pack of cigarettes. The landing skids were covered
-        with aluminum from a soda can. A curved nose cone was carefully built
-        by soaking cardboard in water and allowing it to dry around a mold,
-        then applying superglue to harden it into form.  All systems appeared
-        to be working as expected.
+    <P STYLE="margin-bottom: 0.14in">
+        <A HREF="http://www.alexvassallo.com/Projects/IraqAirplane/Video/Lights.avi">
+            http://www.alexvassallo.com/Projects/IraqAirplane/Video/Lights.avi
+        </A>
+    </P>
 
 
-       Then we received notice that our tour in Iraq was complete. The aircraft was carefully packed up
-        in a custom made box, tightly secured, and then mistaken as a
-        malicious package and mostly destroyed. Here are the pictures of its
-        final condition.
-    </font>
+    <P STYLE="margin-bottom: 0.14in">
+        <BR><BR><BR><BR>
+    </P>
+
+
+    <P STYLE="margin-bottom: 0.14in">
+        <font size="3">
+            This latch was designed to hold down
+            a large spring-loaded parachute box which was to be deployed in the
+            event of radio failure. Military bases commonly used radio jammers to
+            prevent missile and IED attacks. These jammers could completely
+            disrupt radio communication with the airplane. This latch was
+            designed as a multi-stage locking latch which could hold back a huge
+            amount of tension, but be easily released by the small force applied
+            by a microservo.
+        </font>
+    </P>
+
+    <table style="width:80%; margin-left:10%">
+        <tr>
+            <td>
+                <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_e8b6eecc.jpg" NAME="Picture 74">
+            </td>
+            <td>
+                <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_3f2879ec.jpg" NAME="Picture 75">
+            </td>
+        </tr>
+
+    </table>
+
+    <P STYLE="margin-bottom: 0.14in">
+        <A HREF="http://www.alexvassallo.com/Projects/IraqAirplane/Video/ParachuteRelease.avi">
+            http://www.alexvassallo.com/Projects/IraqAirplane/Video/ParachuteRelease.avi
+        </A>
+    </P>
+    <P STYLE="margin-bottom: 0.14in">
+        <BR><BR><BR><BR>
+    </P>
+
+    <P STYLE="margin-bottom: 0.14in">
+        <font size="3">
+            All the peices coming together. The
+            wings connected to the fuselage via two large platic bolts, and a set
+            of male and female connectors which perfectly aligned with each
+            other. Two square blocks on the wing mated with two square holes on
+            top of the fuselage to allow for easy installation.
+        </font>
+    </P>
+
+    <table style="width:80%; margin-left:10%">
+        <tr>
+            <td>
+                <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_8209b303.jpg" NAME="Picture 78">
+            </td>
+            <td>
+                <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_ab7c932e.jpg" NAME="Picture 79">
+            </td>
+            <td>
+                <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_8a7d0268.jpg" NAME="Picture 80">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_f494c67e.jpg" NAME="Picture 81">
+            </td>
+            <td>
+                <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_17de265a.jpg" NAME="Picture 83">
+            </td>
+            <td>
+                <IMG style="display:block; width:100%" SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_40221e2.jpg" NAME="Picture 82">
+            </td>
+        </tr>
+    </table>
+
+    <P STYLE="margin-bottom: 0.14in"><A HREF="http://www.alexvassallo.com/Projects/IraqAirplane/Video/Walkthrough.avi">http://www.alexvassallo.com/Projects/IraqAirplane/Video/Walkthrough.avi</A></P>
+    <P STYLE="margin-bottom: 0.14in"><A NAME="_GoBack"></A><A HREF="http://www.alexvassallo.com/Projects/IraqAirplane/Video/RadioTest.avi">http://www.alexvassallo.com/Projects/IraqAirplane/Video/RadioTest.avi</A></P>
+
+    <P STYLE="margin-bottom: 0.14in">
+        <BR><BR><BR><BR>
+    </P>
+
+    <P STYLE="margin-bottom: 0.14in">
+        <font size="3">
+            The majority of the aircraft was
+            now covered with normal white printer paper from the supply tent.
+            The batteries for the motor were built into a disposable pod which
+            sat streamlined on the belly, and made contact with two large metal
+            connectors.  Due to weight, this battery pack was designed to be
+            jettison before landing. The canopy openings were covered by
+            cellophane from a pack of cigarettes. The landing skids were covered
+            with aluminum from a soda can. A curved nose cone was carefully built
+            by soaking cardboard in water and allowing it to dry around a mold,
+            then applying superglue to harden it into form.  All systems appeared
+            to be working as expected.
+
+
+            Then we received notice that our tour in Iraq was complete. The aircraft was carefully packed up
+            in a custom made box, tightly secured, and then mistaken as a
+            malicious package and mostly destroyed. Here are the pictures of its
+            final condition.
+        </font>
     </P>
 
     <P STYLE="margin-bottom: 0.14in">
@@ -735,3 +739,5 @@
         <IMG SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_4fcf12ec.jpg" NAME="Picture 86" ALIGN=BOTTOM WIDTH=357 HEIGHT=212 BORDER=0>
         <IMG SRC="Projects/IraqAirplane/img/i_50b3ccd0f5e6adab_html_be758aac.jpg" NAME="Picture 87" ALIGN=BOTTOM WIDTH=720 HEIGHT=428 BORDER=0>
     </P>
+
+</div>

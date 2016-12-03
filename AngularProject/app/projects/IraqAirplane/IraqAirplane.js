@@ -9,6 +9,11 @@ angular.module('myApp.IraqAirplaneView', ['ngRoute'])
   });
 }])
 
-.controller('ViewCtrl_IraqAirplane', [function () {
+.controller('ViewCtrl_IraqAirplane', ['$scope', '$location', '$anchorScroll',
+    function ($scope, $location, $anchorScroll) {
+        $scope.gotoChpt1 = function () {
+            $location.hash('frontSkid');
+            $anchorScroll();
+        }
 
-}]);
+    }]);

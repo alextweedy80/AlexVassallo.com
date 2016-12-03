@@ -201,8 +201,10 @@
     <Content Include="app\Projects\IraqAirplane\img\i_50b3ccd0f5e6adab_html_f494c67e.jpg" />
     <Content Include="app\Projects\IraqAirplane\img\i_50b3ccd0f5e6adab_html_fd50e6fc.jpg" />
     <Content Include="app\Projects\IraqAirplane\img\i_50b3ccd0f5e6adab_html_ff3e1574.jpg" />
+    <Content Include="app\Projects\IraqAirplane\video\Airplane.jpg" />
     <Content Include="app\Projects\IraqAirplane\video\CanopyRelease.avi" />
     <Content Include="app\Projects\IraqAirplane\video\FrontSkid.avi" />
+    <Content Include="app\Projects\IraqAirplane\video\FrontSkid.mp4" />
     <Content Include="app\Projects\IraqAirplane\video\Lights.avi" />
     <Content Include="app\Projects\IraqAirplane\video\MainSkids.avi" />
     <Content Include="app\Projects\IraqAirplane\video\ParachuteRelease.avi" />

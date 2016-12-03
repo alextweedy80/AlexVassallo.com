@@ -31,6 +31,20 @@ angular.module('myApp', [
  
 'use strict';
 
+angular.module('myApp.AboutView', ['ngRoute'])
+
+.config(['$routeProvider', function($routeProvider) {
+    $routeProvider.when('/About', {
+        templateUrl: 'About/About.html',
+        controller: 'ViewCtrl_About',
+  });
+}])
+
+.controller('ViewCtrl_About', [function ($scope) {
+
+}]);
+'use strict';
+
 angular.module('myApp.ContactView', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider) {
@@ -91,20 +105,6 @@ angular.module('myApp.ResumeView', ['ngRoute'])
 }]);
 'use strict';
 
-angular.module('myApp.AboutView', ['ngRoute'])
-
-.config(['$routeProvider', function($routeProvider) {
-    $routeProvider.when('/About', {
-        templateUrl: 'About/About.html',
-        controller: 'ViewCtrl_About',
-  });
-}])
-
-.controller('ViewCtrl_About', [function ($scope) {
-
-}]);
-'use strict';
-
 angular.module('myApp.version.interpolate-filter', [])
 
 .filter('interpolate', ['version', function(version) {
@@ -158,9 +158,14 @@ angular.module('myApp.IraqAirplaneView', ['ngRoute'])
   });
 }])
 
-.controller('ViewCtrl_IraqAirplane', [function () {
+.controller('ViewCtrl_IraqAirplane', ['$scope', '$location', '$anchorScroll',
+    function ($scope, $location, $anchorScroll) {
+        $scope.gotoChpt1 = function () {
+            $location.hash('frontSkid');
+            $anchorScroll();
+        }
 
-}]);
+    }]);
 'use strict';
 
 angular.module('myApp.MotorTesterView', ['ngRoute'])
