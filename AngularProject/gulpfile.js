@@ -78,10 +78,10 @@ gulp.task('js', function () {
         .pipe(sourcemaps.init())
         .pipe(concat('app/app.js'))
         .pipe(ngAnnotate())
-    //    .pipe(uglify())
-    //    .pipe(sourcemaps.write())
         .pipe(gulp.dest('.'));
 });
+
+
 var Server = require('karma').Server;
 gulp.task('test', function (done) {
     new Server({

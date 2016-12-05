@@ -94,6 +94,7 @@
     <Content Include="app\fonts\fontawesome-webfont.svg" />
     <Content Include="app\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="app\img\Coast to Coast.jpg" />
+    <Content Include="app\img\stairs.jpg" />
     <Content Include="app\img\selfie.jpg" />
     <Content Include="app\img\Sunset.jpg" />
     <Content Include="app\index-async.html" />

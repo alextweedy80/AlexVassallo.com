@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Alex Vassallo</title>
-  <meta name="description" content="">
+  <meta name="description" content="Alex Vassallo homepage">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -21,46 +21,62 @@
   <link rel="stylesheet" href="app.css">
 </head>
 <body>
-    <div id="header" class="navbar navbar-default">
-        
-            <div class="ml15" style="vertical-align:bottom;"><a href="#/HomeView"><img style="width:5vw;margin-bottom: -1.9vw;margin-right: .8vw;" class="size5vw" src="img/selfie.jpg" /><span class="size5vw h1" style="vertical-align: bottom;">Alex Vassallo</span></a>
-            <br/><a href="#/HomeView"><img style="width:5vw;margin-bottom: .8vw;margin-right: .8vw;visibility:hidden;height:1px;" class="size5vw" src="img/selfie.jpg" /><span style="vertical-align: top;" class="size2vw h2">Software Engineer</span></a></div>
-        <div class="navbar-header">
+    
 
-            <a class="navbar-brand" href="#/HomeView" >
-                Home
-            </a>
-            <a class="navbar-brand" href="#/Projects">
-                Projects
-            </a>
-            <a class="navbar-brand" href="#/Resume">
-                Resume
-            </a>
+    <div id="header" class="my-header">
+        <table>
+            <tr>
+	            <td style="width:60%">
+                    <a href="#/HomeView">    
+                        <img align=left style="width:10%; margin:0 2% 2% 0" src="img/selfie.jpg" />
+                        <span class="size5vw h1" style="vertical-align: bottom;">
+                            Alex Vassallo
+                        </span>
+                        <span class="size2vw h2" style="vertical-align: top; color:#404040;" >
+                            <br>Software Engineer
+                        </span>
+                    </a>
+                </td>
+                <td align=right style="vertical-align:top">
+                    <span style="margin-right:15px" id="social-media">
+                        <a target="_blank" title="find me on Facebook" href="http://www.facebook.com/alex.vassallo.9">
+                            <img style="margin-top:15px" alt="find me on Facebook" src="//login.create.net/images/icons/user/facebook_40x40.png" border=0>
+                        </a>
+                        <a target="_blank" title="find me on LinkedIn" href="https://www.linkedin.com/in/alex-vassallo">
+                            <img style="margin-top:15px" alt="find me on LinkedIn" src="img/In-2C-41px-R.png" border=0>
+                        </a>
+                    </span>
+                </td>
+            </tr>
+        </table>
 
-            <a class="navbar-brand" href="#/About">
-                About
-            </a>
-            <a class="navbar-brand" href="#/Contact">
-                Contact
-            </a>
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
 
-        </div>
+                <ul id="main-navigation" class="nav navbar-nav" style="margin-top:0">
+
+                    <li><a href="#/HomeView">Home</a></li>
+                    <li><a href="#/Projects">Projects</a></li>
+                    <li><a href="#/Resume">Resume</a></li>
+                    <li><a href="#/About">About</a></li>
+                    <li><a href="#/Contact">Contact</a></li>
+
+                </ul>
+
+            </div>
+        </nav>
         
     </div>
 
-   
-    
 
-    <div ng-view class="ml15 mr15"></div>
+    <div ng-view></div>
 
     <div class="footer">
         <div style="display:none;">Angular seed app: v<span app-version></span></div>
     </div>
 
 
-  <!-- In production use:
-  <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
-  -->
+
   <script src="js/angular.js"></script>
   <script src="js/angular-route.js"></script>
   <script src="app.js"></script>

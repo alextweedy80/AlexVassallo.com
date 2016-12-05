@@ -1,9 +1,20 @@
-.navbar-brand{padding: 15px 15px 0px 15px;height:50px;}
-.HomeViewMain {
+.navbar-brand{
+	padding: 15px 15px 0px 15px;
+	height:50px;
+}
 
+header {
+	
 }
 
 body {
+    
+}
+
+.my-header {
+    background-image:url("img/clouds2.jpg");
+    background-size:cover;
+    background-repeat:no-repeat;
     background-color: lightblue;
 }
 
@@ -15,22 +26,7 @@ body {
 .ml15{margin-left:15px;}
 .mr15{margin-right:15px;}
 .pr30{padding-right:30px;}
-.navbar-default {
-    
-    border-color:transparent;
-    font-family: "proxima-nova","Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-weight: 600;
-    font-size: 14px;
-    letter-spacing: 1px;
-    font-family: "proxima-nova";
-    font-size: 13px;
-    text-transform: uppercase;
-    text-decoration: none;
-    letter-spacing: 2px;
-    font-weight: 400;
-    font-style: normal;
-    line-height: 1em;
-}
+
 .size5vw {
     font-size: 5vw;
 }
@@ -51,14 +47,14 @@ body {
 .h2 {
     font-family:'Segoe UI';
     font-weight:bold;
-    color:#BFBFBF;
+    
 }
 a:link {
     color:black;
     text-decoration:none;
 }
 a:hover {
-    color:blue;
+    color:black;
     text-decoration:none;
 }
 a:visited {
@@ -69,9 +65,7 @@ a:focus {
 }
 
 #wrapper {
-	width: 98%;
-	
-	margin: 15px auto;
+    background-color:lightblue;
 }
 
 #columns {
@@ -82,7 +76,7 @@ a:focus {
 	-moz-column-gap: auto;
 	-moz-column-fill: auto;
 	column-count: 1;
-	column-gap: auto;
+	column-gap:normal;
 	column-fill: auto;
     
 }
@@ -92,12 +86,10 @@ a:focus {
 	background: #FEFEFE;
 	border: 2px solid #FAFAFA;
 	box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4);
-	margin: 0 2px 15px;
+	margin: 0px 2px 15px 0px;
 	-webkit-column-break-inside: avoid;
 	-moz-column-break-inside: avoid;
 	column-break-inside: avoid;
-	padding: 15px;
-	padding-bottom: 5px;
 	background: -webkit-linear-gradient(45deg, #FFF, #F9F9F9);
 	opacity: 1;
 	
@@ -169,7 +161,36 @@ a:focus {
     }
 }
 
+.navbar-default {
+    background-color: #CCCCCC;
+    border-color:transparent;
+    letter-spacing: 2px;
+    font-family: "proxima-nova";
+    font-size: 14px;
+	font-size: 2vw;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: 400;
+    font-style: normal;
+	margin-bottom: 0px;
 
+}
+
+.navbar-collapse.collapse {
+  display: block!important;
+}
+
+.navbar-nav>li, .navbar-nav {
+  float: left !important;
+}
+
+.navbar-nav.navbar-right:last-child {
+  margin-right: -15px !important;
+}
+
+.navbar-right {
+  float: right!important;
+}
 
 #columns:hover .pin:not(:hover) {
 	opacity: 0.4;
