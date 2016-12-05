@@ -160,7 +160,7 @@ function Viewport(data) {
     this.mouseY = 0;
     this.distanceX = 0;
     this.distanceY = 0;
-    this.positionX = 1122;
+    this.positionX = 800;
     this.positionY = 136;
     this.torqueX = 0;
     this.torqueY = 0;
@@ -329,10 +329,10 @@ Viewport.prototype.animate = function () {
 var viewport = new Viewport({
     element: document.getElementsByClassName('cube')[0],
     fps: 20,
-    sensivity: .1,
+    sensivity: .2,
     sensivityFade: .93,
-    speed: 2,
-    touchSensivity: 1.5
+    speed: 1,
+    touchSensivity: 2.0
 });
 
 function Cube(data) {
