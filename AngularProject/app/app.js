@@ -160,7 +160,7 @@ function Viewport(data) {
     this.mouseY = 0;
     this.distanceX = 0;
     this.distanceY = 0;
-    this.positionX = 800;
+    this.positionX = 1122;
     this.positionY = 136;
     this.torqueX = 0;
     this.torqueY = 0;
