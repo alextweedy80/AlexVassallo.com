@@ -15,7 +15,7 @@ body {
 
 
 .mainClass {
-    background-image:url("img/stairs.jpg");
+    background-image:url("img/leaf.jpg");
     background-size:cover;
     background-repeat:no-repeat;
     background-color: lightblue;
@@ -173,6 +173,14 @@ a:focus {
 }
 
 
+.about-bg {
+    width:100%;
+    position:absolute;
+    background-image: url("About/img/stairs.jpg");
+    background-size:cover;
+    background-repeat:no-repeat;
+    margin-top:0px;
+}
 
 *, *:before, *:after {
   -moz-box-sizing: border-box;
@@ -220,12 +228,12 @@ a:focus {
   transform: rotateX(136deg) rotateY(1122deg); }
 
 .cube > div {
-  overflow: hidden;
+  
   position: absolute;
-  opacity: 0.8;
+  opacity: 0.9;
   height: 500px;
   width: 500px;
-  background-image: url("http://jordizle.com/demo/376/3d-interactive-cube-with-rotating-sides-using-css3-and-javascript/assets/img/cube/blank.png");
+  background-image: url("About/img/cube_side.png");
   background-size:cover;
   -webkit-touch-callout: none;
   -moz-touch-callout: none;
@@ -238,6 +246,7 @@ a:focus {
   -o-user-select: none;
   user-select: none; }
 
+
 .cube > div > div.cube-image {
   width: 500px;
   height: 500px;
@@ -246,10 +255,10 @@ a:focus {
   -ms-transform: rotate(180deg);
   -o-transform: rotate(180deg);
   transform: rotate(180deg);
-  line-height: 500px;
-  font-size: 20px;
+
+  font-size: 30px;
   text-align: center;
-  color: #1b9bd8;
+  color: black;
   -webkit-transition: color 600ms;
   -moz-transition: color 600ms;
   -ms-transition: color 600ms;
@@ -277,7 +286,9 @@ a:focus {
   -ms-transform: translateZ(250px);
   -o-transform: translateZ(250px);
   transform: translateZ(250px);
-  outline: 1px solid transparent; }
+  outline: 1px solid transparent; 
+
+}
 
 .cube > div:nth-child(3) {
   -webkit-transform: rotateY(90deg) translateZ(250px);
@@ -328,13 +339,19 @@ object:hover {
         margin-right: auto;
     }
     .viewport {
-    -webkit-transform: scale(0.6, 0.6);
-    -moz-transform: scale(0.6, 0.6);
-    -ms-transform: scale(0.6, 0.6);
-    -o-transform: scale(0.6, 0.6);
-    transform: scale(0.6, 0.6); 
-
+    -webkit-transform: scale(0.4, 0.4);
+    -moz-transform: scale(0.4, 0.4);
+    -ms-transform: scale(0.4, 0.4);
+    -o-transform: scale(0.4, 0.4);
+    transform: scale(0.4, 0.4); 
+    
     } 
+        #cube-wrapper {
+        margin-top:-50px;
+        margin-left:-60px;
+        margin-bottom:0px;
+
+    }
 }
 @media (min-width: 350px) {
 	#columns {
@@ -346,22 +363,6 @@ object:hover {
         width: 100%;
     }
     .viewport {
-        -webkit-transform: scale(0.4, 0.4);
-        -moz-transform: scale(0.4, 0.4);
-        -ms-transform: scale(0.4, 0.4);
-        -o-transform: scale(0.4, 0.4);
-        transform: scale(0.4, 0.4); 
-    } 
-    #cube-wrapper {
-        margin-top:0px;
-        margin-bottom:0px;
-
-    }
-}
-
-@media (min-width: 450px) {
-
-    .viewport {
         -webkit-transform: scale(0.5, 0.5);
         -moz-transform: scale(0.5, 0.5);
         -ms-transform: scale(0.5, 0.5);
@@ -370,6 +371,24 @@ object:hover {
     } 
     #cube-wrapper {
         margin-top:0px;
+        margin-left:-20px;
+        margin-bottom:0px;
+
+    }
+}
+
+@media (min-width: 450px) {
+
+    .viewport {
+        -webkit-transform: scale(0.6, 0.6);
+        -moz-transform: scale(0.6, 0.6);
+        -ms-transform: scale(0.6, 0.6);
+        -o-transform: scale(0.6, 0.6);
+        transform: scale(0.6, 0.6); 
+    } 
+    #cube-wrapper {
+        margin-top:0px;
+        margin-left:0px;
         margin-bottom:0px;
 
     }
@@ -397,6 +416,7 @@ object:hover {
     } 
     #cube-wrapper {
         margin-top:80px;
+        margin-left:0px;
         margin-bottom:80px;
     }
 }
@@ -411,6 +431,7 @@ object:hover {
     } 
     #cube-wrapper {
         margin-top:160px;
+        margin-left:0px;
         margin-bottom:160px;
     }
 }
