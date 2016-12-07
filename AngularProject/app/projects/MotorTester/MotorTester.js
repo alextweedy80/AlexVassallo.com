@@ -4,7 +4,7 @@ angular.module('myApp.MotorTesterView', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider) {
     $routeProvider.when('/Projects/MotorTester', {
-        templateUrl: 'projects/MotorTester/MotorTester.html',
+        templateUrl: 'Projects/MotorTester/MotorTester.html',
         controller: 'ViewCtrl_MotorTester'
   });
 }])

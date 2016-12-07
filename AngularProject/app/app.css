@@ -13,19 +13,32 @@ body {
 
 
 
-
 .mainClass {
     background-image:url("img/leaf.jpg");
     background-size:cover;
     background-repeat:no-repeat;
     background-color: lightblue;
+
 }
 
 .my-header {
-    background-image:url("img/clouds2.jpg");
+    background-image:url("img/clouds.png");
     background-size:cover;
     background-repeat:no-repeat;
     background-color: lightblue;
+}
+
+.intro {
+    background-image:url("About/img/cube_side.png");
+    background-size:cover;
+    background-repeat:no-repeat;
+    background-color: lightblue;
+    opacity:0.7;
+}
+
+.doc-wrapper {
+    margin-left:5%;
+    margin-right:5%
 }
 
 .clear {

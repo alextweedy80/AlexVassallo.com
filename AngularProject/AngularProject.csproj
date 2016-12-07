@@ -112,7 +112,8 @@
     <Content Include="app\css\normalize.min.css" />
     <Content Include="app\fonts\fontawesome-webfont.svg" />
     <Content Include="app\fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="app\img\Coast to Coast.jpg" />
+    <Content Include="app\img\apple.jpg" />
+    <Content Include="app\img\clouds.png" />
     <Content Include="app\About\img\stairs.jpg" />
     <Content Include="app\img\selfie.jpg" />
     <Content Include="app\img\Sunset.jpg" />
@@ -231,6 +232,17 @@
     <Content Include="app\Projects\IraqAirplane\video\Pilot.avi" />
     <Content Include="app\Projects\IraqAirplane\video\RadioTest.avi" />
     <Content Include="app\Projects\IraqAirplane\video\Walkthrough.avi" />
+    <Content Include="app\Projects\MotorTester\img\back.png" />
+    <Content Include="app\Projects\MotorTester\img\block_diagram.png" />
+    <Content Include="app\Projects\MotorTester\img\color_theme.jpg" />
+    <Content Include="app\Projects\MotorTester\img\dev.png" />
+    <Content Include="app\Projects\MotorTester\img\display_layout.png" />
+    <Content Include="app\Projects\MotorTester\img\graph.jpg" />
+    <Content Include="app\Projects\MotorTester\img\menu.jpg" />
+    <Content Include="app\Projects\MotorTester\img\MotorTester.png" />
+    <Content Include="app\Projects\MotorTester\img\software_timing.png" />
+    <Content Include="app\Projects\MotorTester\img\_DSC5006.JPG" />
+    <Content Include="app\Projects\MotorTester\img\_DSC5008.JPG" />
     <Content Include="app\Projects\obd2\img\i_ac965724d2fb0386_html_2043ebb8.jpg" />
     <Content Include="app\Projects\obd2\img\i_ac965724d2fb0386_html_4a76de56.jpg" />
     <Content Include="app\Projects\obd2\img\i_ac965724d2fb0386_html_72544c2.jpg" />
@@ -238,9 +250,9 @@
     <Content Include="app\Projects\obd2\img\i_ac965724d2fb0386_html_a68648d8.jpg" />
     <Content Include="app\Projects\obd2\img\i_ac965724d2fb0386_html_a9415485.jpg" />
     <Content Include="app\Projects\obd2\img\i_ac965724d2fb0386_html_c547e188.png" />
-    <Content Include="app\Projects\OpticalReceiver\img\i_b4a49e286f061bd7_html_2762f16c.gif" />
+    <Content Include="app\Projects\OpticalReceiver\img\OptRcvr_square.png" />
+    <Content Include="app\Projects\OpticalReceiver\img\peak_detect.png" />
     <Content Include="app\Projects\OpticalReceiver\img\i_b4a49e286f061bd7_html_4833a444.png" />
-    <Content Include="app\Projects\OpticalReceiver\img\i_b4a49e286f061bd7_html_787916b2.jpg" />
     <Content Include="app\Projects\OpticalReceiver\img\i_b4a49e286f061bd7_html_9fef33fd.jpg" />
     <Content Include="app\Projects\OpticalReceiver\img\i_b4a49e286f061bd7_html_a2725283.png" />
     <Content Include="app\Projects\OpticalReceiver\img\i_b4a49e286f061bd7_html_bef41b6c.png" />
@@ -250,6 +262,7 @@
     <Content Include="app\Projects\OpticalReceiver\img\i_b4a49e286f061bd7_html_eb7471a2.png" />
     <Content Include="app\Projects\OpticalReceiver\img\i_b4a49e286f061bd7_html_f2a04097.jpg" />
     <Content Include="app\Projects\nav.html" />
+    <Content Include="app\Projects\OpticalReceiver\img\OptRcvr.png" />
     <Content Include="app\Projects\Projects.html" />
     <Content Include="app\Projects\Projects.js" />
     <Content Include="app\Projects\HeartRateMonitor\HeartRateMonitor.html" />
@@ -269,7 +282,6 @@
     <Content Include="app\Projects\obd2\obd2.html" />
     <Content Include="app\Projects\obd2\obd2.js" />
     <Content Include="app\Projects\obd2\obd2_test.js" />
-    <Content Include="app\Projects\OpticalReceiver\img\OptRcvr.jpg" />
     <Content Include="app\Projects\OpticalReceiver\OpticalReceiver.html" />
     <Content Include="app\Projects\OpticalReceiver\OpticalReceiver.js" />
     <Content Include="app\Projects\OpticalReceiver\OpticalReceiver_test.js" />
@@ -420,7 +432,6 @@
     <Content Include="app\Projects\HeartRateMonitor\Heartbeat.pdf" />
     <Content Include="app\Projects\IraqAirplane\IraqAirplane.pdf" />
     <Content Include="app\Projects\obd2\OBD2.pdf" />
-    <Content Include="app\Projects\OpticalReceiver\OpticalReceiver.docx" />
     <Content Include="app\Projects\OpticalReceiver\OpticalReceiver.pdf" />
     <Content Include="app\Projects\Robot\Robot.pdf" />
     <None Include="Web.Debug.config">

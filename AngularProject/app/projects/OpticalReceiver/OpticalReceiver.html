@@ -1,1132 +1,443 @@
 <div ng-include="'Projects/nav.html'"></div>
 
-<P ALIGN=CENTER STYLE="margin-bottom: 0in; line-height: 115%">
-    <FONT FACE="Times New Roman, serif">
-        <FONT SIZE=6>
-            <B>
-                Optical
-                FSK Receiver
-            </B>
-        </FONT>
-    </FONT><IMG SRC="Projects/OpticalReceiver/img/i_b4a49e286f061bd7_html_787916b2.jpg" NAME="Picture 1" ALIGN=LEFT HSPACE=12 WIDTH=407 HEIGHT=611 BORDER=0>
-</P>
-<P ALIGN=RIGHT STYLE="margin-left: 1.5in; text-indent: 0.5in; margin-bottom: 0in; line-height: 115%">
-    <FONT FACE="Times New Roman, serif">
-        <FONT SIZE=4 STYLE="font-size: 16pt">
-            March
-            2014
-        </FONT>
-    </FONT>
-</P>
-<P ALIGN=RIGHT STYLE="margin-left: 1.5in; text-indent: 0.5in; margin-bottom: 0in; line-height: 115%">
-    <FONT FACE="Times New Roman, serif">
-        <FONT SIZE=4 STYLE="font-size: 16pt">
-            Alex
-            Vassallo
-        </FONT>
-    </FONT>
-</P>
-<P ALIGN=RIGHT STYLE="margin-left: 1.5in; text-indent: 0.5in; margin-bottom: 0in; line-height: 115%">
-    <FONT FACE="Times New Roman, serif">&shy;&shy;&shy;&shy;</FONT><SUB><FONT FACE="Times New Roman, serif">&shy;</FONT></SUB>
-</P>
-<P STYLE="margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <BR>
-</P>
-<P STYLE="margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <BR>
-</P>
-<P STYLE="margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <BR>
-</P>
-<P STYLE="margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <BR>
-</P>
-<P STYLE="margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <BR>
-</P>
-<P STYLE="margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <BR>
-</P>
-<P STYLE="margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <BR>
-</P>
-<P STYLE="margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <BR>
-</P>
-<P STYLE="margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <BR>
-</P>
-<P STYLE="margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <BR>
-</P>
-<P STYLE="margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <BR>
-</P>
-<P STYLE="margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <BR>
-</P>
-<P STYLE="margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <BR>
-</P>
-<P STYLE="margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <BR>
-</P>
-<P STYLE="margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <BR>
-</P>
-<P STYLE="margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <BR>
-</P>
-<P STYLE="margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <BR>
-</P>
-<P STYLE="margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <BR>
-</P>
-<P STYLE="margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <BR>
-</P>
-<P STYLE="margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <BR>
-</P>
-<P STYLE="margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <BR>
-</P>
-<P STYLE="margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <FONT FACE="Calibri, serif"><FONT SIZE=6>1 	Abstract</FONT></FONT>
-</P>
-<P STYLE="margin-left: 0.5in; margin-bottom: 0in; line-height: 115%"><FONT FACE="Calibri, serif">	</FONT></P>
-<P STYLE="margin-left: 0.5in; margin-bottom: 0in; line-height: 115%">
-    <FONT FACE="Calibri, serif">
-        This
-        project was created as a final project for EE 205 Signal Conditioning
-        class at the University of Washington. The assignment was to design
-        an optical receiver using a photodiode to collect transmitted data
-        from light that is being transmitted from a central base. The light
-        source pulsed at either 3kHz to indicate 0, or 5kHz to indicate 1,
-        and at various bitrates. The embedded data contained ASCII characters
-        which could be displayed as text on a console via USB connection. The
-        microcontroller we were required to use was an Arduino Uno, which has
-        an analog sampling frequency just below the Nyquist frequency for a
-        5kHz signal. The biggest challenge of the assignment was to detect
-        that 5kHz signal. In response, I chose to develop a much larger front
-        end circuit to perform the frequency detection, which used filters,
-        peak detectors, and automatic gain control to convert the analog
-        signal back into digital. Once I had a digital signal output to
-        process, I was able to receive data at speeds well above
-        expectations.  By monitoring voltage on the peak detectors the
-        software controlled MOSFET gain control circuits.  The sensitivity
-        could be automatically adjusted to reach very long distances, while
-        still functioning at close range.
-    </FONT>
-</P>
-<P STYLE="margin-bottom: 0in; line-height: 115%">
-    <FONT FACE="Times New Roman, serif">
-        <FONT SIZE=6>
-            2
-            Hardware
-        </FONT>
-    </FONT>
-</P>
-<P STYLE="margin-left: 0.5in; margin-bottom: 0in; line-height: 115%">
-    <BR>
-</P>
-<P STYLE="margin-left: 0.5in; margin-bottom: 0in; line-height: 115%">
-    <FONT FACE="Calibri, serif">
-        <FONT SIZE=5>
-            2.1	System
-            Schematic
-        </FONT>
-    </FONT>
-</P>
-<P ALIGN=RIGHT STYLE="margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <IMG SRC="Projects/OpticalReceiver/img/i_b4a49e286f061bd7_html_f2a04097.jpg" NAME="graphics1" ALIGN=LEFT HSPACE=12 WIDTH=650 HEIGHT=715 BORDER=0><BR>
-</P>
-<P ALIGN=RIGHT STYLE="margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <BR>
-</P>
-<P STYLE="margin-left: 0.5in; margin-bottom: 0in; line-height: 115%">
-    <BR>
-</P>
-<P STYLE="margin-left: 0.5in; margin-bottom: 0in; line-height: 115%">
-    <BR>
-</P>
-<P STYLE="margin-left: 0.5in; margin-bottom: 0in; line-height: 115%">
-    <BR>
-</P>
-<P STYLE="margin-left: 0.5in; margin-bottom: 0in; line-height: 115%">
-    <BR>
-</P>
-<P STYLE="margin-left: 0.5in; margin-bottom: 0in; line-height: 115%">
-    <BR>
-</P>
-<P STYLE="margin-left: 0.5in; margin-bottom: 0in; line-height: 115%">
-    <BR>
-</P>
-<P STYLE="margin-left: 0.5in; margin-bottom: 0in; line-height: 115%">
-    <BR>
-</P>
-<P STYLE="margin-left: 0.5in; margin-bottom: 0in; line-height: 115%">
-    <BR>
-</P>
-<P STYLE="margin-left: 0.5in; margin-bottom: 0in; line-height: 115%">
-    <BR>
-</P>
-<P STYLE="margin-left: 0.5in; margin-bottom: 0in; line-height: 115%">
-    <BR>
-</P>
-<P STYLE="margin-left: 0.5in; margin-bottom: 0in; line-height: 115%">
-    <BR>
-</P>
-<P STYLE="margin-left: 0.5in; margin-bottom: 0in; line-height: 115%">
-    <BR>
-</P>
-<P STYLE="margin-left: 0.5in; margin-bottom: 0in; line-height: 115%">
-    <BR>
-</P>
-<P STYLE="margin-left: 0.5in; margin-bottom: 0in; line-height: 115%">
-    <BR>
-</P>
-<P STYLE="margin-left: 0.5in; margin-bottom: 0in; line-height: 115%">
-    <BR>
-</P>
-<P STYLE="margin-left: 0.5in; margin-bottom: 0in; line-height: 115%">
-    <BR>
-</P>
-<P STYLE="margin-left: 0.5in; margin-bottom: 0in; line-height: 115%">
-    <BR>
-</P>
-<P STYLE="margin-left: 0.5in; margin-bottom: 0in; line-height: 115%">
-    <BR>
-</P>
-<P STYLE="margin-left: 0.5in; margin-bottom: 0in; line-height: 115%">
-    <BR>
-</P>
-<P STYLE="margin-left: 0.5in; margin-bottom: 0in; line-height: 115%">
-    <BR>
-</P>
-<P STYLE="margin-left: 0.5in; margin-bottom: 0in; line-height: 115%"><SPAN DIR="LTR" STYLE="float: left; width: 6.77in; height: 0.19in; border: none; padding: 0in; background: #ffffff">
-<P ALIGN=CENTER STYLE="margin-bottom: 0in">
-    <FONT FACE="Times New Roman, serif">
-        Figure
-        1: System Schematic
-    </FONT>
-</P>
-</SPAN><BR>
-</P>
-<P STYLE="margin-left: 0.5in; margin-bottom: 0in; line-height: 115%">
-    <BR>
-</P>
-<P STYLE="margin-left: 0.5in; margin-bottom: 0in; line-height: 115%">
-    <FONT FACE="Calibri, serif">
-        <FONT SIZE=5>
-            2.2
-        </FONT>
-    </FONT><FONT FACE="Calibri, serif">
-        <FONT SIZE=5>
-            Variable Gain
-            Stage
-        </FONT>
-    </FONT>
-</P>
-<P STYLE="margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <FONT FACE="Times New Roman, serif">	</FONT><FONT FACE="Times New Roman, serif"><FONT SIZE=4><B>	</B></FONT></FONT>
-</P>
-<P STYLE="margin-left: 0.69in; margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
 
-</P>
-<P STYLE="margin-left: 0.5in; margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <FONT FACE="Times New Roman, serif">
-        The first stage is a
-        trans-impedance amplifier to respond to current changes from the
-        photodiode.  This amplifier feeds the next three variable gain
-        stages, which are described in Figure 2.  Each variable gain stage is
-        designed to roll-off frequencies above 10kHz using C1. The coupling
-        capacitor C2 between each variable gain stage eliminates DC offset
-        and provides a high pass filter. Each op-amp stage works in
-        conjunction with a MOSFET that changes feedback resistance to raise
-        or lower the gain. Each stage has been configured to allow switching
-        between  a gain boost of 4
-    </FONT><SUP><FONT FACE="Times New Roman, serif">x</FONT></SUP><FONT FACE="Times New Roman, serif">
-        .
-        By using  gains of 4
-    </FONT><SUP><FONT FACE="Times New Roman, serif">1</FONT></SUP><FONT FACE="Times New Roman, serif">
-        ,
-        4
-    </FONT><SUP><FONT FACE="Times New Roman, serif">2</FONT></SUP><FONT FACE="Times New Roman, serif">
-        ,
-        and 4
-    </FONT><SUP><FONT FACE="Times New Roman, serif">4</FONT></SUP><FONT FACE="Times New Roman, serif">
-        ,
-        any binary combination can be used to allow various gains up to 4
-    </FONT><SUP><FONT FACE="Times New Roman, serif">7</FONT></SUP><FONT FACE="Times New Roman, serif">
-        .
-        Gain is controlled from three digital outputs from the
-        micro-controller.
-    </FONT><IMG SRC="Projects/OpticalReceiver/img/i_b4a49e286f061bd7_html_4833a444.png" NAME="Picture 6" ALIGN=LEFT HSPACE=12 WIDTH=301 HEIGHT=297 BORDER=0><SPAN DIR="LTR" STYLE="float: left; width: 3.14in; height: 0in; border: none; padding: 0in; background: #ffffff">
-<P ALIGN=CENTER STYLE="margin-bottom: 0in">
-    <FONT FACE="Times New Roman, serif">
-        <FONT SIZE=2 STYLE="font-size: 11pt">
-            Figure
-            2: Variable Gain Stage
-        </FONT>
-    </FONT>
-</P>
-</SPAN>
-</P>
-<P STYLE="margin-left: 0.5in; margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <FONT FACE="Calibri, serif"><FONT SIZE=5>2.3   Band-pass filter</FONT></FONT>
-</P>
-<P STYLE="margin-left: 0.5in; margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <BR>
-</P>
-<P STYLE="margin-left: 0.5in; margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <FONT FACE="Times New Roman, serif">
-        The next amplifier stage is a
-        band-pass filter, which
-    </FONT><FONT FACE="Times New Roman, serif">
-        passes
-        frequencies between 3kHz and 5kHz, and attenuates frequencies outside
-        that range. A 4 pole butterworth filter design as shown in figures 3
-        and 4 are used for high and low pass filtering of the band-pass. The
-        -3dB points needed to balance the amplitudes of a 5kHz an 3kHz signal
-        for comparison were experimentally discovered using simulators.  The
-        calibrated roll-off frequencies were found to be 4kHz for the high
-        pass and 3.5kHz for the low pass.  Since they slightly overlap, there
-        were symmetric and steep response slopes on both sides of the 4kHz
-        center frequency, giving balanced band-pass characteristics
-    </FONT>
-</P>
-<P STYLE="margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <IMG SRC="Projects/OpticalReceiver/img/i_b4a49e286f061bd7_html_e660fca8.png" NAME="Picture 3" ALIGN=LEFT HSPACE=12 WIDTH=329 HEIGHT=179 BORDER=0><IMG SRC="Projects/OpticalReceiver/img/i_b4a49e286f061bd7_html_eb7471a2.png" NAME="Picture 4" ALIGN=LEFT HSPACE=12 WIDTH=331 HEIGHT=179 BORDER=0><BR>
-</P>
-<P STYLE="margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <FONT FACE="Times New Roman, serif">		</FONT><SPAN DIR="LTR" STYLE="float: left; width: 3.45in; height: 0.2in; border: none; padding: 0in; background: #ffffff">
-<P ALIGN=CENTER STYLE="margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <FONT FACE="Times New Roman, serif">
-        <FONT SIZE=2 STYLE="font-size: 11pt">
-            Figure
-            4: High Pass Butterworth
-        </FONT>
-    </FONT>
-</P>
-</SPAN>
-<SPAN DIR="LTR" STYLE="float: left; width: 3.42in; height: 0.18in; border: none; padding: 0in; background: #ffffff">
-    <P ALIGN=CENTER STYLE="margin-bottom: 0in">
-        <FONT FACE="Times New Roman, serif">
-            <FONT SIZE=2 STYLE="font-size: 11pt">
-                Figure
-                3: Low Pass Butterworth
-            </FONT>
-        </FONT>
-    </P>
-</SPAN>
-</P>
-<P STYLE="margin-left: 0.5in; margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <FONT FACE="Calibri, serif"><FONT SIZE=5>2.4	Peak Detection</FONT></FONT>
-</P>
-<P ALIGN=JUSTIFY STYLE="margin-left: 0.5in; margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <FONT FACE="Times New Roman, serif">	</FONT>
-</P>
-<P ALIGN=JUSTIFY STYLE="margin-left: 0.5in; margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <FONT FACE="Calibri, serif">
-        Two more 4-pole butterworth filters, one
-        high and one low pass, separate the 3kHz and 5kHz sinusoidal signals
-        into separate channels. Each filter rolls off right at 4kHz in
-        opposite directions to split our frequency range right down the
-        middle. By connecting each filter output to a full wave precision
-        rectifiers we can measure the levels of each frequency within the
-        signal. Using a full wave rectifier allows double the amount of
-        positive waveform samples to feed into our peak detector, which
-        allows more samples to be used with faster sampling times.
-    </FONT>
-</P>
-<P STYLE="margin-left: 0.5in; margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <IMG SRC="Projects/OpticalReceiver/img/i_b4a49e286f061bd7_html_bef41b6c.png" NAME="Picture 5" ALIGN=LEFT HSPACE=12 WIDTH=637 HEIGHT=277 BORDER=0><SPAN DIR="LTR" STYLE="float: left; width: 6.63in; height: 0in; border: none; padding: 0in; background: #ffffff">
-<P ALIGN=CENTER STYLE="margin-bottom: 0in">
-    <FONT FACE="Times New Roman, serif">
-        <FONT SIZE=2 STYLE="font-size: 11pt">
-            Figure
-            5: Wave Rectifier
-        </FONT>
-    </FONT>
-</P>
-</SPAN><BR>
-</P>
-<P STYLE="margin-left: 0.5in; margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <BR>
-</P>
-<P ALIGN=RIGHT STYLE="margin-left: 0.5in; margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <BR>
-</P>
-<P ALIGN=RIGHT STYLE="margin-left: 0.5in; margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <BR>
-</P>
-<P ALIGN=RIGHT STYLE="margin-left: 0.5in; margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <BR>
-</P>
-<P ALIGN=RIGHT STYLE="margin-left: 0.5in; margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <BR>
-</P>
-<P ALIGN=RIGHT STYLE="margin-left: 0.5in; margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <BR>
-</P>
-<P ALIGN=RIGHT STYLE="margin-left: 0.5in; margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <BR>
-</P>
-<P ALIGN=RIGHT STYLE="margin-left: 0.5in; margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <BR>
-</P>
-<P ALIGN=RIGHT STYLE="margin-left: 0.5in; margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <BR>
-</P>
-<P ALIGN=RIGHT STYLE="margin-left: 0.5in; margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <BR>
-</P>
-<P ALIGN=RIGHT STYLE="margin-left: 0.5in; margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <BR>
-</P>
-<P ALIGN=RIGHT STYLE="margin-left: 0.5in; margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <BR>
-</P>
-<P ALIGN=RIGHT STYLE="margin-left: 0.5in; margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <BR>
-</P>
-<P STYLE="margin-left: 0.5in; margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <BR>
-</P>
-<P STYLE="margin-left: 0.5in; margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <BR>
-</P>
-<P STYLE="margin-left: 0.5in; margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <BR>
-</P>
-<P ALIGN=JUSTIFY STYLE="margin-left: 0.5in; margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <FONT FACE="Times New Roman, serif">	</FONT><FONT FACE="Calibri, serif">
-        The
-        peak detectors operate by using the wave rectifier output to charge
-        up C1 and C2, which are continuously discharging through R1 and R2 to
-        ground. The charging and draining of C1 and C2 must support bitrates
-        up to 1kHz, which means our sample period lasts 1ms and capacitors
-        should be able to discharge 60% within half of the bit period.  A
-        comparator measures the voltage of C1 and C2 and outputs high or low
-        accordingly.
-    </FONT>
-</P>
-<P STYLE="margin-left: 0.5in; margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <IMG SRC="Projects/OpticalReceiver/img/i_b4a49e286f061bd7_html_a2725283.png" NAME="Picture 9" ALIGN=LEFT HSPACE=12 WIDTH=416 HEIGHT=224 BORDER=0><SPAN DIR="LTR" STYLE="float: left; width: 4.33in; height: 0in; border: none; padding: 0in; background: #ffffff">
-<P ALIGN=CENTER STYLE="margin-bottom: 0in">
-    <FONT FACE="Times New Roman, serif">
-        <FONT SIZE=2 STYLE="font-size: 11pt">
-            Figure
-            6: Peak Detector
-        </FONT>
-    </FONT>
-</P>
-</SPAN><BR>
-</P>
-<P STYLE="margin-left: 0.5in; margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <BR>
-</P>
-<P STYLE="margin-left: 0.5in; margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <BR>
-</P>
-<P STYLE="margin-left: 0.5in; margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <BR>
-</P>
-<P STYLE="margin-left: 1in; margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <FONT FACE="Times New Roman, serif">Formula to calculate values </FONT>
-</P>
-<P STYLE="margin-left: 1in; margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <FONT FACE="Times New Roman, serif">of R1, C1, R2, and C2:</FONT>
-</P>
-<P STYLE="margin-left: 0.5in; margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <BR>
-</P>
-<P STYLE="margin-left: 0.5in; margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <IMG SRC="Projects/OpticalReceiver/img/i_b4a49e286f061bd7_html_2762f16c.gif" ALIGN=ABSMIDDLE HSPACE=8><FONT FACE="Times New Roman, serif"><FONT SIZE=4 STYLE="font-size: 16pt"><BR></FONT></FONT><BR>
-</P>
-<P ALIGN=RIGHT STYLE="margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <BR>
-</P>
-<P STYLE="margin-left: 0.5in; margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <FONT FACE="Times New Roman, serif">	</FONT><FONT FACE="Calibri, serif">
-        Automatic
-        gain control is accomplished by monitoring the voltage levels of C1
-        and C2. Whichever voltage is higher is used to determines the gain
-        adjustments required. If the highest voltage drops below 0.5V, the
-        gain is increased by a factor of 4, bringing the voltage up to 2V.
-        Similarly, if the voltage is above 3.5V, the gain is reduced by a
-        factor of 4 to bring it down to 1.2V. The scaling factor of 4 was
-        chosen exactly for this behavior.
-    </FONT>
-</P>
-<P ALIGN=JUSTIFY STYLE="margin-left: 0.5in; margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <BR>
-</P>
-<P ALIGN=JUSTIFY STYLE="margin-left: 0.5in; margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <FONT FACE="Calibri, serif">
-        The final comparator uses the 5V power
-        rail and the -9V power rail from the batteries to output the proper
-        voltage level.  A diode is used to block the negative voltage for our
-        square wave and a resistor is used to pull the data pin to ground
-        when the diode is not conducting. The final result of the hardware is
-        a clean digital signal that represents the strongest frequency
-        detected by our photodiode.
-    </FONT>
-</P>
-<P STYLE="margin-left: 0.5in; margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <BR>
-</P>
-<P STYLE="margin-left: 0.5in; margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <BR>
-</P>
-<P STYLE="margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <FONT FACE="Times New Roman, serif"><FONT SIZE=6>3	Software</FONT></FONT>
-</P>
-<P ALIGN=CENTER STYLE="margin-bottom: 0in; line-height: 115%">
-    <BR>
-</P>
-<P STYLE="margin-left: 0.5in; margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <FONT FACE="Calibri, serif"><FONT SIZE=5>3.1 	Auto-gain</FONT></FONT>
-</P>
-<P ALIGN=JUSTIFY STYLE="margin-left: 0.5in; margin-right: 3.88in; margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <FONT FACE="Calibri, serif">
-        Since the hardware can raise and lower
-        the gain in smooth linearly steps, the software can use an integer
-        value to control the volume of the gain boost.  Just like a binary
-        system, the amplification factor of each gain stage increases
-        exponentially to represent its bit position. The 3 gain switches can
-        be arranged into a 3 bit integer, of values 0 to 7, that can be
-        managed by the software.
-    </FONT><IMG SRC="Projects/OpticalReceiver/img/i_b4a49e286f061bd7_html_9fef33fd.jpg" NAME="graphics2" ALIGN=LEFT HSPACE=12 WIDTH=352 HEIGHT=315 BORDER=0>
-</P>
-<P ALIGN=JUSTIFY STYLE="margin-left: 0.5in; margin-right: 3.88in; margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <BR>
-</P>
-<P ALIGN=JUSTIFY STYLE="margin-left: 0.5in; margin-right: 3.88in; margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <FONT FACE="Calibri, serif">
-        To determine if the volume, or gain, is
-        out of range, the software must monitor two analog outputs from the
-        peak detectors. The highest value of the two is compared against
-        predefined range limits, (0.5V to 3.5V), and the volume is
-        incremented or decremented accordingly.  The response time of the
-        gain control is less than the loop cycle time of the software, so
-        volume can be adjusted by 1 each loop cycle.  LEDs connected to each
-        binary output show the currently selected binary combination, thus
-        the current level of gain boost.
-    </FONT><SPAN DIR="LTR" STYLE="float: left; width: 3.66in; height: 0.18in; border: none; padding: 0in; background: #ffffff">
-<P ALIGN=CENTER STYLE="margin-bottom: 0in">
-    <FONT FACE="Times New Roman, serif">
-        <FONT SIZE=2 STYLE="font-size: 11pt">
-            Figure
-            7: Auto-gain
-        </FONT>
-    </FONT>
-</P>
-</SPAN>
-</P>
-<P ALIGN=JUSTIFY STYLE="margin-left: 0.5in; margin-right: 3.88in; margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <BR>
-</P>
-<P STYLE="margin-left: 0.5in; margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <FONT FACE="Calibri, serif"><FONT SIZE=5>3.2 	Synchronization</FONT></FONT>
-</P>
-<P STYLE="margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <BR>
-</P>
-<P ALIGN=JUSTIFY STYLE="margin-left: 0.5in; margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <FONT FACE="Calibri, serif">
-        To measure and synchronize with the
-        incoming data stream,
-    </FONT><FONT FACE="Calibri, serif">
-        an
-        auto-configuration function was built.  This took the most time to
-        develop. It begins by attaching interrupt routines to both falling
-        and rising edge detectors. Since both edges cannot be monitored
-        simultaneously by the hardware, each interrupt routine must enable
-        the other in a back-and-forth fashion.  This allows those interrupt
-        routines to mark the exact times of each data-line voltage
-        transition.
-    </FONT>
-</P>
-<P ALIGN=JUSTIFY STYLE="margin-left: 0.5in; margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <BR>
-</P>
-<P ALIGN=JUSTIFY STYLE="margin-left: 0.5in; margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <FONT FACE="Calibri, serif">
-        Figure 8 shows the equation style we use
-        to find the bit time.  The unknown variables are both x and the
-        coefficients.  Knowing the format of the byte message, we can use a
-        &quot;best fit&quot; algorithm to find the coefficient variables by
-        1) assigning x to the smallest time found, 2) measuring time between
-        bits and bytes, 3) verifying start and stop bits, and 4) using
-        previously acquired synchronization values.  If the coefficient
-        variables are not whole numbers, we can use that variation to simply
-        measure the error or drastically change the timing values.
-    </FONT>
-</P>
-<P ALIGN=CENTER STYLE="margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <BR>
-</P>
-<P ALIGN=CENTER STYLE="margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <IMG SRC="Projects/OpticalReceiver/img/i_b4a49e286f061bd7_html_d255f45f.jpg" NAME="Picture 2" ALIGN=LEFT HSPACE=12 WIDTH=672 HEIGHT=331 BORDER=0><SPAN DIR="LTR" STYLE="float: left; width: 7in; height: 0in; border: none; padding: 0in; background: #ffffff">
-<P ALIGN=CENTER STYLE="margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <FONT FACE="Times New Roman, serif">
-        <FONT SIZE=2 STYLE="font-size: 11pt">
-            Figure
-            8: Synchronization
-        </FONT>
-    </FONT>
-</P>
-</SPAN><BR>
-</P>
-<P ALIGN=CENTER STYLE="margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <BR>
-</P>
-<P ALIGN=CENTER STYLE="margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <BR>
-</P>
-<P ALIGN=CENTER STYLE="margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <BR>
-</P>
-<P ALIGN=CENTER STYLE="margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <BR>
-</P>
-<P ALIGN=CENTER STYLE="margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <BR>
-</P>
-<P ALIGN=CENTER STYLE="margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <BR>
-</P>
-<P ALIGN=CENTER STYLE="margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <BR>
-</P>
-<P ALIGN=CENTER STYLE="margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <BR>
-</P>
-<P ALIGN=CENTER STYLE="margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <BR>
-</P>
-<P ALIGN=CENTER STYLE="margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <BR>
-</P>
-<P ALIGN=CENTER STYLE="margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <BR>
-</P>
-<P ALIGN=CENTER STYLE="margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <BR>
-</P>
-<P ALIGN=CENTER STYLE="margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <BR>
-</P>
-<P ALIGN=CENTER STYLE="margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <BR>
-</P>
-<P STYLE="margin-left: 0.5in; margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <BR>
-</P>
-<P STYLE="margin-left: 0.5in; margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <BR>
-</P>
-<P STYLE="margin-left: 0.5in; margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <BR>
-</P>
-<P STYLE="margin-left: 0.5in; margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <BR>
-</P>
-<P STYLE="margin-left: 0.5in; margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <BR>
-</P>
-<P STYLE="margin-left: 0.5in; margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <BR>
-</P>
-<P STYLE="margin-left: 0.5in; margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <FONT FACE="Calibri, serif"><FONT SIZE=5>3.3 	Performance</FONT></FONT>
-</P>
-<P STYLE="margin-left: 0.5in; margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <BR>
-</P>
-<P STYLE="margin-left: 0.5in; margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <FONT FACE="Times New Roman, serif">
-        Using this hardware and software
-        package, I was able to easily reach the 1kHz bit rate target. The
-        maximum range achieved before auto-configuration could no longer
-        detect a signal was over 10 feet with this design.  At that range,
-        physical alignment seemed to be the most difficult problem.  The
-        single LED transmitter station was extremely omni-directional.
-        During the final test in the lab, I was able to receive 1000 messages
-        with a few minor errors at 10 feet. The &quot;Miss Rate&quot; was
-        less than 1% and hard to measure.
-    </FONT>
-</P>
-<P STYLE="margin-left: 0.5in; margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <FONT FACE="Times New Roman, serif">
-        Auto-configure routines were
-        able to seek bit rates as low as 20Hz, and above 1kHz.  The average
-        packet misses while recalibrating was usually only 1, but up to 4
-        when large timing transitions took place. Overall the
-        auto-configuration was very impressive.  It can determine bit rates
-        within an accuracy of 10 micro-seconds,  total message size, and any
-        extra or missing bits. It was also allowed to make minor adjustments
-        to current variables to compensate for any drift. When the signal was
-        lost or changed, it immediately began to measure the new bit time,
-        verify the signal, verify the packet, and re-synchronizes with it.
-    </FONT>
-</P>
-<P STYLE="margin-left: 0.5in; margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <BR>
-</P>
-<P STYLE="margin-left: 0.5in; margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <FONT FACE="Calibri, serif"><FONT SIZE=5>3.4 	Software Outline</FONT></FONT>
-</P>
-<P STYLE="margin-left: 0.5in; margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <BR>
-</P>
-<P STYLE="margin-left: 0.5in; margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <FONT FACE="Calibri, serif"><FONT SIZE=4><B>Main Loop()</B></FONT></FONT>
-</P>
-<UL>
-    <LI>
-        <P STYLE="margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-            <FONT FACE="Calibri, serif"><FONT SIZE=2 STYLE="font-size: 11pt">senseGain()</FONT></FONT>
-        </P>
-    <LI>
-        <P STYLE="margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-            <FONT FACE="Calibri, serif"><FONT SIZE=2 STYLE="font-size: 11pt">readData()</FONT></FONT>
-        </P>
-</UL>
-<P STYLE="margin-left: 0.5in; margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <BR>
-</P>
-<P STYLE="margin-left: 0.5in; margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <FONT FACE="Calibri, serif"><FONT SIZE=4><B>senseGain()</B></FONT></FONT>
-</P>
-<UL>
-    <LI>
-        <P STYLE="margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-            <FONT FACE="Calibri, serif">
-                <FONT SIZE=2 STYLE="font-size: 11pt">
-                    acquire
-                    average of highest peak detector voltage
-                </FONT>
-            </FONT>
-        </P>
-    <LI>
-        <P STYLE="margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-            <FONT FACE="Calibri, serif">
-                <FONT SIZE=2 STYLE="font-size: 11pt">
-                    compare
-                    value to bounds, and adjust volume if outside
-                </FONT>
-            </FONT>
-        </P>
-    <LI>
-        <P STYLE="margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-            <FONT FACE="Calibri, serif">
-                <FONT SIZE=2 STYLE="font-size: 11pt">
-                    Convert
-                    volume into 3 bit representation
-                </FONT>
-            </FONT>
-        </P>
-    <LI>
-        <P STYLE="margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-            <FONT FACE="Calibri, serif">
-                <FONT SIZE=2 STYLE="font-size: 11pt">
-                    Enable
-                    or disable gain boost pins from the 3 bit values.
-                </FONT>
-            </FONT>
-        </P>
-</UL>
-<P STYLE="margin-left: 0.5in; margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <BR>
-</P>
-<P STYLE="margin-left: 0.5in; margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <FONT FACE="Calibri, serif"><FONT SIZE=4><B>readData()</B></FONT></FONT>
-</P>
-<UL>
-    <LI>
-        <P STYLE="margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-            <FONT FACE="Calibri, serif">
-                <FONT SIZE=2 STYLE="font-size: 11pt">
-                    Verify
-                    it is time to sample a bit
-                </FONT>
-            </FONT>
-        </P>
-    <LI>
-        <P STYLE="margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-            <FONT FACE="Calibri, serif">
-                <FONT SIZE=2 STYLE="font-size: 11pt">
-                    Sample
-                    the bit and set next sample time
-                </FONT>
-            </FONT>
-        </P>
-    <LI>
-        <P STYLE="margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-            <FONT FACE="Calibri, serif">
-                <FONT SIZE=2 STYLE="font-size: 11pt">
-                    If
-                    bit = 1 AND is the first bit after an idle period, reset variables
-                    to begin collecting data (start bit)
-                </FONT>
-            </FONT>
-        </P>
-    <LI>
-        <P STYLE="margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-            <FONT FACE="Calibri, serif">
-                <FONT SIZE=2 STYLE="font-size: 11pt">
-                    if
-                    bit = 0 AND we have entered an idle period AND we have collected
-                    data...
-                </FONT>
-            </FONT>
-        </P>
-        <UL>
-            <LI>
-                <P STYLE="margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-                    <FONT FACE="Calibri, serif">
-                        <FONT SIZE=2 STYLE="font-size: 11pt">
-                            if
-                            data is the correct known size and format then print data and sync
-                            minor timing variance
-                        </FONT>
-                    </FONT>
+<div ng-controller="ViewCtrl_OpticalReceiver">
+    <table id="OpticalReceiver-header" style="width:90%; margin-left:5%; font-family:'Times New Roman'">
+        <tr>
+            <td colspan="2">
+                <p align="center" style="font-size:5vw">
+                    Optical FSK Receiver
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td style="width:25%">
+                <p align="center" style="background-color:lightblue; margin-bottom:0px; border: 1px solid #00000a; font-size:2vw">
+                    Table of Contents
+                </p>
+            </td>
+            <td>
+                <P ALIGN=RIGHT STYLE="margin-bottom:0px; font-size:2vw">
+                    Alex Vassallo - March 2014
                 </P>
-            <LI>
-                <P STYLE="margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-                    <FONT FACE="Calibri, serif">
-                        <FONT SIZE=2 STYLE="font-size: 11pt">
-                            else
-                            call autoSyncData()
-                        </FONT>
-                    </FONT>
-                </P>
-        </UL>
-    <LI>
-        <P STYLE="margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-            <FONT FACE="Calibri, serif">
-                <FONT SIZE=2 STYLE="font-size: 11pt">
-                    if
-                    valid data is detected...
-                </FONT>
-            </FONT>
+            </td>
+        </tr>
+        <tr>
+            <td style="vertical-align:top">
+
+                <ol style="background-color:lightblue; border: 1px solid #00000a; padding: 0in 12%; font-size:2vw">
+
+                    <li><div ng-click="gotoChpt1()">Abstract</div></li>
+                    <li>
+                        <div ng-click="gotoChpt2()">Hardware</div>
+                        <ol>
+                            <li><div ng-click="gotoChpt21()">System Schematic</div></li>
+                            <li><div ng-click="gotoChpt22()">Variable Gain Stage</div></li>
+                            <li><div ng-click="gotoChpt23()">Band-pass Filter</div></li>
+                            <li><div ng-click="gotoChpt24()">Peak Detection</div></li>
+                        </ol>
+                    </li>
+                    <li>
+                        <div ng-click="gotoChpt3()">Software</div>
+                        <ol>
+                            <li><div ng-click="gotoChpt31()">Auto-gain</div></li>
+                            <li><div ng-click="gotoChpt32()">Synchronization</div></li>
+                            <li><div ng-click="gotoChpt33()">Performance</div></li>
+                            <li><div ng-click="gotoChpt34()">Software Outline</div></li>
+
+                        </ol>
+                    </li>
+                    <li><div ng-click="gotoChpt4()">Photos</div></li>
+                </ol>
+
+            </td>
+            <td style="vertical-align:top">
+                <IMG style="display:block; width:95%; margin-left:5%" SRC="Projects/OpticalReceiver/img/OptRcvr.png" NAME="Picture 1">
+            </td>
+        </tr>
+    </table>
+
+
+    <div style="margin-left:5%; margin-right:5%; font-family:'Times New Roman'; font-size:2vw">
+
+
+        <P><BR><BR><BR><BR></P>
+
+        <P STYLE="font-size:5vw">
+            <a name="chpt1">1 Abstract</a>
         </P>
-        <UL>
-            <LI>
-                <P STYLE="margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-                    <FONT FACE="Calibri, serif">
-                        <FONT SIZE=2 STYLE="font-size: 11pt">
-                            align
-                            bit into byte value
-                        </FONT>
-                    </FONT>
-                </P>
-            <LI>
-                <P STYLE="margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-                    <FONT FACE="Calibri, serif">
-                        <FONT SIZE=2 STYLE="font-size: 11pt">
-                            if
-                            bit = 1, use timing marks to track smallest bit times detected
-                            (autoSync helper)
-                        </FONT>
-                    </FONT>
-                </P>
-            <LI>
-                <P STYLE="margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-                    <FONT FACE="Calibri, serif">
-                        <FONT SIZE=2 STYLE="font-size: 11pt">
-                            store
-                            completed bytes into array
-                        </FONT>
-                    </FONT>
-                </P>
-        </UL>
-</UL>
-<P STYLE="margin-left: 0.5in; margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <BR>
-</P>
-<P STYLE="margin-left: 0.5in; margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <BR>
-</P>
-<P STYLE="margin-left: 0.5in; margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <BR>
-</P>
-<P STYLE="margin-left: 0.5in; margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <BR>
-</P>
-<P STYLE="margin-left: 0.5in; margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <FONT FACE="Calibri, serif"><FONT SIZE=4><B>autoSyncData()</B></FONT></FONT>
-</P>
-<UL>
-    <LI>
-        <P STYLE="margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
+
+        <p align="justify">
+            This project was created as a final project for EE 205 Signal Conditioning
+            class at the University of Washington. The assignment was to design
+            an optical receiver using a photodiode to collect transmitted data
+            from light that is being transmitted from a central base. The light
+            source pulsed at either 3kHz to indicate 0, or 5kHz to indicate 1,
+            and at various bitrates. The embedded data contained ASCII characters
+            which could be displayed as text on a console via USB connection. The
+            microcontroller we were required to use was an Arduino Uno, which has
+            an analog sampling frequency just below the Nyquist frequency for a
+            5kHz signal. The biggest challenge of the assignment was to detect
+            that 5kHz signal. In response, I chose to develop a much larger front
+            end circuit to perform the frequency detection, which used filters,
+            peak detectors, and automatic gain control to convert the analog
+            signal back into digital. Once I had a digital signal output to
+            process, I was able to receive data at speeds well above
+            expectations.  By monitoring voltage on the peak detectors the
+            software controlled MOSFET gain control circuits.  The sensitivity
+            could be automatically adjusted to reach very long distances, while
+            still functioning at close range.
         </P>
-</UL>
-<P STYLE="margin-left: 0.5in; margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <BR>
-</P>
-<P STYLE="margin-left: 0.5in; margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <FONT FACE="Calibri, serif"><FONT SIZE=4><B>Interrupt Routines:</B></FONT></FONT>
-</P>
-<P STYLE="margin-left: 0.75in; margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <FONT FACE="Calibri, serif"><FONT SIZE=4><B>fallDetected()</B></FONT></FONT>
-</P>
-<UL>
-    <LI>
-        <P STYLE="margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-            <FONT FACE="Calibri, serif">
-                <FONT SIZE=2 STYLE="font-size: 11pt">
-                    measure
-                    time since last rise occurred
-                </FONT>
-            </FONT>
+
+        <P><BR><BR><BR><BR></P>
+
+        <P STYLE="font-size:5vw">
+            <a name="chpt2">2 Hardware</a>
         </P>
-    <LI>
-        <P STYLE="margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-            <FONT FACE="Calibri, serif">
-                <FONT SIZE=2 STYLE="font-size: 11pt">
-                    set
-                    next bit sample time, 1/3 into bit period.
-                </FONT>
-            </FONT>
+
+        <P><BR><BR></P>
+
+        <P STYLE="font-size:3vw">
+            <a name="chpt21">2.1 System Schematic</a>
         </P>
-    <LI>
-        <P STYLE="margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-            <FONT FACE="Calibri, serif">
-                <FONT SIZE=2 STYLE="font-size: 11pt">
-                    set
-                    data start flags if line was just idle.
-                </FONT>
-            </FONT>
+        <IMG style="display:block; width:100%; border: 1px solid #00000a; padding: 0in 0.08in" SRC="Projects/OpticalReceiver/img/i_b4a49e286f061bd7_html_f2a04097.jpg" NAME="graphics1">
+        <P ALIGN="center">
+            <i>Figure 1: System Schematic</i>
         </P>
-    <LI>
-        <P STYLE="margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-            <FONT FACE="Calibri, serif">
-                <FONT SIZE=2 STYLE="font-size: 11pt">
-                    enable
-                    interrupt for riseDetected()
-                </FONT>
-            </FONT>
+
+        <P><BR><BR><BR><BR></P>
+
+        <P STYLE="font-size:3vw">
+            <a name="chpt22">2.2 Variable Gain Stage</a>
         </P>
-</UL>
-<P STYLE="margin-left: 0.75in; margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <FONT FACE="Calibri, serif"><FONT SIZE=4><B>riseDetected()</B></FONT></FONT>
-</P>
-<UL>
-    <UL>
-        <LI>
-            <P STYLE="margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-                <FONT FACE="Calibri, serif">
-                    <FONT SIZE=2 STYLE="font-size: 11pt">
-                        mark
-                        time of rise occurring
-                    </FONT>
-                </FONT>
-            </P>
-        <LI>
-            <P STYLE="margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-                <FONT FACE="Calibri, serif">
-                    <FONT SIZE=2 STYLE="font-size: 11pt">
-                        enable
-                        interrupt for fallDetected()
-                    </FONT>
-                </FONT>
-            </P>
-    </UL>
-</UL>
-<P STYLE="margin-left: 0.5in; margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <BR>
-</P>
-<P STYLE="margin-left: 0.5in; margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <BR>
-</P>
-<P STYLE="margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <BR>
-</P>
-<P STYLE="margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <BR>
-</P>
-<P STYLE="margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <BR>
-</P>
-<P STYLE="margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <BR>
-</P>
-<P STYLE="margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <BR>
-</P>
-<P STYLE="margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <BR>
-</P>
-<P STYLE="margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <BR>
-</P>
-<P STYLE="margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <BR>
-</P>
-<P STYLE="margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <BR>
-</P>
-<P STYLE="margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <BR>
-</P>
-<P STYLE="margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <BR>
-</P>
-<P STYLE="margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <BR>
-</P>
-<P STYLE="margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <BR>
-</P>
-<P STYLE="margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <BR>
-</P>
-<P STYLE="margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <BR>
-</P>
-<P STYLE="margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <BR>
-</P>
-<P ALIGN=CENTER STYLE="margin-bottom: 0in; line-height: 115%">
-    <BR>
-</P>
-<P ALIGN=CENTER STYLE="margin-bottom: 0in; line-height: 115%">
-    <BR>
-</P>
-<P ALIGN=CENTER STYLE="margin-bottom: 0in; line-height: 115%">
-    <BR>
-</P>
-<P ALIGN=CENTER STYLE="margin-bottom: 0in; line-height: 115%">
-    <BR>
-</P>
-<P ALIGN=CENTER STYLE="margin-bottom: 0in; line-height: 115%">
-    <BR>
-</P>
-<P ALIGN=CENTER STYLE="margin-bottom: 0in; line-height: 115%">
-    <BR>
-</P>
-<P STYLE="margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <FONT FACE="Times New Roman, serif"><FONT SIZE=6>4	Photos</FONT></FONT>
-</P>
-<P STYLE="margin-bottom: 0in; line-height: 115%">
-    <BR>
-</P>
-<P STYLE="margin-bottom: 0in; line-height: 115%; widows: 0; orphans: 0">
-    <FONT FACE="Times New Roman, serif">		</FONT><IMG SRC="Projects/OpticalReceiver/img/i_b4a49e286f061bd7_html_c17a24ae.png" NAME="graphics3" ALIGN=LEFT HSPACE=12 WIDTH=847 HEIGHT=621 BORDER=0>
-</P>
-<P ALIGN=CENTER STYLE="margin-bottom: 0in; line-height: 115%">
-    <BR>
-</P>
-<P ALIGN=CENTER STYLE="margin-bottom: 0in; line-height: 115%">
-    <BR>
-</P>
-<P ALIGN=CENTER STYLE="margin-bottom: 0in; line-height: 115%">
-    <BR>
-</P>
-<P ALIGN=CENTER STYLE="margin-bottom: 0in; line-height: 115%">
-    <BR>
-</P>
-<P ALIGN=CENTER STYLE="margin-bottom: 0in; line-height: 115%">
-    <BR>
-</P>
-<P ALIGN=CENTER STYLE="margin-bottom: 0in; line-height: 115%">
-    <BR>
-</P>
-<P ALIGN=CENTER STYLE="margin-bottom: 0in; line-height: 115%">
-    <BR>
-</P>
-<P ALIGN=CENTER STYLE="margin-bottom: 0in; line-height: 115%">
-    <BR>
-</P>
-<P ALIGN=CENTER STYLE="margin-bottom: 0in; line-height: 115%">
-    <BR>
-</P>
-<P ALIGN=CENTER STYLE="margin-bottom: 0in; line-height: 115%">
-    <BR>
-</P>
-<P ALIGN=CENTER STYLE="margin-bottom: 0in; line-height: 115%">
-    <BR>
-</P>
-<P ALIGN=CENTER STYLE="margin-bottom: 0in; line-height: 115%">
-    <BR>
-</P>
-<P ALIGN=CENTER STYLE="margin-bottom: 0in; line-height: 115%">
-    <BR>
-</P>
-<P ALIGN=CENTER STYLE="margin-bottom: 0in; line-height: 115%">
-    <BR>
-</P>
-<P ALIGN=CENTER STYLE="margin-bottom: 0in; line-height: 115%">
-    <BR>
-</P>
-<P ALIGN=CENTER STYLE="margin-bottom: 0in; line-height: 115%">
-    <BR>
-</P>
-<P ALIGN=CENTER STYLE="margin-bottom: 0in; line-height: 115%">
-    <BR>
-</P>
-<P ALIGN=CENTER STYLE="margin-bottom: 0in; line-height: 115%">
-    <BR>
-</P>
-<P ALIGN=CENTER STYLE="margin-bottom: 0in; line-height: 115%">
-    <BR>
-</P>
-<P ALIGN=CENTER STYLE="margin-bottom: 0in; line-height: 115%">
-    <BR>
-</P>
-<P ALIGN=CENTER STYLE="margin-bottom: 0in; line-height: 115%">
-    <BR>
-</P>
-<P ALIGN=CENTER STYLE="margin-bottom: 0in; line-height: 115%">
-    <BR>
-</P>
-<P ALIGN=CENTER STYLE="margin-bottom: 0in; line-height: 115%">
-    <BR>
-</P>
-<P ALIGN=CENTER STYLE="margin-bottom: 0in; line-height: 115%">
-    <BR>
-</P>
-<P ALIGN=CENTER STYLE="margin-bottom: 0in; line-height: 115%">
-    <BR>
-</P>
-<P ALIGN=CENTER STYLE="margin-bottom: 0in; line-height: 115%">
-    <BR>
-</P>
-<P ALIGN=CENTER STYLE="margin-bottom: 0in; line-height: 115%">
-    <BR>
-</P>
-<P ALIGN=CENTER STYLE="margin-bottom: 0in; line-height: 115%">
-    <BR>
-</P>
-<P ALIGN=CENTER STYLE="margin-bottom: 0in; line-height: 115%">
-    <BR>
-</P>
-<P ALIGN=CENTER STYLE="margin-bottom: 0in; line-height: 115%">
-    <BR>
-</P>
-<P ALIGN=CENTER STYLE="margin-bottom: 0in; line-height: 115%">
-    <BR>
-</P>
-<P ALIGN=CENTER STYLE="margin-bottom: 0in; line-height: 115%">
-    <BR>
-</P>
-<P ALIGN=CENTER STYLE="margin-bottom: 0in; line-height: 115%">
-    <BR>
-</P>
-<P ALIGN=CENTER STYLE="margin-bottom: 0in; line-height: 115%">
-    <BR>
-</P>
-<P ALIGN=CENTER STYLE="margin-bottom: 0in; line-height: 115%">
-    <BR>
-</P>
-<P ALIGN=CENTER STYLE="margin-bottom: 0in; line-height: 115%">
-    <BR>
-</P>
-<P ALIGN=CENTER STYLE="margin-bottom: 0in; line-height: 115%">
-    <BR>
-</P>
+        <P align="justify">
+                The first stage is a
+                trans-impedance amplifier to respond to current changes from the
+                photodiode.  This amplifier feeds the next three variable gain
+                stages, which are described in Figure 2.  Each variable gain stage is
+                designed to roll-off frequencies above 10kHz using C1. The coupling
+                capacitor C2 between each variable gain stage eliminates DC offset
+                and provides a high pass filter. Each op-amp stage works in
+                conjunction with a MOSFET that changes feedback resistance to raise
+                or lower the gain. Each stage has been configured to allow switching
+                between  a gain boost of 4<sup>x</sup>. By using  gains of 4<sup>1</sup>,
+                4<sup>2</sup>, and 4<sup>4</sup>, any binary combination can be chosen to allow 
+                various gains up to 4<sup>7</sup>. Gain is controlled from three digital outputs from the
+                micro-controller.
+        </P>
+        <IMG style="display:block; width:80%; margin-left:10%; border: 1px solid #00000a" SRC="Projects/OpticalReceiver/img/i_b4a49e286f061bd7_html_4833a444.png" NAME="Picture 6">
+        <P ALIGN=CENTER>
+            <i>Figure 2: Variable Gain Stage</i>
+        </P>
+        
+        <P><BR><BR><BR><BR></P>
+
+        
+        <P style="font-size:3vw">
+            <a name="chpt23">2.3 Band-pass filter</a>
+        </P>
+
+      
+        <P align="justify">
+            The next amplifier stage is a band-pass filter, which passes
+            frequencies between 3kHz and 5kHz, and attenuates frequencies outside
+            that range. A 4 pole butterworth filter design as shown in figures 3
+            and 4 are used for high and low pass filtering of the band-pass. The
+            -3dB points needed to balance the amplitudes of a 5kHz an 3kHz signal
+            for comparison were experimentally discovered using simulators.  The
+            calibrated roll-off frequencies were found to be 4kHz for the high
+            pass and 3.5kHz for the low pass.  Since they slightly overlap, there
+            were symmetric and steep response slopes on both sides of the 4kHz
+            center frequency, giving balanced band-pass characteristics
+        </P>
+
+        <table style="width:100%">
+            <tr>
+                <td style="width:50%">
+                    <IMG style="display:block; width:100%; border: 1px solid #00000a" SRC="Projects/OpticalReceiver/img/i_b4a49e286f061bd7_html_e660fca8.png" NAME="Picture 3">
+                    <P ALIGN=CENTER>
+                        <i>Figure 3: Low Pass Butterworth</i>
+                    </P>
+                </td>
+                <td>
+                    <IMG style="display:block; width:100%; border: 1px solid #00000a" SRC="Projects/OpticalReceiver/img/i_b4a49e286f061bd7_html_eb7471a2.png" NAME="Picture 4">
+                    <P ALIGN=CENTER>
+                        <i>Figure 4: High Pass Butterworth</i>
+                    </P>
+                </td>
+            </tr>
+        </table>
+
+        <P><BR><BR><BR><BR></P>
+
+        <P STYLE="font-size:3vw">
+            <a name="chpt24">2.4 Peak Detection</a>
+        </P>
+
+        <P ALIGN=JUSTIFY>
+            Two more 4-pole butterworth filters, one
+            high and one low pass, separate the 3kHz and 5kHz sinusoidal signals
+            into separate channels. Each filter rolls off right at 4kHz in
+            opposite directions to split our frequency range right down the
+            middle. By connecting each filter output to a full wave precision
+            rectifiers we can measure the levels of each frequency within the
+            signal. Using a full wave rectifier allows double the amount of
+            positive waveform samples to feed into our peak detector, which
+            allows more samples to be used with faster sampling times.
+        </P>
+
+        <IMG style="display:block; width:100%; border: 1px solid #00000a" SRC="Projects/OpticalReceiver/img/i_b4a49e286f061bd7_html_bef41b6c.png" NAME="Picture 5">    
+        <P ALIGN=CENTER>
+            Figure 5: Wave Rectifier
+        </P>
+        
+        <P><BR><BR></P>        
+        
+        <P ALIGN=JUSTIFY>
+            The peak detectors operate by using the wave rectifier output to charge
+            up C1 and C2, which are continuously discharging through R1 and R2 to
+            ground. The charging and draining of C1 and C2 must support bitrates
+            up to 1kHz, which means our sample period lasts 1ms and capacitors
+            should be able to discharge 60% within half of the bit period.  A
+            comparator measures the voltage of C1 and C2 and outputs high or low
+            accordingly.
+        </P>
+
+        <IMG  style="display:block; width:100%; border: 1px solid #00000a" SRC="Projects/OpticalReceiver/img/peak_detect.png" NAME="Picture 9" />
+        <P ALIGN=CENTER>
+            Figure 6: Peak Detector
+        </P>
+        
+        <P><BR><BR><BR><BR></P>  
+        
+        <P align="justify">
+            Automatic gain control is accomplished by monitoring the voltage levels of C1
+            and C2. Whichever voltage is higher is used to determines the gain
+            adjustments required. If the highest voltage drops below 0.5V, the
+            gain is increased by a factor of 4, bringing the voltage up to 2V.
+            Similarly, if the voltage is above 3.5V, the gain is reduced by a
+            factor of 4 to bring it down to 1.2V. The scaling factor of 4 was
+            chosen exactly for this behavior.
+        </P>
+        
+        <P ALIGN=JUSTIFY>
+
+            The final comparator uses the 5V power
+            rail and the -9V power rail from the batteries to output the proper
+            voltage level.  A diode is used to block the negative voltage for our
+            square wave and a resistor is used to pull the data pin to ground
+            when the diode is not conducting. The final result of the hardware is
+            a clean digital signal that represents the strongest frequency
+            detected by our photodiode.
+        </P>
+
+        <P><BR><BR><BR><BR></P>  
+
+        <P STYLE="font-size:5vw">
+            <a name="chpt3">3 Software</a>
+        </P>
+        
+        <P><BR><BR></P>
+
+        <P STYLE="font-size:3vw">
+            <a name="chpt31">3.1 Auto-gain</a>
+        </P>
+
+
+        <table style="width:100%">
+            <tr VALIGN=TOP>
+                <td style="width:50%">
+                    <P ALIGN=JUSTIFY style="margin-right:5%">
+                        Since the hardware can raise and lower
+                        the gain in smooth linearly steps, the software can use an integer
+                        value to control the volume of the gain boost.  Just like a binary
+                        system, the amplification factor of each gain stage increases
+                        exponentially to represent its bit position. The 3 gain switches can
+                        be arranged into a 3 bit integer, of values 0 to 7, that can be
+                        managed by the software.
+                    </P>
+                    <P ALIGN=JUSTIFY style="margin-right:5%">
+                        To determine if the volume, or gain, is
+                        out of range, the software must monitor two analog outputs from the
+                        peak detectors. The highest value of the two is compared against
+                        predefined range limits, (0.5V to 3.5V), and the volume is
+                        incremented or decremented accordingly.  The response time of the
+                        gain control is less than the loop cycle time of the software, so
+                        volume can be adjusted by 1 each loop cycle.  LEDs connected to each
+                        binary output show the currently selected binary combination, thus
+                        the current level of gain boost.
+                    </P>
+                </td>
+                <td>
+                    <IMG style="display:block; width:100%; border: 1px solid #00000a" SRC="Projects/OpticalReceiver/img/i_b4a49e286f061bd7_html_9fef33fd.jpg" NAME="graphics2">
+                    <P ALIGN="center">
+                        <i>Figure 7: Auto-gain</i>
+                    </P>
+                </td>
+            </tr>
+        </table>
+        
+        <P><BR><BR><BR><BR></P>  
+
+        <P style="font-size:3vw">
+            <a name="chpt32">3.2 Synchronization</a>
+        </P>
+        <P ALIGN=JUSTIFY>
+            To measure and synchronize with the incoming data stream, an
+            auto-configuration function was built.  This took the most time to
+            develop. It begins by attaching interrupt routines to both falling
+            and rising edge detectors. Since both edges cannot be monitored
+            simultaneously by the hardware, each interrupt routine must enable
+            the other in a back-and-forth fashion.  This allows those interrupt
+            routines to mark the exact times of each data-line voltage
+            transition.
+        </P>
+        
+        <P ALIGN=JUSTIFY>
+                Figure 8 shows the equation style we use
+                to find the bit time.  The unknown variables are both x and the
+                coefficients.  Knowing the format of the byte message, we can use a
+                &quot;best fit&quot; algorithm to find the coefficient variables by
+                1) assigning x to the smallest time found, 2) measuring time between
+                bits and bytes, 3) verifying start and stop bits, and 4) using
+                previously acquired synchronization values.  If the coefficient
+                variables are not whole numbers, we can use that variation to simply
+                measure the error or drastically change the timing values.
+        </P>
+
+        <IMG style="display:block; width:100%; border: 1px solid #00000a" SRC="Projects/OpticalReceiver/img/i_b4a49e286f061bd7_html_d255f45f.jpg" NAME="Picture 2">
+        <P ALIGN=CENTER>
+            <i>Figure 8: Synchronization</i>
+        </P>
+
+        <P><BR><BR><BR><BR></P>  
+
+        <P STYLE="font-size:3vw">
+            <a name="chpt33">3.3 Performance</a>
+        </P>
+
+        <P align="justify">
+                Using this hardware and software
+                package, I was able to easily reach the 1kHz bit rate target. The
+                maximum range achieved before auto-configuration could no longer
+                detect a signal was over 10 feet with this design.  At that range,
+                physical alignment seemed to be the most difficult problem.  The
+                single LED transmitter station was extremely omni-directional.
+                During the final test in the lab, I was able to receive 1000 messages
+                with a few minor errors at 10 feet. The &quot;Miss Rate&quot; was
+                less than 1% and hard to measure.
+        </P>
+        <P align="justify">
+                Auto-configure routines were
+                able to seek bit rates as low as 20Hz, and above 1kHz.  The average
+                packet misses while recalibrating was usually only 1, but up to 4
+                when large timing transitions took place. Overall the
+                auto-configuration was very impressive.  It can determine bit rates
+                within an accuracy of 10 micro-seconds,  total message size, and any
+                extra or missing bits. It was also allowed to make minor adjustments
+                to current variables to compensate for any drift. When the signal was
+                lost or changed, it immediately began to measure the new bit time,
+                verify the signal, verify the packet, and re-synchronizes with it.
+        </P>
+ 
+        <P><BR><BR><BR><BR></P>  
+
+        <P STYLE="font-size:3vw">
+            <a name="chpt34">3.4 Software Outline</a>
+        </P>
+
+        <P><BR><BR></P>
+        <ul>
+            <li>
+                <B>Main Loop()</B>
+                <ul>
+                    <li>senseGain()</li>
+                    <li>readData()</li>
+                </ul>
+            </li>
+            <li>
+                <B>senseGain()</B>
+                <ul>
+                    <li>acquire average of highest peak detector voltage</li>
+                    <li>compare value to bounds, and adjust volume if outside</li>
+                    <li>Convert volume into 3 bit representation</li>
+                    <li>Enable or disable gain boost pins from the 3 bit values.</li>
+                </ul>
+            </li>
+            <li>
+                <B>readData()</B>
+                <ul>
+                    <li>Verify it is time to sample a bit></li>
+                    <li>Sample the bit and set next sample time</li>
+                    <li>
+                        If bit = 1 AND is the first bit after an idle period
+                        <ul>
+                            <li>reset variables to begin collecting data (start bit)</li>
+                        </ul>
+                    </li>
+                    <li>
+                        if bit = 0 AND we have entered an idle period AND we have collected data
+                        <ul>
+                            <li>
+                                if data is the correct known size and format
+                                <ul>
+                                    <li>print data and sync minor timing variance</li>
+                                </ul>
+                            </li>
+                            <li>else call autoSyncData()</li>
+                        </ul>
+                    </li>
+                    <li>
+                        if valid data is detected
+                        <ul>
+                            <li>align bit into byte value</li>
+                            <li>
+                                if bit = 1
+                                <ul>
+                                    <li>use timing marks to track smallest bit times detected (autoSync helper)</li>
+                                </ul>
+                            </li>
+                            <li>store completed bytes into array</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <B>autoSyncData()</B>
+                <ul>
+                    <li>missing...</li>
+                </ul>
+            </li>
+            <li>
+                <B>Interrupt Routines:</B>
+                <ul>
+                    <li>
+                        <B>fallDetected()</B>
+                        <ul>
+                            <li>measure time since last rise occurred</li>
+                            <li>set next bit sample time, 1/3 into bit period.</li>
+                            <li>set data start flags if line was just idle.</li>
+                            <li>enable interrupt for riseDetected()</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <B>riseDetected()</B>
+                        <ul>
+                            <li>mark time of rise occurring</li>
+                            <li>enable interrupt for fallDetected()</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+        <P><BR><BR><BR><BR></P>  
+
+        <P STYLE="font-size:5vw">
+            <a name="chpt4">4 Photos</a>
+        </P>
+
+        <IMG style="display:block; width:100%" SRC="Projects/OpticalReceiver/img/i_b4a49e286f061bd7_html_c17a24ae.png" NAME="graphics3">
+
+    </div>
+</div>

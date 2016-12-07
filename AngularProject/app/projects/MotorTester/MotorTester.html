@@ -1,4 +1,214 @@
 <div ng-include="'Projects/nav.html'"></div>
 
-<p>motor tester document pending...</p>
+<div ng-controller="ViewCtrl_obd2">
+    <table id="robot-header" style="width:90%; margin-left:5%; font-family:'Times New Roman'">
+        <tr>
+            <td colspan="2">
+                <p align="center" style="font-size:5vw">
+                    Quadrature Decoder
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td style="width:25%">
+                <p align="center" style="background-color:lightblue; margin-bottom:0px; border: 1px solid #00000a; font-size:2vw">
+                    Table of Contents
+                </p>
+            </td>
+            <td>
+                <P ALIGN=RIGHT STYLE="margin-bottom:0px; font-size:2vw">
+                    Alex Vassallo - December 2016
+                </P>
+            </td>
+        </tr>
+        <tr>
+            <td style="vertical-align:top">
 
+                <ol style="background-color:lightblue; border: 1px solid #00000a; padding: 0in 12%; font-size:2vw">
+
+                    <li><div ng-click="gotoChpt1()">Abstract</div></li>
+                    <li>
+                        <div ng-click="gotoChpt2()">Hardware</div>
+                        <ol>
+                            <li><div ng-click="gotoChpt21()">Specifications</div></li>
+                            <li><div ng-click="gotoChpt21()">Runt Pulses</div></li>
+                            <li><div ng-click="gotoChpt22()">Chip Configuration</div></li>
+                            <li><div ng-click="gotoChpt22()">Package</div></li>
+
+                        </ol>
+                    </li>
+                    <li>
+                        <div ng-click="gotoChpt3()">Software</div>
+                        <ol>
+                            <li><div ng-click="gotoChpt31()">DMA vs Interupts</div></li>
+                            <li><div ng-click="gotoChpt32()">Display</div></li>
+                            <li><div ng-click="gotoChpt33()">Buttons</div></li>
+                            <li><div ng-click="gotoChpt34()">Graph</div></li>
+                            <li><div ng-click="gotoChpt35()">Menu</div></li>
+                            <li><div ng-click="gotoChpt36()">USB reporting</div></li>
+                            <li><div ng-click="gotoChpt37()">Software Outline</div></li>
+                        </ol>
+                    </li>
+                </ol>
+
+            </td>
+            <td style="vertical-align:top">
+                <IMG style="display:block; width:95%; margin-left:5%" SRC="Projects/MotorTester/img/MotorTester.png" NAME="Picture 1">
+            </td>
+        </tr>
+    </table>
+
+
+    <div style="margin-left:5%; margin-right:5%; font-family:'Times New Roman'; font-size:2vw">
+
+
+        <P><BR><BR><BR><BR></P>
+
+        <P STYLE="font-size:5vw">
+            <a name="chpt1">1 Abstract</a>
+        </P>
+
+        <P ALIGN=JUSTIFY>
+            This device is a prototype of what I beleive to be a very useful tool. This device monitors a quadrature encoded signal and provides real-time tracking of its characteristics. 
+            It should be able to assist engineers in designing and debugging systems that use this common protocol. This device provides accurate pulse and signal measurement and analysis, 
+            as well as tracking the absolute position
+            from the accumulative pulse and direction activity. It also monitors the "Home" and "Limit" input signals and saves their activity. Reporting is done by using a combination of LCD screen and USB
+            reporting. This device has many software features to assist the user, such as a full menu system, automatic graph scaling, 6 independent buttons for quick adjustments, and a signal "pass-thru" 
+            port which allows engineers to easily extend the input signals to additional tools, such as an oscilloscope. 
+        </P>
+
+        <P><BR><BR><BR><BR></P>
+
+        <P STYLE="font-size:5vw">
+            <a name="chpt2">2 Hardware</a>
+        </P>
+
+        <P><BR><BR></P>
+
+        <P STYLE="font-size:3vw">
+            <a name="chpt21">2.1 Specifications</a>
+        </P>
+
+        <P><BR><BR><BR><BR></P>
+
+        <P STYLE="font-size:3vw">
+            <a name="chpt23">2.2 Runt Pulses</a>
+        </P>
+
+        <P><BR><BR><BR><BR></P>
+
+        <P STYLE="font-size:3vw">
+            <a name="chpt23">2.3 Chip Configuration</a>
+        </P>
+
+        <p align="center">
+            The diagram below illustrates the internal routing of the various input signals.
+        </p>
+        <img style="width:100%; border: 1px solid #00000a" src="Projects/MotorTester/img/block_diagram.png">
+        <p align="center">
+            <i>Figure 1: Block Diagram</i>
+        </p>
+
+        <P><BR><BR><BR><BR></P>
+
+        <P STYLE="font-size:3vw">
+            <a name="chpt24">2.4 Package</a>
+        </P>
+        
+        <p align="justify">
+            Being a prototype, this design was build with modularity in mind.  Each sub-component can be easily removed and modified. The final design can be severly flattened to a more compact dwesign.
+            In these pictures, you can see the riser system being used for connections, and input and pass-through pins down the middle.
+        </p>
+
+        <table style="width:100%">
+            <tr>
+                <td style="width:50%">
+                    <img style="display:block; width:100%" ; src="Projects/MotorTester/img/LCD_OFF.png">
+                </td>
+                <td>
+                    <img style="display:block; width:100%" ; src="Projects/MotorTester/img/apart.png">
+                </td>
+            </tr>
+        </table>
+
+        
+
+        
+        
+
+        <img style="display:block; width:100%" ; src="Projects/MotorTester/img/dev.png">
+        <img style="display:block; width:100%" ; src="Projects/MotorTester/img/back.png">
+
+
+
+        <p align="center">
+
+        </p>
+
+        <P><BR><BR><BR><BR></P>
+
+        <P STYLE="font-size:5vw">
+            <a name="chpt3">3 Software</a>
+        </P>
+
+        <P><BR><BR></P>
+
+        <P STYLE="font-size:3vw">
+            <a name="chpt31">3.1 DMA vs Interupts</a>
+        </P>
+
+        <p align="center">
+
+        </p>
+        <img style="width:100%; border: 1px solid #00000a" src="Projects/MotorTester/img/software_timing.png">
+
+        <P><BR><BR><BR><BR></P>
+
+        <P STYLE="font-size:3vw">
+            <a name="chpt32">3.2 Display</a>
+        </P>
+
+        <img style="width:100%; border: 1px solid #00000a" src="Projects/MotorTester/img/display_layout.png">
+
+
+        <P><BR><BR><BR><BR></P>
+
+        <P STYLE="font-size:3vw">
+            <a name="chpt33">3.3 Buttons</a>
+        </P>
+
+        <img style="width:100%; border: 1px solid #00000a" src="Projects/MotorTester/img/buttons1.png">
+        <img style="width:100%; border: 1px solid #00000a" src="Projects/MotorTester/img/menu_buttons.png">
+
+
+        <P><BR><BR><BR><BR></P>
+
+        <P STYLE="font-size:3vw">
+            <a name="chpt34">3.4 Graph</a>
+        </P>
+        <P><BR><BR><BR><BR></P>
+
+        <P STYLE="font-size:3vw">
+            <a name="chpt35">3.5 Menu</a>
+        </P>
+        <P><BR><BR><BR><BR></P>
+
+        <P STYLE="font-size:3vw">
+            <a name="chpt36">3.6 USB Reporting</a>
+        </P>
+        <P><BR><BR><BR><BR></P>
+
+        <P STYLE="font-size:3vw">
+            <a name="chpt37">3.7 Software Outline</a>
+        </P>
+        <ul>
+            <li>
+                <b>Main Loop()</b>
+                <ul>
+                    <li></li>
+                </ul>
+            </li>
+        </ul>
+
+    </div>
+</div>
