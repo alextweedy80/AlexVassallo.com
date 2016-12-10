@@ -30,10 +30,11 @@
                     <li>
                         <div ng-click="gotoChpt2()">Hardware</div>
                         <ol>
-                            <li><div ng-click="gotoChpt21()">Specifications</div></li>
-                            <li><div ng-click="gotoChpt21()">Runt Pulses</div></li>
-                            <li><div ng-click="gotoChpt22()">Chip Configuration</div></li>
-                            <li><div ng-click="gotoChpt22()">Package</div></li>
+                            <li><div ng-click="gotoChpt21()">Overview</div></li>
+                            <li><div ng-click="gotoChpt22()">Pulse Definitions</div></li>
+                            <li><div ng-click="gotoChpt23()">Chip Configuration</div></li>
+                            <li><div ng-click="gotoChpt24()">Package</div></li>
+                            <li><div ng-click="gotoChpt25()">Specifications</div></li>
 
                         </ol>
                     </li>
@@ -69,12 +70,12 @@
         </P>
 
         <P ALIGN=JUSTIFY>
-            This device is a prototype of what I beleive to be a very useful tool. This device monitors a quadrature encoded signal and provides real-time tracking of its characteristics. 
+            This device is a prototype of what I beleive to be a very useful tool. This device monitors an incremental encoded signal and provides real-time tracking of its characteristics. 
             It should be able to assist engineers in designing and debugging systems that use this common protocol. This device provides accurate pulse and signal measurement and analysis, 
             as well as tracking the absolute position
             from the accumulative pulse and direction activity. It also monitors the "Home" and "Limit" input signals and saves their activity. Reporting is done by using a combination of LCD screen and USB
             reporting. This device has many software features to assist the user, such as a full menu system, automatic graph scaling, 6 independent buttons for quick adjustments, and a signal "pass-thru" 
-            port which allows engineers to easily extend the input signals to additional tools, such as an oscilloscope. 
+            port which allows users to easily extend the input signals to additional tools, such as an oscilloscope. 
         </P>
 
         <P><BR><BR><BR><BR></P>
@@ -86,20 +87,166 @@
         <P><BR><BR></P>
 
         <P STYLE="font-size:3vw">
-            <a name="chpt21">2.1 Specifications</a>
+            <a name="chpt21">2.1 Overview</a>
         </P>
+
+        <p align="justify">
+            The heart of this device consists of a teensy 3.2 micro-controller, which uses the Freescale K20 chipset that contains many internal, programmable periperal devices.
+            This device configures and uses a wide combination of timers, DMA transactions, and software interupts to control the data acquisition. 
+            There is an external inverter chip on the main board which serves to both invert the input signal for more precision "pulse low" measurements, and to serve as a buffer for the many signal branches.
+            The TFT display is controlled via the SPI port, and updates only when the processor is idle. 
+            The 6 buttons each pull normally high digital pins to ground in order to trigger software interupts. 
+            The supply power can come from either the USB port, or the input pins.
+            Home and Limit pins are normally floating if not connected. 
+            The output pins hidden along the bottom of the device are directly connected 
+            to the input pins, to allow daisy-chaining of devices. 
+            The extra pin (far left) on this output port is meant for oscilliscope software debug output.
+
+        </p>
+        <table style="width:100%">
+            <tr>
+                <td style="width:40%">
+                    <img style="display:block; width:100%" ; src="Projects/MotorTester/img/dev.png">
+                </td>
+                <td>
+                    <img style="display:block; width:100%" ; src="Projects/MotorTester/img/back.png">
+                </td>
+            </tr>
+        </table>
+
 
         <P><BR><BR><BR><BR></P>
 
         <P STYLE="font-size:3vw">
-            <a name="chpt23">2.2 Runt Pulses</a>
+            <a name="chpt22">2.2 Pulse Definitions</a>
         </P>
+
+        <table style="width:100%">
+            <tr>
+                <td style="width:50%">
+                    <p align="justify" style="margin:5%">
+                        The incoming pulse signal characteristics are measured by timing the high and low duration of each pulse.
+                        The pulse frequency, or "speed", is determined by the distance between FALLING edges.
+                        The hardware is configured to react to rising and falling edges on the input ports to trigger both hardware and software events.
+                    </p>
+                </td>
+                <td>
+                    <img style="display:block; width:100%; border:solid" ; src="Projects/MotorTester/img/pulse_def1.png">
+                </td>
+            </tr>
+            <tr>
+                <td style="width:50%">
+                    <p align="justify" style="margin:5%">
+                        Runt pulses are definied as any pulse being less than 1 micro-second (us). This protocol value is not adjustable in this version of device.
+                        If many runt pulses occur in rapid succession, not all of them may be captured as there is not time between pulses to copy values.
+                        However, the final runt pulse of a series of rapid runt pulses will always be reported. Refer to the "Continuous Pulse Frequency" in the specifications
+                        and the software section for details on this behavior.
+                    </p>
+                </td>
+                <td>
+                    <img style="display:block; width:100%; border:solid" src="Projects/MotorTester/img/pulse_def2.png">
+                </td>
+            </tr>
+
+        </table>
+
 
         <P><BR><BR><BR><BR></P>
 
         <P STYLE="font-size:3vw">
             <a name="chpt23">2.3 Chip Configuration</a>
         </P>
+
+        <table style="border:solid">
+            <tr style="border:solid">
+                <td style="width:35%; border:solid">
+                    <p align="center">FlexTimer Modules</p>
+                    <p align="center">(FTM)</p>
+                </td>
+                <td>
+                    <p align="justify" style="margin-left:3%; margin-right:3%">
+                        FlexTimers are versatile 16-bit timer modules used for input capture, output compare, or edge aligned PWM output. There are 3 on-board this chipset.
+
+                    <p align="justify" style="margin-left:3%; margin-right:3%"><b>FTM0</b> - Pulse High Measurement</p>
+                    <p style="margin-left:5%">Reset timer on rising edge, capture timer value on falling edge</p>
+                    <p align="justify" style="margin-left:3%; margin-right:3%"><b>FTM1</b> - Absolute Position</p>
+                    <p style="margin-left:5%">Quadrature Mode, Phase A: Pulse input, Phase B: Direction</p>
+                    <p align="justify" style="margin-left:3%; margin-right:3%"><b>FTM2</b> - Pulse Low Measurement <font style="font-size:1.3vw">*uses inverted pulse</font></p>
+                    <p style="margin-left:5%">Reset timer on rising edge, capture timer value on falling edge</p>
+                </td>
+            </tr>
+            <tr style="border:solid">
+                <td style="width:35%; border:solid">
+                    <p align="center">Programmable Delay Block</p>
+                    <p align="center">(PDB)</p>
+                </td>
+                <td>
+                    <p align="justify" style="margin-left:3%; margin-right:3%">
+                        This delay block is a simple 16-bit clock counter with a hardware reset input and interupt capability
+                    <p align="justify" style="margin-left:3%; margin-right:3%"><b>PDB0</b> - Time-out Timer <font style="font-size:1.3vw">*uses inverted pulse</font></p>
+                    <p style="margin-left:5%">Reset timer on rising edge, trigger interupt at timeout threshold</p>
+                </td>
+            </tr>
+            <tr style="border:solid">
+                <td style="width:35%; border:solid">
+                    <p align="center">Programmable Interupt Timer</p>
+                    <p align="center">(PIT)</p>
+                </td>
+                <td>
+                    <p align="justify" style="margin-left:3%; margin-right:3%">
+                        Programmable Interupt Timers will trigger a software interupt routine at a given interval. There are 4 onboard.
+                    <p align="justify" style="margin-left:3%; margin-right:3%"><b>PIT0</b> - Display Refresh Timer </p>
+                    <p style="margin-left:5%">Trigger an interupt which sets the flag to refresh the screen</p>
+                    <p align="justify" style="margin-left:3%; margin-right:3%"><b>PIT1</b> - Graph Data Trigger <font style="font-size:1.3vw">*if graph is in time base mode</font></p>
+                    <p style="margin-left:5%">Trigger an interupt which copies the next graph datapoint</p>
+                </td>
+            </tr>
+            <tr style="border:solid">
+                <td style="width:35%; border:solid">
+                    <p align="center">eDMA Controller</p>
+                    <p align="center">(DMA)</p>
+
+                </td>
+                <td>
+                    <p align="justify" style="margin-left:3%; margin-right:3%">
+                        The DMA Controller is capable of copying variables with no processor intervention. DMA requests take about 180ns to complete, and can be
+                        linked together or dynamically reprogrammed by even the DMA requests themselves.
+                        Requests are processed in the order of their priority level, where higher numbers are higher priority, and can prevent lower priorities from executing.
+                    </p>
+                    <p align="left" style="margin-left:3%; margin-right:3%"><b>DMA15</b> - Copy FTM0 captured value into global variable </p>
+                    <p align="left" style="margin-left:3%; margin-right:3%"><b>DMA14</b> - Copy reset values into DMA13 to reset FTM2 counter</p>
+                    <p align="left" style="margin-left:3%; margin-right:3%"><b>DMA13</b> - Copy next FTM2 overflow value into temp variable  </p>
+                    <p align="left" style="margin-left:3%; margin-right:3%"><b>DMA12</b> - Copy temp FTM2 overflow value to global variable </p>
+                    <p align="left" style="margin-left:3%; margin-right:3%"><b>DMA11</b> - Copy FTM2 captured value into global variable </p>
+                    <p align="left" style="margin-left:3%; margin-right:3%"><b>DMA10</b> - Copy zero into temp FTM0 overflow variable to reset</p>
+                    <p align="left" style="margin-left:3%; margin-right:3%"><b>DMA9</b> - Copy last pulse-width into Runt width array </p>
+                    <p align="left" style="margin-left:3%; margin-right:3%"><b>DMA8</b> - Copy avg pulse-width & Dir into graph data array </p>
+                </td>
+            </tr>
+            <tr style="border:solid">
+                <td style="width:35%; border:solid">
+                    <p align="center">Nested Vector Interupt Controller</p>
+                    <p align="center">(NVIC)</p>
+                </td>
+                <td>
+                    <p align="justify" style="margin-left:3%; margin-right:3%">
+                        The Interupt Controller is responsible for managing software interupt routines. 
+                        It uses internal hardware triggers to activate various interupt routines, which execute in the order of their priority levels (0-128), where priority 0 is the highest.
+                    <p align="justify" style="margin-left:3%; margin-right:3%"><b>porta_isr</b> GPIO port for Direction pin</p>
+                    <p align="justify" style="margin-left:3%; margin-right:3%"><b>portb_isr</b> GPIO port for Home pin</p>
+                    <p align="justify" style="margin-left:3%; margin-right:3%"><b>portc_isr</b> GPIO port for Pulse pin</p>
+                    <p align="justify" style="margin-left:3%; margin-right:3%"><b>portd_isr</b> GPIO port for Buttons</p>
+                    <p align="justify" style="margin-left:3%; margin-right:3%"><b>porte_isr</b> GPIO port for Limit pin</p>
+                    <p align="justify" style="margin-left:3%; margin-right:3%"><b>ftm0_isr</b> FTM0 counter overflow</p>
+                    <p align="justify" style="margin-left:3%; margin-right:3%"><b>ftm1_isr</b> FTM1 counter overflow</p>
+                    <p align="justify" style="margin-left:3%; margin-right:3%"><b>pdb_isr</b> PDB0 timeout acheived</p>
+                    <p align="justify" style="margin-left:3%; margin-right:3%"><b>pit0_isr</b> trigger screen redraw</p>
+                    <p align="justify" style="margin-left:3%; margin-right:3%"><b>pit1_isr</b> trigger graph datapoint capture</p>
+                </td>
+            </tr>
+        </table>
+
+        <P><BR><BR><BR><BR></P>
 
         <p align="center">
             The diagram below illustrates the internal routing of the various input signals.
@@ -116,8 +263,8 @@
         </P>
         
         <p align="justify">
-            Being a prototype, this design was build with modularity in mind.  Each sub-component can be easily removed and modified. The final design can be severly flattened to a more compact dwesign.
-            In these pictures, you can see the riser system being used for connections, and input and pass-through pins down the middle.
+            Being a prototype, this design was build with modularity in mind.  Each sub-component can be easily removed and modified. The final design can be flattened to a more compact design.
+            In these pictures, you can see the riser system being used for connections, and input and pass-through pins.
         </p>
 
         <table style="width:100%">
@@ -131,13 +278,151 @@
             </tr>
         </table>
 
-        
+        <p align="justify">
 
-        
-        
+        </p>
 
-        <img style="display:block; width:100%" ; src="Projects/MotorTester/img/dev.png">
-        <img style="display:block; width:100%" ; src="Projects/MotorTester/img/back.png">
+
+
+        <P><BR><BR></P>
+
+        <P STYLE="font-size:3vw">
+            <a name="chpt21">2.5 Specifications</a>
+        </P>
+
+        <table style="width:100%">
+            <tr VALIGN="top">
+                <td style="width:40%">
+                    <img style="display:block; width:100%; border:solid" src="Projects/MotorTester/img/pinout.png">
+                </td>
+                <td>
+
+                    <table style="width:100%; margin-left:5%; font-size:1.5vw">
+                        <tr style="background-color:lightblue">
+                            <td style="width:55%; border:solid">
+                                <p align="center">
+                                    item
+                                </p>
+                            </td>
+                            <td style="width:15%; border:solid">
+                                <p align="center">
+                                    min
+                                </p>
+                            </td>
+                            <td style="width:15%; border:solid">
+                                <p align="center">
+                                    nom
+                                </p>
+                            </td>
+                            <td style="width:15%; border:solid">
+                                <p align="center">
+                                    max
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="border:solid">Processor Chipset</td>
+                            <td colspan="3" style="border:solid">
+                                <p align="center">
+                                    MK20DX256VLH7 Cortex-M4
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="border:solid">Input pulse width range</td>
+                            <td style="border:solid">
+                                <p align="center">
+                                    20.8ns
+                                </p>
+                            </td>
+                            <td style="border:solid">
+                                <p align="center">
+                                    &lt1.365ms
+                                </p>
+                            </td>
+                            <td style="border:solid">
+                                <p align="center">
+                                    5.0 sec
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="border:solid">Continuous Pulse Frequency</td>
+                            <td style="border:solid">
+                                <p align="center">
+                                    0.2Hz
+                                </p>
+                            </td>
+                            <td style="border:solid">
+                                <p align="center">
+                                    &gt366Hz
+                                </p>
+                            </td>
+                            <td style="border:solid">
+                                <p align="center">
+                                    767kHz
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="border:solid">Pulse Measurement Accuracy</td>
+                            <td style="border:solid">
+                                <p align="center">
+
+                                </p>
+                            </td>
+                            <td style="border:solid">
+                                <p align="center">
+                                    +/- 20.8ns
+                                </p>
+                            </td>
+                            <td style="border:solid">
+                                <p align="center">
+
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="border:solid">Digital Input Voltage</td>
+                            <td style="border:solid">
+                                <p align="center">
+                                    -0.3V
+                                </p>
+                            </td>
+                            <td style="border:solid">
+                                <p align="center">
+                                    3.3V
+                                </p>
+                            </td>
+                            <td style="border:solid">
+                                <p align="center">
+                                    5.5V
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="border:solid">Input Supply Voltage</td>
+                            <td style="border:solid">
+                                <p align="center">
+                                    1.71V
+                                </p>
+                            </td>
+                            <td style="border:solid">
+                                <p align="center">
+                                    5.0V
+                                </p>
+                            </td>
+                            <td style="border:solid">
+                                <p align="center">
+                                    6.0V
+                                </p>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+       
 
 
 
@@ -157,8 +442,30 @@
             <a name="chpt31">3.1 DMA vs Interupts</a>
         </P>
 
-        <p align="center">
-
+        <p align="justify">
+            The struggle with processing high frequency signals are the Nyquist rules related to processor speed and sampling data values. 
+            When processing a continuous stream of 1 micro-second pulses, there are 96 processor clock ticks before the next pulse needs to be analyzed.
+            This does not allow for very many computations between pulses. Even a simple division may take over 10 clock cycles to complete.
+            DMA has a 80ns delay and a 100ns copy time. 
+            Interupt service routines take roughly 250us for a context switch, before the first line is executed.
+            
+        </p>
+        <p align="justify">
+            This software uses a delicate combination of hardware timing to accomplish 1 clock pulse accuracy. 
+            The workload of processing FlexTimer values into the global model is divided between the processor and the DMA.
+            Because the DMA runs in parallel to the main processor, the work can be shared equally to optimize performance.
+            The processor is left to do arithmetic, while the DMA is free to move data around it.
+        </p>
+        <p align="justify">
+            It is very important for the DMA and Interupt requests to have priority levels. 
+            It allows for the most critical code to function as the pulse frequency gets higher.
+            As the pulses move closer together, the lower priority DMA calls will begin to drop off, such as graph function and runt pulse count, while
+            the more essential timing functions remain running.
+            
+        </p>
+        <p align="justify">
+            Below is a time-based representation of how the various DMA channels and interupt routines work together.
+            The limits of this device can be understood by comparing the pulse input to the time stamps shown, to see what will get triggered or ignored.
         </p>
         <img style="width:100%; border: 1px solid #00000a" src="Projects/MotorTester/img/software_timing.png">
 
@@ -176,9 +483,45 @@
         <P STYLE="font-size:3vw">
             <a name="chpt33">3.3 Buttons</a>
         </P>
-
-        <img style="width:100%; border: 1px solid #00000a" src="Projects/MotorTester/img/buttons1.png">
-        <img style="width:100%; border: 1px solid #00000a" src="Projects/MotorTester/img/menu_buttons.png">
+        <table style="width:100%">
+            <tr valign="center">
+                <td style="width:50%">
+                    <ul>
+                        <li><b>Menu</b> - Toggles menu On/Off, graph is disabled, buttons change definition</li>
+                        <li><b>Freeze HW</b> - Toggles input Port On/Off, all input is ignored when Off</li>
+                        <li><b>Freeze Graph</b> - Captures screenshot of graph, press again to resume</li>
+                        <li><b>Reset/Zero</b> - Resets 'Position' and Runt counter, and reports saved data to USB port</li>
+                        <li><b>X-axis Type</b> - Toggles graph X-axis type between Time and Pulse driven mode</li>
+                        <li><b>X-axis Scale</b> - Toggles between 6 values to scale down the x-axis for easy viewing</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <img style="width:100%; border: 1px solid #00000a" src="Projects/MotorTester/img/buttons1.png">
+                </td>
+            </tr>
+        </table>
+        
+        <P><BR><BR></P>
+        <p align="justify">
+            When the menu is activated, the left side buttons have the following definitions...<br />
+        </p>
+        <table style="width:100%">
+            <tr>
+                <td style="width:40%; margin-right:5%">
+                    <ul style="margin-right:5%">
+                        <li><b>Menu</b> -Toggles menu Off, graph resumes normally</li>
+                        <li><b>Next Item</b> -Moves the selected item to the next line</li>
+                        <li><b>Modify Item</b> -Toggles through the values of the selected line</li>
+                    </ul>
+                </td>
+                <td>
+                    <img style="width:100%; border: 1px solid #00000a" src="Projects/MotorTester/img/menu_buttons.png">
+                </td>
+            </tr>
+        </table>
+        
 
 
         <P><BR><BR><BR><BR></P>
@@ -186,16 +529,143 @@
         <P STYLE="font-size:3vw">
             <a name="chpt34">3.4 Graph</a>
         </P>
+
+        <table style="width:100%">
+            <tr valign="top">
+                <td style="width:50%">
+                    <p align="justify" style="margin-right:5%">
+                        The graph is a visual representation of the average pulse frequency.
+                        It displays the potential speed of an installed motor system.
+                        The line color represents the direction at the time of data capture.
+                        The Y axis scale has a fluid auto-zoom feature that can be overrided from the menu. 
+                        The auto-zoom feature attemps to scale the window to fit the largest value found in the most recent 2/3 of the data.
+                        The oldest 1/3 of the data may zoom off the screen, which allows for a fluid transition from high values to low values.
+                        Rising frequency values will snap the scale to it, but falling frequency values will smoothly decrease to match the new highest value.
+                        
+                    </p>
+                </td>
+                <td>
+                    <img style="width:100%; border: 1px solid #00000a" src="Projects/MotorTester/img/graph1.png">
+                    <p align="justify">
+                        <i>Showing a FM generated signal, being modulated by a SINE wave. 
+                        The width of the screen represents 1 second, as shown in the scale box</i>
+                    </p>
+                </td>
+            </tr>
+            <tr valign="top">
+                <td style="width:50%">
+                    <p align="justify" style="margin-right:5%">
+                        The X axis is controlled by 2 settings, Scale and Type. 
+                        The two Type settings available are 'Time' and 'Pulse'. 
+                        Time Mode means that the graph is displaying the average frequency during steady time intervals.
+                        Pressing the 'Scale' button will cause the graph to 'slow down' the data, by extending the time intervals.
+                        When in 'Pulse' mode, only the falling edge of a pulse will trigger a new data point on the graph.
+                        Pressing the 'Scale' button here will result in the graph capturing the average at every nth pulse, when n is shown on the display.
+                    </p>
+                </td>
+                <td>
+                    <img style="width:100%; border: 1px solid #00000a" src="Projects/MotorTester/img/graph2.png">
+                    <p align="justify">
+                        <i>Showing the same input signal using 'Pulse' based axis. The averages of 256 pulses is shown on the graph, as per the scale setting.
+                        The width of the screen is always 320 data points.</i>
+                    </p>
+                </td>
+            </tr>
+        </table>
+
+
         <P><BR><BR><BR><BR></P>
 
         <P STYLE="font-size:3vw">
             <a name="chpt35">3.5 Menu</a>
         </P>
+        <img style="width:80%; margin-left:10%; border: 1px solid #00000a" src="Projects/MotorTester/img/menu_mini.png">
+        <ul>
+            <li><b>Graph Data</b> -switches graph between speed and acceleration, (Hz - Hz/s)</li>
+            <li><b>Vert Scale</b> -control the Y-axis scaling of the graph. Auto-scale or exponentially decreasing values.</li>
+            <li><b>Sync to Home</b> -allows the Home pin to cause the position value to reset when triggered</li>
+            <li><b>Color Theme</b> -switches graph between 6 preset color themes for easy visibility</li>
+            <li><b>Timeout</b> -sets the amount of time before a timeout occurs.</li>
+            <li><b>Timeout Report</b> -Activates USB reporting when the selected time-out occurs</li>
+            <li><b>Timeout Reset</b> -Reset all data after Timeout and usb report. Use for remote operation</li>
+            <li><b>Help / About</b> -Display a screen of basic information for product use.</li>
+
+        </ul>
         <P><BR><BR><BR><BR></P>
 
         <P STYLE="font-size:3vw">
             <a name="chpt36">3.6 USB Reporting</a>
         </P>
+        <p align="justify">
+            USB reporting is done via a text based terminal console. It defaults to a baud rate of 115200 and is output only. 
+            USB reporting is triggered if the reset/zero button is pressed, or a timeout occurs and auto-report is selected in the menu.
+            Anytime a USB report is made, the associated stored data is cleared from memory if selected in the menu.
+        </p>
+        <p align="justify">
+            <ul>
+                <li>
+                    <b>Macro-Movements</b> are defined as continuous motion in a single direction. 
+                    Changes on the Direction pin cause a Macro-Movement to be stored with the following data:
+                    <ul>
+                        <li><i>Pulse Index</i></li> -the total number of pulses since last reset. Used as a reference index.
+                        <li><i>Absolute Position</i></li> -the absolute position at the time of direction change.
+                        <li><i>Runt Pulse Count</i></li> -the number of Runt pulses captured during this movement.
+                    </ul>
+                </li>
+                <li>
+                    <b>Home Pin Activity</b> -shows the Absolute Position of when the Home Pin turns on or off
+                </li>
+                <li>
+                    <b>Limit Pin Activity</b> -shows the Absolute Position of when the Limit Pin turns on or off
+                </li>
+                <li>
+                    <b>Runt Pulses</b> -uses the most recent 128 runt pulses to calculate the following:
+                    <ul>
+                        <li>Average Width</li>
+                        <li>Maximum Width</li>
+                        <li>Minimum Width</li>
+                        <li>List of up to 128 pulse widths</li>
+                    </ul>
+                </li>
+            </ul>
+        </p>
+        <p align="left">
+            <b>Example of USB report...</b><br /><br />
+            <span style="margin-left:10%">*** New Report ***</span><br>
+            <span style="margin-left:8%">Total Pulse Count: 47076</span><br>
+                Macro-Movements...<br />
+            
+            <span style="margin-left:2%">Pulse Index:   7155 |  Moved  7155 steps, to position  7154  |  Runt pulses: 0</span><br />
+            <span style="margin-left:2%">Pulse Index:  15139 |  Moved  7984 steps, to position  -831  |  Runt pulses: 0</span><br />
+            <span style="margin-left:2%">Pulse Index:  23124 |  Moved  7985 steps, to position  7153  |  Runt pulses: 0</span><br />
+            <span style="margin-left:2%">Pulse Index:  31108 |  Moved  7984 steps, to position  -831  |  Runt pulses: 5</span><br />
+            <span style="margin-left:2%">Pulse Index:  39092 |  Moved  7984 steps, to position  7154  |  Runt pulses: 0</span><br />
+            <span style="margin-left:2%">Pulse Index:  47076 |  Moved  7984 steps, to position  -829  |  Runt pulses: 0</span><br />
+                Limit Pin Activity...<br />
+            <span style="margin-left:2%">Limit Pin turned on at Position 7006, and off at Position 7080</span><br />
+            <span style="margin-left:2%">Limit Pin turned on at Position 7010, and off at Position 7075</span><br />
+            <span style="margin-left:2%">Limit Pin turned on at Position 7008, and off at Position 7078</span><br />
+                Home Pin Activity...<br />
+            <span style="margin-left:2%">Home Pin turned on at Position 0, and off at Position 10</span><br />
+            <span style="margin-left:2%">Home Pin turned on at Position 10, and off at Position -11</span><br />
+            <span style="margin-left:2%">Home Pin turned on at Position -9, and off at Position 10</span><br />
+            <span style="margin-left:2%">Home Pin turned on at Position 8, and off at Position -8</span><br />
+            <span style="margin-left:2%">Home Pin turned on at Position -10, and off at Position 8</span><br />
+            <span style="margin-left:2%">Home Pin turned on at Position 10, and off at Position -11</span><br />
+                Runt Pulses...<br />
+            <span style="margin-left:2%">Total Count:5</span><br />
+            <span style="margin-left:2%; width:15%">Average Width:766ns
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Max Width:792ns
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Min Width:750ns</span><br />
+            <span style="margin-left:2%">Captured Runt Pulse Width Measurements:</span><br />
+            <span style="margin-left:8%">750ns
+            &nbsp;&nbsp;&nbsp;&nbsp;750ns
+            &nbsp;&nbsp;&nbsp;&nbsp;792ns
+            &nbsp;&nbsp;&nbsp;&nbsp;771ns
+            &nbsp;&nbsp;&nbsp;&nbsp;771ns</span>
+            
+
+        </p>
         <P><BR><BR><BR><BR></P>
 
         <P STYLE="font-size:3vw">
@@ -203,11 +673,177 @@
         </P>
         <ul>
             <li>
-                <b>Main Loop()</b>
+                <b>Setup()</b>
                 <ul>
-                    <li></li>
+                    <li>Configure System Clock</li>
+                    <li>Configure GPIO ports</li>
+                    <li>Configure PDB</li>
+                    <li>Configure PIT</li>
+                    <li>Configure FTM0</li>
+                    <li>Configure FTM1</li>
+                    <li>Configure FTM2</li>
+                    <li>Configure DMA</li>
+                    <li>Configure NVIC</li>
+                    <li>drawBackground()</li>
                 </ul>
             </li>
+            <li>
+                <b>Main Loop()</b>
+                <ul>
+                    <li>SendReport() if needed</li>
+                    <li>processButtons()</li>
+                    <li>draw upper screen elements</li>
+                    <li>draw either Menu or Graph</li>
+                </ul>
+            </li>
+
+            <li>
+                <b>captureMovement()</b>
+                <ul>
+                    <li>Increment array index through 1024 in round-robin style</li>
+                    <li>store pulse count</li>
+                    <li>store absolute position</li>
+                    <li>store runt count</li>
+                </ul>
+            </li>
+
+            <li>
+                <b>getDataSnapshot()</b>
+                <ul>
+                    <li>copy DMA target array into local array</li>
+                    <li>convert local array values into Hz or Hz/s</li>
+                    <li>scan final data for maximum value</li>
+                    <li>adjust graph auto-scale if selected in menu</li>
+                </ul>
+            </li>
+
+            <li>
+                <b>sendReport()</b>
+                <ul>
+                    <li>Stop data acquisition</li>
+                    <li>Print all stored Macro-movements (up to 1024)</li>
+                    <li>Print Home Pin Activity</li>
+                    <li>Print Limit Pin Activity</li>
+                    <li>Print all Runt Pulse widths (up to 128)</li>
+                </ul>
+            </li>
+
+            <li>
+                <b>processButtons()</b>
+                <ul>
+                    <li>
+                        <i>Switch on button number</i>
+                        <ol>
+                            <li>Toggle 'Show Menu'</li>
+                            <li>Toggle stopAll()/startAll() or 'Menu Item'</li>
+                            <li>Toggle 'Freeze Graph' or Select Menu Item...
+                                <ol>
+                                    <li>Toggle 'Use Acceleration'</li>
+                                    <li>Toggle 'Vertical Scale'</li>
+                                    <li>Toggle 'Sync To Home'</li>
+                                    <li>Toggle 'Time-out', set new PDB value</li>
+                                    <li>Toggle 'Auto-Report'</li>
+                                    <li>Toggle 'Auto-Reset'</li>
+                                    <li>Toggle 'Show HelpAbout'</li>
+                                </ol>
+                            </li>
+                            <li>
+                                Perform Reset/Zero
+                                <ul>
+                                    <li>Stop data acquisition</li>
+                                    <li>captureMovement()</li>
+                                    <li>sendReport()</li>
+                                </ul>
+                            </li>
+                            <li>Toggle Graph X-axis type</li>
+                            <li>Toggle Graph X-axis scale, set PDB or Delay Variable</li>
+                        </ol>
+                    </li>
+                </ul>
+            </li>
+
+
+            <li>
+                <b>Interupt Routines</b>
+                <ul>
+                    <li>
+                        <b>porta_isr</b> <i>Direction Pin</i>
+                        <ul>
+                            <li>set direction variables</li>
+                            <li>captureMovement()</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <b>portb_isr</b> <i>Home Pin</i>
+                        <ul>
+                            <li>capture Abolute Position</li>
+                            <li>store Absolute Position inside Home Pin data</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <b>portc_isr</b> <i>Pulse Pin</i>
+                        <ul>
+                            <li>capture pulse high measurement</li>
+                            <li>check for and capture Runt pulse</li>
+                            <li>calculate and store pulse frequency</li>
+                            <li>trigger graph data capture if ready</li>
+
+                        </ul>
+                    </li>
+                    <li>
+                        <b>portd_isr</b> <i>Button Pins</i>
+                        <ul>
+                            <li>Debounce button presses</li>
+                            <li>set flag to match button number</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <b>porte_isr</b> <i>Limit Pin</i>
+                        <ul>
+                            <li>capture Absolute Position</li>
+                            <li>store Absolute Position inside Limit Pin data</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <b>ftm0_isr</b> <i>Pulse High Overflow</i>
+                        <ul>
+                            <li>++FTM0_OF</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <b>ftm1_isr</b> <i>Absolute Position Overflow</i>
+                        <ul>
+                            <li>increment Absolute Position Overflow counter</li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <b>pdb_isr</b> <i>Time-out</i>
+                        <ul>
+                            <li>Disable Pulse Low Overflow counter</li>
+                            <li>captureMovement()</li>
+                            <li>send USB report if selected in menu</li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <b>pit0_isr</b> <i>Display redraw</i>
+                        <ul>
+                            <li>capture Absolute Position</li>
+                            <li>store Absolute Position inside Limit Pin data</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <b>pit1_isr</b> <i>Pulse-based Graph Data Capture</i>
+                        <ul>
+                            <li>capture Absolute Position</li>
+                            <li>store Absolute Position inside Limit Pin data</li>
+                        </ul>
+                    </li>
+                </ul>
+            
+            </li>
+
         </ul>
 
     </div>

@@ -1,7 +1,4 @@
-.navbar-brand{
-	padding: 15px 15px 0px 15px;
-	height:50px;
-}
+
 
 header {
 	
@@ -96,55 +93,24 @@ a:focus {
     margin-left:0px;
 }
 
-#columns {
-	-webkit-column-count: 1;
-	-webkit-column-gap: auto;
-	-webkit-column-fill: auto;
-	-moz-column-count: 1;
-	-moz-column-gap: auto;
-	-moz-column-fill: auto;
-	column-count: 1;
-	column-gap:normal;
-	column-fill: auto;
-    
+
+
+.navbar {
+    margin:0px;
+    padding:0px;
+    width:100%;
+    height:10%;
 }
 
-.pin {
-	display: block;
-	background: #FEFEFE;
-	border: 2px solid #FAFAFA;
-	box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4);
-	margin: 0px 2px 15px 0px;
-	-webkit-column-break-inside: avoid;
-	-moz-column-break-inside: avoid;
-	column-break-inside: avoid;
-	background: -webkit-linear-gradient(45deg, #FFF, #F9F9F9);
-	opacity: 1;
-	
-	-webkit-transition: all .2s ease;
-	-moz-transition: all .2s ease;
-	-o-transition: all .2s ease;
-	transition: all .2s ease;
-}
-
-.pin img {
-	display: block;
-    width: 100%;
-	border-bottom: 1px solid #ccc;
-	padding-bottom: 15px;
-	margin-bottom: 5px;
+.navbar-inner {
+    min-height:0px;
 
 }
 
-.pin p {
-	font: 12px/18px Arial, sans-serif;
-	color: #333;
-	margin: 0;
-    text-align: center;
-    
+.navbar-nav li a {
+   white-space:nowrap;
+   background-color:red;
 }
-
-
 
 .navbar-default {
     background-color: #CCCCCC;
@@ -157,12 +123,15 @@ a:focus {
     text-decoration: none;
     font-weight: 400;
     font-style: normal;
-	margin-bottom: 0px;
+    margin:0px;
 
 }
 
 .navbar-collapse.collapse {
   display: block!important;
+  margin:0;
+  padding:0;
+
 }
 
 .navbar-nav>li, .navbar-nav {
@@ -341,6 +310,54 @@ object {
 object:hover {
   opacity: 1; }
 
+#columns {
+	-webkit-column-count: 2;
+	-webkit-column-gap: auto;
+	-webkit-column-fill: balance;
+	-moz-column-count: 2;
+	-moz-column-gap: auto;
+	-moz-column-fill: balance;
+	column-count: 2;
+	column-gap:normal;
+	column-fill: balance;
+    
+}
+
+.pin {
+	display: block;
+	background: #FEFEFE;
+	border: 2px solid #FAFAFA;
+	box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4);
+	margin: 0px 2px 15px 0px;
+	-webkit-column-break-inside: avoid;
+	-moz-column-break-inside: avoid;
+	column-break-inside: avoid;
+	background: -webkit-linear-gradient(45deg, #FFF, #F9F9F9);
+	opacity: 1;
+	-webkit-transition: all .2s ease;
+	-moz-transition: all .2s ease;
+	-o-transition: all .2s ease;
+	transition: all .2s ease;
+}
+
+.pin img {
+	display: inline;
+    width: 25%;
+
+}
+
+.pin span {
+	font: 12px/18px Arial, sans-serif;
+    
+	
+    color: #333;
+	margin: 0;
+    margin-left:5%;
+    text-align: center;
+    font-size:2.5vw;
+    
+}
+
 
 
 @media (min-width: 1px) {
@@ -367,14 +384,7 @@ object:hover {
     }
 }
 @media (min-width: 350px) {
-	#columns {
-		-webkit-column-count: 2;
-		-moz-column-count: 2;
-		column-count: 2;
-	}
-    .pin img {
-        width: 100%;
-    }
+
     .viewport {
         -webkit-transform: scale(0.5, 0.5);
         -moz-transform: scale(0.5, 0.5);
@@ -407,18 +417,19 @@ object:hover {
     }
 }
 
-@media (min-width: 550px) {
+@media (min-width: 600px) {
 	#columns {
 		-webkit-column-count: 3;
 		-moz-column-count: 3;
 		column-count: 3;
 	}
     .pin img {
-        width: 100px;
-        margin-left: auto;
-        margin-right: auto;
-
+        width: 25%;
     }
+    .pin span {
+        font-size:2vw;
+    }
+
     .viewport {
         -webkit-transform: scale(0.7, 0.7);
         -moz-transform: scale(0.7, 0.7);
@@ -471,6 +482,14 @@ object:hover {
 	}
     .pin img{
         width: 100%;
+    }
+    .pin span{
+        font-size:1.5vw;
+        display:inline-block;
+        margin-left:0px;
+        width:100%;
+        padding-top:4%;
+        border-top: 1px solid #ccc;
     }
     .viewport {
         -webkit-transform: scale(1.0, 1.0);
