@@ -102,14 +102,11 @@ a:focus {
     height:10%;
 }
 
-.navbar-inner {
-    min-height:0px;
 
-}
 
 .navbar-nav li a {
    white-space:nowrap;
-   background-color:red;
+
 }
 
 .navbar-default {
@@ -124,6 +121,7 @@ a:focus {
     font-weight: 400;
     font-style: normal;
     margin:0px;
+    min-height:0px;
 
 }
 
@@ -131,7 +129,6 @@ a:focus {
   display: block!important;
   margin:0;
   padding:0;
-
 }
 
 .navbar-nav>li, .navbar-nav {
@@ -162,6 +159,7 @@ a:focus {
     background-size:cover;
     background-repeat:no-repeat;
     margin-top:0px;
+    
 }
 
 *, *:before, *:after {
@@ -171,7 +169,7 @@ a:focus {
 
 
 .viewport {
-
+    
   -webkit-perspective: 800px;
   -moz-perspective: 800px;
   -ms-perspective: 800px;
@@ -361,13 +359,7 @@ object:hover {
 
 
 @media (min-width: 1px) {
-    
-    .pin img {
-        width: 40px;
-        padding-bottom: 0px;
-        margin-left: auto;
-        margin-right: auto;
-    }
+
     .viewport {
     -webkit-transform: scale(0.4, 0.4);
     -moz-transform: scale(0.4, 0.4);
