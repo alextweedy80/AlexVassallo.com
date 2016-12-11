@@ -8,8 +8,8 @@ angular.module('myApp', [
   'myApp.HomeView',
   'myApp.ContactView',
   'myApp.AboutView',
+  'myApp.About2View',
   'myApp.ResumeView',
-
   'myApp.ProjectsView',
   'myApp.RobotView',
   'myApp.MotorTesterView',

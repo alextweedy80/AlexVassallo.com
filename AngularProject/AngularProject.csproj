@@ -70,10 +70,11 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\About2\About2.js" />
     <Content Include="app\About\About.html" />
     <Content Include="app\About\About.js" />
     <Content Include="app\About\About_test.js" />
-    <Content Include="app\About\About_IEUser.html" />
+    <Content Include="app\About2\About2.html" />
     <Content Include="app\About\img\Army.png" />
     <Content Include="app\About\img\car.png" />
     <Content Include="app\About\img\car_interior.png" />
