@@ -8,7 +8,11 @@ body {
   
 }
 
-
+.navbar-nav>li, .navbar-nav {
+    /* float: left !important; */
+    display: inline-block;
+    white-space: nowrap;
+}
 
 .mainClass {
     background-image:url("img/leaf.jpg");
@@ -512,5 +516,20 @@ object:hover {
     } 
     #cube-wrapper {
         margin-top:200px;
+    }
+}
+
+
+
+
+
+
+@media (min-width: 768px) {
+    .navbar-nav > li > a {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .navbar-nav>li {
+    float: none;
     }
 }
