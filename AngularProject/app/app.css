@@ -111,8 +111,8 @@ a:focus {
 }
 
 
-.navbar-nav li a {
-
+.navbar-nav>li>a {
+    line-height: 3vw;
 }
 
 .navbar-default {
