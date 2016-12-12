@@ -458,7 +458,17 @@ object:hover {
 
 @media (max-width: 768px) {
     .navbar-nav {
-     margin: 0px;
+        margin: 0px;
+    }
+}
+
+@media (min-width: 768px) {
+    .navbar-nav > li > a {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .navbar-nav>li {
+        float: none;
     }
 }
 
