@@ -411,9 +411,14 @@
     <Content Include="app\Projects\Robot\Robot.html" />
     <Content Include="app\Projects\Robot\Robot.js" />
     <Content Include="app\Projects\Robot\Robot_test.js" />
-    <Content Include="app\Resume\Resume.html" />
-    <Content Include="app\Resume\Resume.js" />
-    <Content Include="app\Resume\Resume_test.js" />
+    <Content Include="app\ResumeExperience\ResumeExperience.html" />
+    <Content Include="app\ResumeExperience\ResumeExperience.js" />
+    <Content Include="app\ResumeAwards\ResumeAwards.html" />
+    <Content Include="app\ResumeAwards\ResumeAwards.js" />
+    <Content Include="app\ResumeEducation\ResumeEducation.html" />
+    <Content Include="app\ResumeEducation\ResumeEducation.js" />
+    <Content Include="app\ResumeSkills\ResumeSkills.html" />
+    <Content Include="app\ResumeSkills\ResumeSkills.js" />
     <Content Include="packages.config" />
     <Content Include=".tfignore" />
     <Content Include=".bowerrc" />

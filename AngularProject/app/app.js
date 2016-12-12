@@ -9,7 +9,10 @@ angular.module('myApp', [
   'myApp.ContactView',
   'myApp.AboutView',
   'myApp.About2View',
-  'myApp.ResumeView',
+  'myApp.ResumeSkillsView',
+  'myApp.ResumeEducationView',
+  'myApp.ResumeExperienceView',
+  'myApp.ResumeAwardsView',
   'myApp.ProjectsView',
   'myApp.RobotView',
   'myApp.MotorTesterView',
@@ -456,16 +459,58 @@ angular.module('myApp.ProjectsView', ['ngRoute'])
 
 'use strict';
 
-angular.module('myApp.ResumeView', ['ngRoute'])
+angular.module('myApp.ResumeAwardsView', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider) {
-    $routeProvider.when('/Resume', {
-        templateUrl: 'Resume/Resume.html',
-        controller: 'ViewCtrl_Resume',
+    $routeProvider.when('/ResumeAwards', {
+        templateUrl: 'ResumeAwards/ResumeAwards.html',
+        controller: 'ViewCtrl_ResumeAwards',
   });
 }])
 
-.controller('ViewCtrl_Resume', [function ($scope) {
+.controller('ViewCtrl_ResumeAwards', [function ($scope) {
+
+}]);
+'use strict';
+
+angular.module('myApp.ResumeEducationView', ['ngRoute'])
+
+.config(['$routeProvider', function($routeProvider) {
+    $routeProvider.when('/ResumeEducation', {
+        templateUrl: 'ResumeEducation/ResumeEducation.html',
+        controller: 'ViewCtrl_ResumeEducation',
+  });
+}])
+
+.controller('ViewCtrl_ResumeEducation', [function ($scope) {
+
+}]);
+'use strict';
+
+angular.module('myApp.ResumeExperienceView', ['ngRoute'])
+
+.config(['$routeProvider', function($routeProvider) {
+    $routeProvider.when('/ResumeExperience', {
+        templateUrl: 'ResumeExperience/ResumeExperience.html',
+        controller: 'ViewCtrl_ResumeExperience',
+  });
+}])
+
+.controller('ViewCtrl_ResumeExperience', [function ($scope) {
+
+}]);
+'use strict';
+
+angular.module('myApp.ResumeSkillsView', ['ngRoute'])
+
+.config(['$routeProvider', function($routeProvider) {
+    $routeProvider.when('/ResumeSkills', {
+        templateUrl: 'ResumeSkills/ResumeSkills.html',
+        controller: 'ViewCtrl_ResumeSkills',
+  });
+}])
+
+.controller('ViewCtrl_ResumeSkills', [function ($scope) {
 
 }]);
 'use strict';
