@@ -100,10 +100,13 @@ a:focus {
     height:10%;
 }
 
+.navbar-nav {
+
+
+}
 
 
 .navbar-nav li a {
-   white-space:nowrap;
 
 }
 
@@ -447,6 +450,12 @@ object:hover {
         margin-top:160px;
         margin-left:0px;
         margin-bottom:160px;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar-nav {
+     margin: 0px;
     }
 }
 
