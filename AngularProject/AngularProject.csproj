@@ -449,6 +449,8 @@
     <Content Include="app\Projects\OpticalReceiver\OpticalReceiver.pdf" />
     <Content Include="app\Projects\Robot\Robot.pdf" />
     <Content Include="app\docs\AlexVassalloResume.pdf" />
+    <Content Include="app\php\mailer.php" />
+    <Content Include="app\php\class.phpmailer.php" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
