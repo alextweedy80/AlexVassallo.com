@@ -451,6 +451,18 @@
     <Content Include="app\docs\AlexVassalloResume.pdf" />
     <Content Include="app\php\mailer.php" />
     <Content Include="app\php\class.phpmailer.php" />
+    <Content Include="app\php\example.php" />
+    <Content Include="app\php\PHPMailer\class.phpmailer.php" />
+    <Content Include="app\php\PHPMailer\class.phpmaileroauth.php" />
+    <Content Include="app\php\PHPMailer\class.phpmaileroauthgoogle.php" />
+    <Content Include="app\php\PHPMailer\class.pop3.php" />
+    <Content Include="app\php\PHPMailer\class.smtp.php" />
+    <Content Include="app\php\PHPMailer\composer.json" />
+    <Content Include="app\php\PHPMailer\composer.lock" />
+    <Content Include="app\php\PHPMailer\get_oauth_token.php" />
+    <Content Include="app\php\PHPMailer\LICENSE" />
+    <Content Include="app\php\PHPMailer\PHPMailerAutoload.php" />
+    <Content Include="app\php\PHPMailer\VERSION" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
