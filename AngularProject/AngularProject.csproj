@@ -451,6 +451,8 @@
     <Content Include="app\docs\AlexVassalloResume.pdf" />
     <Content Include="app\php\mailer.php" />
     <Content Include="app\php\class.phpmailer.php" />
+    <Content Include="app\php\tester.php" />
+    <Content Include="app\php\browser.php" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

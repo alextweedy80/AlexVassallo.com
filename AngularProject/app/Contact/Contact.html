@@ -1,3 +1,7 @@
+<?php
+    echo "test";
+?>
+
 <div style="margin:0px; padding:5%; width:100%; background-image:url(img/leaf.jpg); background-size:cover;">
     <table style="width:100%;">
         <tr>
@@ -17,18 +21,18 @@
                     <p align="left" style="font-size:2.5vw">
                         Contact Information
                     </p>
-                    <p align="justify" style="font-size:1.5vw">
+                    <p text-align="center" style="padding-left:20%; font-size:1.5vw">
                         <b><font style="font-size:2vw">Alex Vassallo</font></b><br />
-                        (425) 286-6706<br />
                         Bothell, WA 98028<br />
-                        alexvass@uw.edu<br />
+                        (425) 286-6706<br />
+                        alex@alexvassallo.com<br />
                     </p>
                 </div>
             </td>
             <td width:100%;>
-                <div align="right" style="border:solid; padding:2%; background-color:white; width:100%">
+                <div align="left" style="border:solid; padding:2%; background-color:white; width:100%">
 
-                    <form class="contact-form" action="http://alexvassallo.com/php/mailer.php" method="post">
+                    <form class="contact-form" action="../php/tester.php" method="post">
                         <div>
                             <label class="contact-label" for="name">Name:</label>
                             <input class="contact-name" type="text" id="name" name="user_name" />

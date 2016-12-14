@@ -1,4 +1,6 @@
-require_once('php/class.phpmailer.php');
+<?php
+
+require_once('class.phpmailer.php');
 
 $mail = new PHPMailer();
 
@@ -24,7 +26,7 @@ $mail->IsHTML(false);
 $mail->Body = $msg; 
 // you may also use $mail->Body = file_get_contents('your_mail_template.html');
 
-$mail->AddAddress ('your.recipient@domain.com', 'Recipients Name');     
+$mail->AddAddress ('hello@alexvassallo.com', 'AlexVassallo.com');     
 // you may also use this format $mail->AddAddress ($recipient);
 
 if(!$mail->Send()) 
@@ -34,3 +36,5 @@ if(!$mail->Send())
 {
         $error_message = "Successfully sent!";
 }
+?>
+
