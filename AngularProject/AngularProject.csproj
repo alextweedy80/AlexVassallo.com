@@ -115,8 +115,15 @@
     <Content Include="app\fonts\fontawesome-webfont.svg" />
     <Content Include="app\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="app\img\apple.jpg" />
+    <Content Include="app\img\background1.jpg" />
+    <Content Include="app\img\background2.jpg" />
+    <Content Include="app\img\background3.jpg" />
+    <Content Include="app\img\background4.jpg" />
+    <Content Include="app\img\background5.jpg" />
     <Content Include="app\img\clouds.png" />
     <Content Include="app\About\img\stairs.jpg" />
+    <Content Include="app\img\clouds2.jpg" />
+    <Content Include="app\img\portrait.jpg" />
     <Content Include="app\img\selfie.jpg" />
     <Content Include="app\img\Sunset.jpg" />
     <Content Include="app\index-async.html" />
@@ -441,6 +448,7 @@
     <Content Include="app\Projects\obd2\OBD2.pdf" />
     <Content Include="app\Projects\OpticalReceiver\OpticalReceiver.pdf" />
     <Content Include="app\Projects\Robot\Robot.pdf" />
+    <Content Include="app\docs\AlexVassalloResume.pdf" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

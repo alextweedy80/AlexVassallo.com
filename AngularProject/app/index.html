@@ -22,52 +22,50 @@
 </head>
 <body>
     
+    <div>
+        <div id="header" class="my-header">
+            <table style="width:100%;">
+                <tr>
+                    <td style="width:10%">
+                        <img style="width:100%; margin:0" src="img/portrait.jpg" />
+                    </td>
+                    <td style="width:60%; margin:0px; padding:0px;">
+                        <table style="width:100%">
+                            <tr valign="bottom">
+                                <td>
+                                    <p align="left" style="font-family:Britannic; font-size:6vw; padding:0px; margin:0% 0% 0% 4%; line-height:6vw">
+                                        Alex Vassallo
+                                    </p>
+                                </td>
+                            </tr>
+                            <tr valign="top">
+                                <td>
+                                    <p align="left" style="font-size:2.4vw; padding:0px; margin:0% 0% 0% 4%; line-height:2.4vw">
+                                        Firmware Engineer
+                                    </p>
 
-    <div id="header" class="my-header">
-        <table style="width:100%;">
-            <tr>
-	            <td style="width:10%">
-                    <img style="width:100%; margin:0" src="img/selfie.jpg" />
-                </td>
-                <td style="width:60%; margin:0px; padding:0px;">
-                    <table style="width:100%">
-                        <tr valign="bottom">
-                            <td>
-                                <p align="left" style="font-family:Britannic; font-size:6vw; padding:0px; margin:0% 0% 0% 4%; line-height:6vw">
-                                    Alex Vassallo
-                                </p>
-                            </td>
-                        </tr>
-                        <tr valign="top">
-                            <td>
-                                <p align="left" style="font-size:2.4vw; padding:0px; margin:0% 0% 0% 4%; line-height:2.4vw">
-                                    Firmware Engineer
-                                </p>
-                                
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-                
-                <td align=right style="vertical-align:top">
-                    <span style="margin-right:5%" id="social-media">
-                        <a target="_blank" title="find me on Facebook" href="http://www.facebook.com/alex.vassallo.9">
-                            <img style="margin-top:5%; width:20%; max-width:40px;" alt="find me on Facebook" src="//login.create.net/images/icons/user/facebook_40x40.png">
-                        </a>
-                        <a target="_blank" title="find me on LinkedIn" href="https://www.linkedin.com/in/alex-vassallo">
-                            <img style="margin-top:5%; width:25%; max-width:50px;" alt="find me on LinkedIn" src="img/In-2C-41px-R.png">
-                        </a>
-                    </span>
-                </td>
-                    
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
 
-            </tr>
-        </table>
+                    <td align=right style="vertical-align:top">
+                        <span style="margin-right:5%" id="social-media">
+                            <a target="_blank" title="find me on Facebook" href="http://www.facebook.com/alex.vassallo.9">
+                                <img style="margin-top:5%; width:20%; max-width:40px;" alt="find me on Facebook" src="//login.create.net/images/icons/user/facebook_40x40.png">
+                            </a>
+                            <a target="_blank" title="find me on LinkedIn" href="https://www.linkedin.com/in/alex-vassallo">
+                                <img style="margin-top:5%; width:25%; max-width:50px;" alt="find me on LinkedIn" src="img/In-2C-41px-R.png">
+                            </a>
+                        </span>
+                    </td>
 
 
-        <nav class="navbar navbar-default ">
+                </tr>
+            </table>
 
 
+            <nav class="navbar navbar-default ">
                 <ul id="main-navigation" class="nav navbar-nav">
 
                     <li><a href="#/HomeView">Home</a></li>
@@ -77,20 +75,18 @@
                     <li><a href="#/Contact">Contact</a></li>
 
                 </ul>
+            </nav>
 
-          
-        </nav>
-        
+        </div>
+
+
+        <div ng-view></div>
+
+        <div class="footer">
+            <div style="display:none;">Angular seed app: v<span app-version></span></div>
+        </div>
+
     </div>
-
-
-    <div ng-view></div>
-
-    <div class="footer">
-        <div style="display:none;">Angular seed app: v<span app-version></span></div>
-    </div>
-
-
 
   <script src="js/angular.js"></script>
   <script src="js/angular-route.js"></script>

@@ -23,7 +23,7 @@ body {
 }
 
 .my-header {
-    background-image:url("img/clouds.png");
+    background-image:url("img/clouds2.jpg");
     background-size:cover;
     background-repeat:no-repeat;
     background-color: lightblue;
@@ -37,38 +37,96 @@ body {
     opacity:0.7;
 }
 
+.exp-list>ul {
+    font-size:2vw;
+    padding-left:2%;
+}
+
+.exp-list>ul ul {
+    font-size:1.4vw;
+    width:80%;
+    padding-left:3%;
+
+}
+
+
+
 
 .clear {
     clear:both;
 }
-.mr5{margin-right:5px;}
-.ml5{margin-left:5px;}
-.ml15{margin-left:15px;}
-.mr15{margin-right:15px;}
-.pr30{padding-right:30px;}
 
-.size5vw {
-    font-size: 5vw;
+.column-left {
+    text-align:right;
+    padding-right:3%;
+    width:20%;
 }
-.size4vw {
-    font-size: 4vw;
+
+.column-right {
+    text-align:left;
+    padding-left:3%;
+    width:20%;
 }
-.size3vw {
-    font-size: 3vw;
+
+.contact-form div + div {
+    margin-top:1em;
 }
-.size2vw {
-    font-size: 2vw;
+
+.contact-label {
+    display: inline-block;
+    font-size:2vw;
+    width:25%;
+    text-align:right;
+    padding-right:1%;
 }
-.h1
-{
-    font-family:'Segoe UI';
-    font-weight:bold;
+.contact-name {
+    max-width:300px;
+    width:70%;
+    font-size:1.7vw;
+        border: 1px solid #999;
 }
-.h2 {
-    font-family:'Segoe UI';
-    font-weight:bold;
+.contact-email {
     
+    width:70%;
+    font-size:1.7vw;
+        border: 1px solid #999;
 }
+
+.contact-msg {
+    width:70%;
+    font-size:1.8vw;
+    
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+
+    border: 1px solid #999;
+        /* To properly align multiline text fields with their labels */
+    vertical-align: top;
+
+    /* To give enough room to type some text */
+    height: 5em;
+
+    /* To allow users to resize any textarea vertically
+       It does not work on all browsers */
+    resize: vertical;
+}
+
+.contact-button {
+    margin-left:25%;
+    font-size:1.8vw;
+}
+
+input:focus, textarea:focus {
+    /* To give a little highlight on active elements */
+    border-color: #000;
+}
+
+ol {
+
+    margin:5%;
+    padding-left:15%;
+}
+
 a:link {
     color:black;
     text-decoration:none;

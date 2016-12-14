@@ -1,32 +1,56 @@
-<table style="width:90%; margin:5%">
-    <tr>
-        <td style="width:50%">
-            <p align="left">
-                blah blah stuff
-            </p>
-        </td>
-        <td>
-            <table style="width:100%">
-                <tr>
-                    <td>
-                        First Name
-                        <input name="fname" type="text" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        First Name
-                        <input name="lname" type="text" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Message
-                        <input name="message" type="text" />
-                    </td>
-                </tr>
-            </table>
-        </td>
-        
-    </tr>
-</table>
+<div style="margin:0px; padding:5%; width:100%; background-image:url(img/leaf.jpg); background-size:cover;">
+    <table style="width:100%;">
+        <tr>
+            <td style="width:50%; max-width:500px; padding-right:10%">
+                <div style="border:solid; padding:2%; background-color:white">
+                    <p style="font-size:3vw">
+                        Contact me today
+                    </p>
+                    <p align="left" style="font-size:1.5vw">
+                        Please feel free to reach out to me if you have any questions or comments about my projects,
+                        or information regarding any career opportunities.
+                    </p>
+                </div>
+                <p><br /></p>
+                <div style="border:solid; padding:2%; background-color:white; width:80%">
+
+                    <p align="left" style="font-size:2.5vw">
+                        Contact Information
+                    </p>
+                    <p align="justify" style="font-size:1.5vw">
+                        <b><font style="font-size:2vw">Alex Vassallo</font></b><br />
+                        (425) 286-6706<br />
+                        Bothell, WA 98028<br />
+                        alexvass@uw.edu<br />
+                    </p>
+                </div>
+            </td>
+            <td width:100%;>
+                <div align="right" style="border:solid; padding:2%; background-color:white; width:100%">
+
+                    <form class="contact-form" action="" method="post">
+                        <div>
+                            <label class="contact-label" for="name">Name:</label>
+                            <input class="contact-name" type="text" id="name" name="user_name" />
+                        </div>
+                        <div>
+                            <label class="contact-label" for="mail">E-mail:</label>
+                            <input class="contact-email" type="email" id="mail" name="user_mail" />
+                        </div>
+                        <div>
+                            <label class="contact-label" for="msg">Message:</label>
+                            <textarea class="contact-msg" id="msg" name="user_message"></textarea>
+                        </div>
+
+                        <div class="button">
+                            <button class="contact-button" type="submit">Send your message</button>
+                        </div>
+                    </form>
+                </div>
+            </td>
+        </tr>
+
+    </table>
+
+
+</div>
