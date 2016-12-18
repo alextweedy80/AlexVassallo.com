@@ -2,11 +2,21 @@
 
 angular.module('myApp.AboutView', ['ngRoute'])
 
-.config(['$routeProvider', function($routeProvider) {
+.config(['$routeProvider', function ($routeProvider) {
+
+    var _templateUrl = "About/About.html";
+    var _controller = 'ViewCtrl_About';
+    if (Modernizr.preserve3d) {
+        // supported
+    } else {
+        // not-supported
+        _templateUrl = "About2/About2.html";
+        _controller = 'ViewCtrl_About2';
+    }
     $routeProvider.when('/About', {
-        templateUrl: 'About/About.html',
-        controller: 'ViewCtrl_About',
-  });
+        templateUrl: _templateUrl,
+        controller: _controller,
+    });
 }])
 
 .controller('ViewCtrl_About', [function ($scope) {

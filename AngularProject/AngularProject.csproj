@@ -142,6 +142,7 @@
     <Content Include="app\js\angular.js" />
     <Content Include="app\js\angular.min.js" />
     <Content Include="app\js\bootstrap.css" />
+    <Content Include="app\js\modernizr-custom.js" />
     <Content Include="app\js\ui-bootstrap-tpls.js" />
     <Content Include="app\js\ui-bootstrap-tpls.min.js" />
     <Content Include="app\php\mailer.php" />

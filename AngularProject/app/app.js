@@ -38,11 +38,21 @@ angular.module('myApp', [
 
 angular.module('myApp.AboutView', ['ngRoute'])
 
-.config(['$routeProvider', function($routeProvider) {
+.config(['$routeProvider', function ($routeProvider) {
+
+    var _templateUrl = "About/About.html";
+    var _controller = 'ViewCtrl_About';
+    if (Modernizr.preserve3d) {
+        // supported
+    } else {
+        // not-supported
+        _templateUrl = "About2/About2.html";
+        _controller = 'ViewCtrl_About2';
+    }
     $routeProvider.when('/About', {
-        templateUrl: 'About/About.html',
-        controller: 'ViewCtrl_About',
-  });
+        templateUrl: _templateUrl,
+        controller: _controller,
+    });
 }])
 
 .controller('ViewCtrl_About', [function ($scope) {
@@ -840,62 +850,6 @@ angular.module('myApp.obd2View', ['ngRoute'])
     }]);
 'use strict';
 
-angular.module('myApp.OpticalReceiverView', ['ngRoute'])
-
-.config(['$routeProvider', function($routeProvider) {
-    $routeProvider.when('/Projects/OpticalReceiver', {
-        templateUrl: 'Projects/OpticalReceiver/OpticalReceiver.html',
-        controller: 'ViewCtrl_OpticalReceiver'
-  });
-}])
-
-.controller('ViewCtrl_OpticalReceiver', ['$scope', '$location', '$anchorScroll',
-    function ($scope, $location, $anchorScroll) {
-        $scope.gotoChpt1 = function () {
-            $location.hash('chpt1');
-            $anchorScroll();
-        }
-        $scope.gotoChpt2 = function () {
-            $location.hash('chpt2');
-            $anchorScroll();
-        }
-        $scope.gotoChpt21 = function () {
-            $location.hash('chpt21');
-            $anchorScroll();
-        }
-        $scope.gotoChpt22 = function () {
-            $location.hash('chpt22');
-            $anchorScroll();
-        }
-        $scope.gotoChpt3 = function () {
-            $location.hash('chpt3');
-            $anchorScroll();
-        }
-        $scope.gotoChpt31 = function () {
-            $location.hash('chpt31');
-            $anchorScroll();
-        }
-        $scope.gotoChpt32 = function () {
-            $location.hash('chpt32');
-            $anchorScroll();
-        }
-        $scope.gotoChpt33 = function () {
-            $location.hash('chpt33');
-            $anchorScroll();
-        }
-        $scope.gotoChpt34 = function () {
-            $location.hash('chpt34');
-            $anchorScroll();
-        }
-        $scope.gotoChpt4 = function () {
-            $location.hash('chpt4');
-            $anchorScroll();
-        }
-
-
-    }]);
-'use strict';
-
 angular.module('myApp.RobotView', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider) {
@@ -985,3 +939,59 @@ angular.module('myApp.RobotView', ['ngRoute'])
     }
 
 }]);
+'use strict';
+
+angular.module('myApp.OpticalReceiverView', ['ngRoute'])
+
+.config(['$routeProvider', function($routeProvider) {
+    $routeProvider.when('/Projects/OpticalReceiver', {
+        templateUrl: 'Projects/OpticalReceiver/OpticalReceiver.html',
+        controller: 'ViewCtrl_OpticalReceiver'
+  });
+}])
+
+.controller('ViewCtrl_OpticalReceiver', ['$scope', '$location', '$anchorScroll',
+    function ($scope, $location, $anchorScroll) {
+        $scope.gotoChpt1 = function () {
+            $location.hash('chpt1');
+            $anchorScroll();
+        }
+        $scope.gotoChpt2 = function () {
+            $location.hash('chpt2');
+            $anchorScroll();
+        }
+        $scope.gotoChpt21 = function () {
+            $location.hash('chpt21');
+            $anchorScroll();
+        }
+        $scope.gotoChpt22 = function () {
+            $location.hash('chpt22');
+            $anchorScroll();
+        }
+        $scope.gotoChpt3 = function () {
+            $location.hash('chpt3');
+            $anchorScroll();
+        }
+        $scope.gotoChpt31 = function () {
+            $location.hash('chpt31');
+            $anchorScroll();
+        }
+        $scope.gotoChpt32 = function () {
+            $location.hash('chpt32');
+            $anchorScroll();
+        }
+        $scope.gotoChpt33 = function () {
+            $location.hash('chpt33');
+            $anchorScroll();
+        }
+        $scope.gotoChpt34 = function () {
+            $location.hash('chpt34');
+            $anchorScroll();
+        }
+        $scope.gotoChpt4 = function () {
+            $location.hash('chpt4');
+            $anchorScroll();
+        }
+
+
+    }]);
