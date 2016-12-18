@@ -128,8 +128,13 @@
     <Content Include="app\img\Sunset.jpg" />
     <Content Include="app\index-async.html" />
     <Content Include="app\index.html" />
+    <Content Include="app\HomeView\HomeView.html" />
+    <Content Include="app\HomeView\HomeView.js" />
+    <Content Include="app\HomeView\HomeView_test.js" />
     <Content Include="app\js\angular-loader.js" />
     <Content Include="app\js\angular-loader.min.js" />
+    <Content Include="app\js\angular-messages.js" />
+    <Content Include="app\js\angular-messages.min.js" />
     <Content Include="app\js\angular-mocks.js" />
     <Content Include="app\js\angular-mocks.min.js" />
     <Content Include="app\js\angular-route.js" />
@@ -139,9 +144,7 @@
     <Content Include="app\js\bootstrap.css" />
     <Content Include="app\js\ui-bootstrap-tpls.js" />
     <Content Include="app\js\ui-bootstrap-tpls.min.js" />
-    <Content Include="app\HomeView\HomeView.html" />
-    <Content Include="app\HomeView\HomeView.js" />
-    <Content Include="app\HomeView\HomeView_test.js" />
+    <Content Include="app\php\mailer.php" />
     <Content Include="app\Projects\HeartRateMonitor\img\i_d7f206a75c15be46_html_374d753a.png" />
     <Content Include="app\Projects\HeartRateMonitor\img\i_d7f206a75c15be46_html_48f9ef75.jpg" />
     <Content Include="app\Projects\HeartRateMonitor\img\i_d7f206a75c15be46_html_739c027c.jpg" />
@@ -424,6 +427,7 @@
     <Content Include="app\ResumeAwards\ResumeAwards.js" />
     <Content Include="app\ResumeEducation\ResumeEducation.html" />
     <Content Include="app\ResumeEducation\ResumeEducation.js" />
+    <Content Include="app\ResumeSkills\index.html" />
     <Content Include="app\ResumeSkills\ResumeSkills.html" />
     <Content Include="app\ResumeSkills\ResumeSkills.js" />
     <Content Include="packages.config" />
@@ -449,10 +453,11 @@
     <Content Include="app\Projects\OpticalReceiver\OpticalReceiver.pdf" />
     <Content Include="app\Projects\Robot\Robot.pdf" />
     <Content Include="app\docs\AlexVassalloResume.pdf" />
-    <Content Include="app\php\mailer.php" />
     <Content Include="app\php\class.phpmailer.php" />
     <Content Include="app\php\tester.php" />
-    <Content Include="app\php\browser.php" />
+    <Content Include="app\php\browser.php">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="app\php\example.php" />
     <Content Include="app\php\PHPMailer\class.phpmailer.php" />
     <Content Include="app\php\PHPMailer\class.phpmaileroauth.php" />
@@ -465,6 +470,16 @@
     <Content Include="app\php\PHPMailer\LICENSE" />
     <Content Include="app\php\PHPMailer\PHPMailerAutoload.php" />
     <Content Include="app\php\PHPMailer\VERSION" />
+    <Content Include="Scripts\angular-messages.js" />
+    <Content Include="Scripts\angular-messages.min.js" />
+    <Content Include="Scripts\angular-mocks.js" />
+    <Content Include="Scripts\angular-route.js" />
+    <Content Include="Scripts\angular-route.min.js" />
+    <Content Include="Scripts\angular.js" />
+    <Content Include="Scripts\angular.min.js" />
+    <Content Include="Scripts\angular.min.js.map" />
+    <Content Include="Scripts\angular-messages.min.js.map" />
+    <Content Include="Scripts\angular-route.min.js.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

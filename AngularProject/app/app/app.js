@@ -5,6 +5,7 @@ var showProjects = true;
 // Declare app level module which depends on views, and components
 angular.module('myApp', [
   'ngRoute',
+  'ngMessages',
   'myApp.HomeView',
   'myApp.ContactView',
   'myApp.AboutView',
@@ -21,6 +22,7 @@ angular.module('myApp', [
   'myApp.IraqAirplaneView',
   'myApp.OpticalReceiverView',
   'myApp.version'
+  
 ])
 
 .config(['$routeProvider', function ($routeProvider) {

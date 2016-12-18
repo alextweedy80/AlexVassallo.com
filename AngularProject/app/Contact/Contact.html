@@ -1,6 +1,4 @@
-<?php
-    echo "test";
-?>
+
 
 <div style="margin:0px; padding:5%; width:100%; background-image:url(img/leaf.jpg); background-size:cover;">
     <table style="width:100%;">
@@ -30,26 +28,88 @@
                 </div>
             </td>
             <td width:100%;>
-                <div align="left" style="border:solid; padding:2%; background-color:white; width:100%">
+                <div class="container" id="emailApp" align="left" style="border:solid; padding:2%; background-color:white; width:100%">
+                    
+                    <form class="pure-form pure-form-aligned" name="contactForm" method="post" ng-submit="processForm()" novalidate>
+                        <fieldset>
+                            <div id="messages" ng-show="mailFail" class="alert-message">
+                                <pre>{{ message }}</pre>
+                            </div>
+                            <div class="pure-control-group">
+                                <label class="contact-label">Name:</label>
+                                <input name="name"
+                                       class="contact-name"
+                                       type="text"
+                                       placeholder="name"
+                                       pattern="[a-zA-Z., ]+"
+                                       ng-disabled="mailSent"
+                                       ng-pattern-restrict
+                                       ng-model="formData.name"
+                                       required
+                                        />
+                                <div  class="field-message" ng-messages="contactForm.name.$error" ng-show='contactForm.name.$dirty' ng-cloak>
+                                    <div ng-message="required">I like to know who I am speaking with</div>
+                                    <div ng-message="pattern">Only letters please</div>
+                                </div>
+                                <div class="field-message" ng-show='!contactForm.name.$dirty' ng-cloak>
+                                    <br />
+                                </div>
+                            </div>
+                            <div class="pure-control-group">
+                                <label class="contact-label" for="mail">E-mail:</label>
+                                <input name="email"
+                                       class="contact-email" 
+                                       type="email" 
+                                       id="email" 
+                                       placeholder="you@example.com"  
+                                       ng-disabled="mailSent"
+                                       ng-model="formData.email"
+                                       ng-minlength="5"
+                                       required />
+                                <div class="field-message" ng-messages="contactForm.email.$error" ng-show='contactForm.email.$dirty' ng-cloak>
+                                    <div ng-message="required">Where can I respond to?</div>
+                                    <div ng-message="email">invalid address</div>
+                                    <div ng-message="minlength">Type at least 5 characters, cmon!</div>
+                                </div>
+                                <div class="field-message" ng-show='!contactForm.email.$dirty' ng-cloak>
+                                    <br />
+                                </div>
 
-                    <form class="contact-form" action="../php/tester.php" method="post">
-                        <div>
-                            <label class="contact-label" for="name">Name:</label>
-                            <input class="contact-name" type="text" id="name" name="user_name" />
-                        </div>
-                        <div>
-                            <label class="contact-label" for="mail">E-mail:</label>
-                            <input class="contact-email" type="email" id="mail" name="user_mail" />
-                        </div>
-                        <div>
-                            <label class="contact-label" for="msg">Message:</label>
-                            <textarea class="contact-msg" id="msg" name="user_message"></textarea>
-                        </div>
+                            </div>
+                            <div class="pure-control-group">
+                                <label class="contact-label" for="msg">Message:</label>
+                                <textarea name="msg"
+                                          class="contact-msg" 
+                                          id="msg" 
+                                          placeholder="send me something awesome"  
+                                          ng-disabled="mailSent"
+                                          ng-model="formData.msg" 
+                                          required></textarea>
+                                <div class="field-message" ng-messages="contactForm.msg.$error" ng-show='contactForm.msg.$dirty' ng-cloak>
+                                    <div ng-message="required">You should say something...</div>
+                                    
+                                </div>
+                                <div class="field-message" ng-show='!contactForm.msg.$dirty' ng-cloak>
+                                    <br />
+                                </div>
+                            </div>
 
-                        <div class="button">
-                            <button class="contact-button" type="submit">Send your message</button>
-                        </div>
+                            <div  class="pure-controls">
+                                <button type="submit" class="contact-button" ng-show="!mailSent" ng-disabled="contactForm.$invalid" ng-class="{'diabled-class': contactForm.$invalid}">Send your message</button><br>
+                            </div>
+
+                            <div id="messages" ng-show="mailSent" class="confirm-message">
+                                <pre>{{ message }}</pre>
+                            </div>
+
+                        </fieldset>
                     </form>
+
+                    <!-- SHOW DATA FROM INPUTS AS THEY ARE BEING TYPED -->
+                    
+
+                    
+    
                 </div>
             </td>
         </tr>

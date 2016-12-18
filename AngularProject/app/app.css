@@ -68,8 +68,46 @@ body {
     width:20%;
 }
 
-.contact-form div + div {
+
+
+.pure-form input.ng-dirty.ng-invalid {
+  border-color: #e9322d;
+}
+
+.pure-form textarea.ng-dirty.ng-invalid {
+  border-color: #e9322d;
+}
+
+.pure-form pre {
+    font-size:1.5vw;
+    display:inline-block;
+    margin-left:25%;
+}
+
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px #f0f0f0 inset;
+}
+
+.confirm-message pre{
+    background-color:lightgreen;
+    border:1px solid green;
+}
+.alert-message pre{
+    background-color:lightcoral;
+    border:1px solid red;
     margin-top:1vw;
+}
+
+.field-message {
+  display: inline-block;
+  width:70%;
+  color:#e9322d;
+  font-size: 1.2vw;
+  margin-left: 25%;
+}
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
 }
 
 .contact-label {
@@ -80,25 +118,34 @@ body {
     padding-right:1%;
 }
 .contact-name {
+    display:inline-block;
+    padding:3px;
+    margin-top:1vw;
     max-width:300px;
     width:70%;
     font-size:1.7vw;
-        border: 1px solid #999;
+    border: 1px solid #999;
+    background-color:#f0f0f0;
 }
 .contact-email {
-    
+    display:inline-block;
+    padding:3px;
+    margin-top:1vw;
     width:70%;
     font-size:1.7vw;
-        border: 1px solid #999;
+    border: 1px solid #999;
+    background-color:#f0f0f0;
 }
 
 .contact-msg {
+    display:inline-block;
+    padding:3px;
     width:70%;
-    font-size:1.8vw;
-    
+    font-size:1.5vw;
+    margin-top:1vw;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-
+    background-color:#f0f0f0;
     border: 1px solid #999;
         /* To properly align multiline text fields with their labels */
     vertical-align: top;
@@ -112,9 +159,18 @@ body {
 }
 
 .contact-button {
+    margin-top:1vw;
     margin-left:25%;
     font-size:1.8vw;
 }
+
+
+.contact-button[disabled] {
+
+    opacity:0.5;
+}
+
+
 
 input:focus, textarea:focus {
     /* To give a little highlight on active elements */

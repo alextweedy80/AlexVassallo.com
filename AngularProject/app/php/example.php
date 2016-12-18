@@ -48,7 +48,7 @@ $mail->SMTPAuth = true;
 $mail->Username = "hello@alexvassallo.com";
 
 //Password to use for SMTP authentication
-$mail->Password = "s5kJu6RM0hOM1CDL";
+$mail->Password = "VRoqUtCn7lx3CoI8";
 
 //Set who the message is to be sent from
 
